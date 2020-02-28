@@ -1,6 +1,6 @@
 from stt import Transcriber
 
-transcriber = Transcriber(w2letter = '/home/sa47/source/stt/wav2letter', 
+transcriber = Transcriber(w2letter = '/path/to/wav2letter', 
                           w2vec = 'resources/wav2vec.pt', 
                           am = 'resources/am.bin', 
                           tokens = 'resources/tokens.txt', 
