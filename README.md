@@ -18,6 +18,9 @@ Techniques and sofware were used to build the model:
  - [wav2letter](https://arxiv.org/pdf/1609.03193.pdf): for training Acoustic Modeling
  - [kenlm](https://github.com/kpu/kenlm): for training Language Modeling.
 
+Audio files --> Feature extractions (Wav2Vec) --> Acoustic Modeling (wav2letter) --> Language Model (LM) --> Transcripts
+
+
 ## Install dependencies
 Warning: This might take a lot of time and effort, so be ready for it and stick to the end.
 
