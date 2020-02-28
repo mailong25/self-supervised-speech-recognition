@@ -19,7 +19,8 @@ Techniques and sofware were used to build the model:
  - [kenlm](https://github.com/kpu/kenlm): for training Language Modeling.
 
 Pipeline:
-Audio --> Feature extractions (Wav2Vec) --> Acoustic Modeling (wav2letter) --> Language Model (LM) --> Texts
+
+Audio --> Feature extractions (Wav2Vec) --> Acoustic Modeling (wav2letter) --> Language Model (LM) --> Decoding --> Texts
 
 
 ## Install dependencies
