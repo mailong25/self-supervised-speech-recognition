@@ -20,7 +20,7 @@ Techniques and sofware were used to build the model:
 
 Pipeline:
 
-Audio --> Feature extractions (Wav2Vec) --> Acoustic Modeling (wav2letter) --> Language Model (LM) --> Decoding --> Texts
+Audio -> Feature extraction (Wav2Vec) -> Acoustic Modeling (wav2letter) -> Language Model (LM) -> Decoding --> Texts
 
 
 ## Install dependencies
