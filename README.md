@@ -13,7 +13,7 @@ transcriber.transcribe(['data/audio/VIVOSSPK01_R001.wav','data/audio/VIVOSSPK01_
 ```
 
 ## Technical overview
-Techniques and sofware were used to build the model:
+Techniques and softwares were used to build the model:
  - [Speech2vec](https://arxiv.org/abs/1904.05862) using self-supervised learning to extract representations of raw audio. The model is trained on large amounts of unlabeled audio data (500hours), and then used to improve acoustic model training. As a result, it significantly outperforms traditional MFCC features in a low-resource setting.
  - [wav2letter](https://arxiv.org/pdf/1609.03193.pdf): for training Acoustic Modeling
  - [kenlm](https://github.com/kpu/kenlm): for training Language Modeling.
