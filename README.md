@@ -1,4 +1,4 @@
-# vietnamese-speech-recognition
+# Vietnamese speech recognition with Wav2Vec and Wav2letter
 Vietnamese speech recognition with self-supervised learning
 
 
