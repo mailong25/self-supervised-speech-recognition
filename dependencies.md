@@ -10,7 +10,7 @@ Python:
  - pydub
  - sh
  
-# Wav2letter dependencies (https://github.com/facebookresearch/wav2letter/wiki/Dependencies)
+# [Wav2letter dependencies](https://github.com/facebookresearch/wav2letter/wiki/Dependencies)
 
 Make sure you have cmake >= 3.15
 
