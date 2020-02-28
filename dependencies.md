@@ -44,7 +44,7 @@ cd ../..
 ```
 
 ==================================================================
-### [mkl-dnn](https://github.com/intel/mkl-dnn.git -b mnt-v0)
+### [mkl-dnn](https://github.com/intel/mkl-dnn)
 ```
 git clone https://github.com/intel/mkl-dnn.git -b mnt-v0
 cd mkl-dnn && mkdir -p build && cd build
@@ -78,7 +78,7 @@ cd ../..
 ```
 
 ==================================================================
-# [wav2letter with CPU backend](https://github.com/maltium/wav2letter/tree/feature/loading-from-hdf5)
+### [wav2letter with CPU backend](https://github.com/maltium/wav2letter/tree/feature/loading-from-hdf5)
 ```
 apt-get install libhdf5-dev
 export MKLROOT=/opt/intel/mkl && export KENLM_ROOT_DIR=path/to/kenlm
