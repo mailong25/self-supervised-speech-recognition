@@ -1,5 +1,5 @@
 # Vietnamese speech recognition with Wav2Vec and Wav2letter
-This repository contains pre-trained models for automatic speech recognition. You can quickly make predictions by first downloaded [pre-trained models](https://drive.google.com/file/d/1q7ReoRT9yeDxVm8Xj521n-c-bIhgcBwU/view?usp=sharing), and then using:
+This repository contains pre-trained models for automatic speech recognition. You can quickly make predictions by downloading [pre-trained models](https://drive.google.com/file/d/1q7ReoRT9yeDxVm8Xj521n-c-bIhgcBwU/view?usp=sharing), installing dependencies, and using:
 
 ```
 from stt import Transcriber
