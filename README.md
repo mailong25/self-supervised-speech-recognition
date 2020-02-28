@@ -19,7 +19,7 @@ Techniques and sofware were used to build the model:
  - [kenlm](https://github.com/kpu/kenlm): for training Language Modeling.
 
 ## Install dependencies
-Warning: It make take a lot of time and effort, so be ready for it and stick to the end.
+Warning: This might take a lot of time and effort, so be ready for it and stick to the end.
 
 ## Pre-trained models
 Download pre-trained models, including Wav2vec, AM, and LM at this [link](https://drive.google.com/file/d/1q7ReoRT9yeDxVm8Xj521n-c-bIhgcBwU/view?usp=sharing). After that, put all files into resources directory
