@@ -21,6 +21,7 @@ Running the following as root
 ```
 apt-get update
 apt-get upgrade
+apt-get install libboost-all-dev
 apt-get install -y build-essential git cmake libfreeimage-dev
 apt-get install -y cmake-curses-gui
 apt-get install libopenblas-dev libfftw3-dev liblapacke-dev
