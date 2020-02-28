@@ -11,6 +11,8 @@ transcriber = Transcriber(w2letter = '/path/to/wav2letter', w2vec = 'resources/w
 
 transcriber.transcribe(['data/audio/VIVOSSPK01_R001.wav','data/audio/VIVOSSPK01_R002.wav'])
 ```
+Where '/path/to/wav2letter' refer to the actual path to wav2letter library after you've done installing [dependencies](https://github.com/mailong25/vietnamese-speech-recognition/blob/master/dependencies.md). The remaining parameters can be found in resources directory.
+
 
 ## Technical overview
 Techniques and softwares were used to build the model:
