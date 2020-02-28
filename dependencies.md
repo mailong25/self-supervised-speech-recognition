@@ -45,6 +45,8 @@ cd ../..
 
 ==================================================================
 ### [mkl-dnn](https://github.com/intel/mkl-dnn)
+
+Please install [MKL](https://software.intel.com/en-us/articles/intel-math-kernel-library-intel-mkl-2018-install-guide) if /opt/intel/mkl does not exists.
 ```
 git clone https://github.com/intel/mkl-dnn.git -b mnt-v0
 cd mkl-dnn && mkdir -p build && cd build
@@ -79,6 +81,8 @@ cd ../..
 
 ==================================================================
 ### [wav2letter with CPU backend](https://github.com/maltium/wav2letter/tree/feature/loading-from-hdf5)
+
+Please change KENLM_ROOT_DIR=path/to/kenlm to your actual path to kenlm.
 ```
 apt-get install libhdf5-dev
 export MKLROOT=/opt/intel/mkl && export KENLM_ROOT_DIR=path/to/kenlm
