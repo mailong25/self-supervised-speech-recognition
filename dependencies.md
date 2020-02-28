@@ -46,7 +46,7 @@ cd ../..
 ==================================================================
 ### [mkl-dnn](https://github.com/intel/mkl-dnn)
 
-Please install [MKL](https://software.intel.com/en-us/articles/intel-math-kernel-library-intel-mkl-2018-install-guide) if /opt/intel/mkl does not exists.
+Please install [MKL](https://software.intel.com/en-us/articles/intel-math-kernel-library-intel-mkl-2018-install-guide) first if /opt/intel/mkl does not exists.
 ```
 git clone https://github.com/intel/mkl-dnn.git -b mnt-v0
 cd mkl-dnn && mkdir -p build && cd build
