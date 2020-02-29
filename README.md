@@ -25,7 +25,7 @@ Audio -> Feature extraction (Wav2Vec) -> Acoustic Modeling (wav2letter) -> Langu
 
 
 ## Install dependencies
-Warning: This might take a lot of time and effort, so be ready for it and stick to the end.
+Warning: This might take a lot of time and effort, so keep calm and stick to the end.
 
 Please follow this [instruction](https://github.com/mailong25/vietnamese-speech-recognition/blob/master/dependencies.md)
 
