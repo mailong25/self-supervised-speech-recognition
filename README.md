@@ -33,4 +33,8 @@ Please follow this [instruction](https://github.com/mailong25/vietnamese-speech-
 ## Pre-trained models
 Download pre-trained models, including Wav2vec, AM, and LM at this [link](https://drive.google.com/file/d/1q7ReoRT9yeDxVm8Xj521n-c-bIhgcBwU/view?usp=sharing). After that, put all files into resources directory
 
-
+## Continue training
+If you have domain-specific labeled data, You can finetune our model on your dataset (domain adaptation):
+```
+python3 train.py --train_file data/train.lst --test_file data/test.lst --audio_path data/audio --wav2vec_file resources/wav2vec.pt --wav2letter /home/sa47/source/stt/wav2letter --am_file resources/am.bin --arch_file resources/network.arch --token_file resources/tokens.txt --lexicon_file resources/lexicon.txt --output_path out --mode=finetune
+```
