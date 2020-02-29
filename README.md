@@ -42,7 +42,7 @@ If you have domain-specific labeled data, You can finetune our model on your dat
 ```
 python3 train.py --train_file data/train.lst --test_file data/test.lst \
 --audio_path data/audio --wav2vec_file resources/wav2vec.pt \
---wav2letter /home/sa47/source/stt/wav2letter --am_file resources/am.bin \
+--wav2letter /path/to/wav2letter --am_file resources/am.bin \
 --arch_file resources/network.arch --token_file resources/tokens.txt \
 --lexicon_file resources/lexicon.txt --output_path out --mode=finetune
 ```
