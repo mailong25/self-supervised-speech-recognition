@@ -1,5 +1,5 @@
 ## State-of-the-art speech recognition with Wav2Vec and Wav2letter
-This repository contains ready-to-use software for automatic speech recognition (WER ~ 15%). After downloading pre-trained models and installing dependencies, you can quickly make predictions by using:
+This repository contains ready-to-use software for automatic speech recognition. After downloading pre-trained models and installing dependencies, you can quickly make predictions by using:
 
 ```
 from stt import Transcriber
@@ -32,6 +32,10 @@ Please follow this [instruction](https://github.com/mailong25/vietnamese-speech-
 
 ## Pre-trained models
 Download pre-trained models, including Wav2vec, AM, and LM at this [link](https://drive.google.com/file/d/1q7ReoRT9yeDxVm8Xj521n-c-bIhgcBwU/view?usp=sharing). After that, put all files into resources directory
+
+Wav2vec model are trained on 500 hours of unlabeled data, while AM are trained on ~80 hours of labeled audio.
+
+Current WER is about 15%
 
 ## Continue training
 If you have domain-specific labeled data, You can finetune our model on your dataset (domain adaptation):
