@@ -33,7 +33,7 @@ Please follow this [instruction](https://github.com/mailong25/vietnamese-speech-
 ## Pre-trained models
 Download pre-trained models, including Wav2vec, AM, and LM at this [link](https://drive.google.com/file/d/1q7ReoRT9yeDxVm8Xj521n-c-bIhgcBwU/view?usp=sharing). After that, put all files into resources directory
 
-Wav2vec model are trained on 500 hours of unlabeled data, while AM are trained on ~80 hours of labeled audio.
+Wav2vec model are trained on 500 hours of unlabeled data, while AM are trained on ~70 hours of labeled audio.
 
 Current WER is about 15%
 
