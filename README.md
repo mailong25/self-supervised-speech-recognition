@@ -48,7 +48,6 @@ python3 train.py --train_file data/train.lst --test_file data/test.lst \
 ```
 
 ## Further improvements
-Check out: Effectiveness of self-supervised pre-training for speech recognition, Alexei Baevski, Michael Auli, Abdelrahman Mohamed, [arxiv](https://arxiv.org/abs/1911.03912)
-```
-We propose a BERT-style model learning directly from the continuous audio data and compare pre-training on raw audio to spectral features. Fine-tuning a BERT model on 10 hour of labeled Librispeech data with a vq-wav2vec vocabulary is almost as good as the best known reported system trained on 100 hours of labeled data on testclean, while achieving a 25% WER reduction on test-other. When using only 10 minutes of labeled data, WER is 25.2 on test-other and 16.3 on test-clean. This demonstrates that self-supervision can enable speech recognition systems trained on a near-zero amount of transcribed data.
-```
+Check out this great work: Effectiveness of self-supervised pre-training for speech recognition, Alexei Baevski, Michael Auli, Abdelrahman Mohamed, [arxiv](https://arxiv.org/abs/1911.03912)
+
+> We propose a BERT-style model learning directly from the continuous audio data and compare pre-training on raw audio to spectral features. Fine-tuning a BERT model on 10 hour of labeled Librispeech data with a vq-wav2vec vocabulary is almost as good as the best known reported system trained on 100 hours of labeled data on testclean, while achieving a 25% WER reduction on test-other. When using only 10 minutes of labeled data, WER is 25.2 on test-other and 16.3 on test-clean. This demonstrates that self-supervision can enable speech recognition systems trained on a near-zero amount of transcribed data.
