@@ -1,5 +1,5 @@
 ## Vietnamese speech recognition with Wav2Vec and Wav2letter
-This repository contains ready-to-use software for automatic speech recognition. After downloading pre-trained models and installing dependencies, you can quickly make predictions by using:
+This repository contains ready-to-use software for automatic speech recognition (WER ~ 15%). After downloading pre-trained models and installing dependencies, you can quickly make predictions by using:
 
 ```
 from stt import Transcriber
