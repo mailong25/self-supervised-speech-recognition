@@ -37,7 +37,7 @@ cd ../..
 ### [Gloo](https://github.com/facebookincubator/gloo.git)
 ```
 apt-get install openmpi-bin openmpi-common libopenmpi-dev
-git clone --recursive https://github.com/facebookincubator/gloo.git
+Download and unzip gloo at: (https://drive.google.com/file/d/1npI9V9ctXytrZFEIAmIRMwq5yPG-DXPh/view?usp=sharing)
 cd gloo && mkdir -p build && cd build
 cmake .. -DUSE_MPI=ON
 make -j8 && make install
@@ -60,7 +60,7 @@ cd ../..
 ### [flashlight](https://github.com/facebookresearch/flashlight.git)
 ```
 export MKLROOT=/opt/intel/mkl
-git clone --recursive https://github.com/facebookresearch/flashlight.git
+Download and unzip flashlight at: (https://drive.google.com/file/d/17MNp_pODBChVmX2sSUzHPkmPq856tzYl/view?usp=sharing)
 cd flashlight && mkdir -p build && cd build
 cmake .. -DCMAKE_BUILD_TYPE=Release -DFLASHLIGHT_BACKEND=CPU
 make -j8 && make install
