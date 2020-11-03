@@ -109,8 +109,8 @@ cd build && cmake .. -DCMAKE_BUILD_TYPE=Release -DW2L_LIBRARIES_USE_CUDA=OFF -DK
 make -j8
 
 For GPU: open file Train.cpp and replace the line:
-`reducer = std::make_shared<fl::InlineReducer>(1.0 / fl::getWorldSize());` by: 
-`reducer = std::make_shared<fl::CoalescingReducer>(1.0 / fl::getWorldSize(),true,true);`
+```reducer = std::make_shared<fl::InlineReducer>(1.0 / fl::getWorldSize());``` by: 
+```reducer = std::make_shared<fl::CoalescingReducer>(1.0 / fl::getWorldSize(),true,true);```
 cd build && cmake .. -DCMAKE_BUILD_TYPE=Release -DKENLM_MAX_ORDER=20 -DW2L_LIBRARIES_USE_CUDA=ON
 make -j8
 ```
