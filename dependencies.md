@@ -13,9 +13,12 @@ Python:
 # [Wav2letter dependencies](https://github.com/facebookresearch/wav2letter/wiki/Dependencies)
 
 For GPU version:
+
 Install NCCL (https://docs.nvidia.com/deeplearning/sdk/nccl-install-guide/index.html#down)
 
 Install CUDNN (https://docs.nvidia.com/deeplearning/sdk/cudnn-install/index.html)
+
+==================================================================
 
 Make sure you have cmake >= 3.15
 Running the following as root
