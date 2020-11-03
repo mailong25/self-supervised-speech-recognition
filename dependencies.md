@@ -12,9 +12,9 @@ Python:
  
 # [Wav2letter dependencies](https://github.com/facebookresearch/wav2letter/wiki/Dependencies)
 
-For GPU version:
-# Install NCCL (https://docs.nvidia.com/deeplearning/sdk/nccl-install-guide/index.html#down)
-# Install CUDNN (https://docs.nvidia.com/deeplearning/sdk/cudnn-install/index.html)
+# For GPU version:
+Install NCCL (https://docs.nvidia.com/deeplearning/sdk/nccl-install-guide/index.html#down)
+Install CUDNN (https://docs.nvidia.com/deeplearning/sdk/cudnn-install/index.html)
 
 Make sure you have cmake >= 3.15
 Running the following as root
@@ -60,9 +60,9 @@ make -j8 && make install
 cd ../..
 ```
 
-# ==================================================================
+==================================================================
 Install MKL:https://codeyarns.com/2019/05/14/how-to-install-intel-mkl/
-# ==================================================================
+==================================================================
 
 ==================================================================
 ### [flashlight](https://github.com/facebookresearch/flashlight.git)
