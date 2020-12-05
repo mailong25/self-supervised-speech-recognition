@@ -10,4 +10,4 @@ Transfer learning is still the main technique:
 
 
 ## Older version on Vietnamese speech recognition: 
-https://github.com/mailong25/vietnamese-speech-recognition/tree/vietnamese
+https://github.com/mailong25/self-supervised-speech-recognition/tree/vietnamese
