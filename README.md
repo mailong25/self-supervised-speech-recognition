@@ -6,4 +6,5 @@ Transfer learning is still the main technique:
  - Transfer from self-supervised models (pretrain on unlabeled data)
  - Transfer from multilingual models (pretrain on multilingual data)
  
-## Older version on Vietnamese speech recognition: https://github.com/mailong25/vietnamese-speech-recognition/tree/vietnamese
+## Older version on Vietnamese speech recognition: 
+https://github.com/mailong25/vietnamese-speech-recognition/tree/vietnamese
