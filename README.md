@@ -1,7 +1,7 @@
 ## Self-supervised speech recognition with limited amount of labeled data
 
 
-This is a wrapper version of [wav2vec 2.0 framework](https://github.com/pytorch/fairseq/tree/master/examples/wav2vec), which attempts to build an accurate speech recognition models with small amount of transcribed data(eg. 1 hour)
+This is a wrapper version of [wav2vec 2.0 framework](https://github.com/pytorch/fairseq/tree/master/examples/wav2vec), which attempts to build an accurate speech recognition models with small amount of transcribed data (eg. 1 hour)
 
 
 Transfer learning is still the main technique:
