@@ -15,6 +15,7 @@ from random import shuffle
 import re
 from shutil import copy2
 from utils import normalize, absoluteFilePaths
+import requests
 
 def convert_to_16k(path):
     in_path = path
