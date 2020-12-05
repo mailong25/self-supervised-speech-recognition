@@ -19,6 +19,15 @@ This should includes both well-written text and conversational text, which can e
 #### 3. Unlabeled data (audios without transcriptions) of your own language. 
 This is optional but very crucial. A good amount of unlabeled audios (eg. 500 hours) will significantly reduce the amount of labeled data needed, and also boost up the model performance. Youtube/Podcast is a great place to collect the data for your own language
 
+## Steps to build an accurate speech recognition modelf or your language
+
+#### 1. Train a self-supervised model on unlabeled data
+
+#### 2. Train a language model
+
+#### 3. Finetune the self-supervised model on the labeled data
+
+#### 4. Make prediction on single audio
 
 ## Older version on Vietnamese speech recognition: 
 https://github.com/mailong25/self-supervised-speech-recognition/tree/vietnamese
