@@ -68,10 +68,11 @@ JOHN OF SPIRES AND HIS BROTHER VINDELIN FOLLOWED BY NICHOLAS JENSON BEGAN TO PRI
 BEING THIN TOUGH AND OPAQUE
 ...
 ```
----------------- Train Language Model ---------------- \
+---------------- Train Language Model ----------------
 ```
 python3 train_lm.py --kenlm_path path/to/libs/kenlm --text_file path/to/text_file.txt --output_path ./lm
 ```
+The LM model and the lexicon file will be stored at output_path
 
 #### 3. Finetune the self-supervised model on the labeled data
 
