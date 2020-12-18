@@ -26,17 +26,23 @@ Please follow this [instruction](https://github.com/mailong25/self-supervised-sp
 
 ### 1. Train a self-supervised model on unlabeled data
 
-----------------Prepare unlabeled audios------------------------------
+---------------- Prepare unlabeled audios ---------------- 
 
 Collect unlabel audios and put them all together in a single directory. Audio format requirements:
+
 Format: wav, PCM 16 bit, single channel
+
 Sampling_rate: 16000
+
 Length: 5 to 30 seconds
+
 Content: silence should be removed from the audio. Also, each audio should contain only one person speaking.
+
 Please look at unlabel_audio directory for examples.
 
 
-----------------Instead of training from scratch, we download and use english wav2vec model for weight initialization----------------
+---------------- Download init model ---------------- 
+Instead of training from scratch, we download and use english wav2vec model for weight initialization. This pratice can be apply to all languages.
 ```
 wget https://dl.fbaipublicfiles.com/fairseq/wav2vec/wav2vec_small.pt
 ```
