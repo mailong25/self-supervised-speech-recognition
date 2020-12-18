@@ -45,6 +45,8 @@ wget https://dl.fbaipublicfiles.com/fairseq/wav2vec/wav2vec_small.pt
 python3 pretrain.py --fairseq_path path/to/libs/fairseq --audio_path path/to/audio_directory --init_model path/to/wav2vec_small.pt
 ```
 Logs and checkpoints will be stored at outputs directory\
+Log_file path: outputs/date_time/exp_id/hydra_train.log\
+Best_checkpoint path: outputs/date_time/exp_id/checkpoints/checkpoint_best.pt
 You should check the loss value in the log file to decide whether to stop the training process\
 In my casse, it took ~ 2 days for the model to converge, train on 100 hours of data using 2 NVIDIA Tesla V100.
 
