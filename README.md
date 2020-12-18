@@ -44,6 +44,10 @@ wget https://dl.fbaipublicfiles.com/fairseq/wav2vec/wav2vec_small.pt
 ```
 python3 pretrain.py --fairseq_path path/to/libs/fairseq --audio_path path/to/audio_directory --init_model path/to/wav2vec_small.pt
 ```
+Logs and checkpoints will be stored at outputs directory\
+You should check the loss value in the log file to decide whether to stop the training process\
+In my casse, it took ~ 2 days for the model to converge, train on 100 hours of data using 2 NVIDIA Tesla V100.
+
 
 #### 2. Train a language model
 
