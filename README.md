@@ -32,8 +32,8 @@ This is optional but very crucial. A good amount of unlabeled audios (eg. 500 ho
 ## Install dependencies
 
 #### 0. Create a folder to store external libs
-``mkdir libs
-cd libs``
+`mkdir libs
+cd libs`
 
 #### 1. Install python package
 pip install soundfile torchaudio sentencepiece
