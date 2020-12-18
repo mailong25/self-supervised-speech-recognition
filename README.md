@@ -60,7 +60,7 @@ Text file format:
 - All numbers should be transformed into verbal form.
 - All special characters (eg. punctuation) should be removed. The final text should contain words only
 
-Example of a text file for English:
+Example of a text file for English case:
 ```
 AND IT WAS A MATTER OF COURSE THAT IN THE MIDDLE AGES WHEN THE CRAFTSMEN
 AND WAS IN FACT THE KIND OF LETTER USED IN THE MANY SPLENDID MISSALS PSALTERS PRODUCED BY PRINTING IN THE FIFTEENTH CENTURY
@@ -68,9 +68,10 @@ JOHN OF SPIRES AND HIS BROTHER VINDELIN FOLLOWED BY NICHOLAS JENSON BEGAN TO PRI
 BEING THIN TOUGH AND OPAQUE
 ...
 ```
-
-
-
+---------------- Train Language Model ---------------- \
+```
+python3 train_lm.py --kenlm_path path/to/libs/kenlm --text_file path/to/text_file.txt --output_path ./lm
+```
 
 #### 3. Finetune the self-supervised model on the labeled data
 
