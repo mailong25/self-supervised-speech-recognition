@@ -50,7 +50,26 @@ Best_checkpoint path: outputs/date_time/exp_id/checkpoints/checkpoint_best.pt\
 In my casse, it took ~ 2 days for the model to converge, train on 100 hours of data using 2 NVIDIA Tesla V100.
 
 
-#### 2. Train a language model
+### 2. Train a language model
+---------------- Prepare text file ---------------- \
+Collect all texts and put them all together in a single file. \
+The text should include all transcripts from the labeled data (Required resources #1)\
+Text file format:\
+- One sentence per line\
+- Upper case\
+- All numbers should be transformed into verbal form.
+- All special characters (eg. punctuation) should be removed. The final text should contain words only
+Example of a text file for English:
+```
+AND IT WAS A MATTER OF COURSE THAT IN THE MIDDLE AGES WHEN THE CRAFTSMEN
+AND WAS IN FACT THE KIND OF LETTER USED IN THE MANY SPLENDID MISSALS PSALTERS PRODUCED BY PRINTING IN THE FIFTEENTH CENTURY
+JOHN OF SPIRES AND HIS BROTHER VINDELIN FOLLOWED BY NICHOLAS JENSON BEGAN TO PRINT IN THAT CITY
+BEING THIN TOUGH AND OPAQUE
+...
+```
+
+
+
 
 #### 3. Finetune the self-supervised model on the labeled data
 
