@@ -72,7 +72,7 @@ make -j 4
 cd ../..
 ```
 
-# 5. Install wav2letter
+#### 5. Install wav2letter
 ```
 git clone -b v0.2 https://github.com/facebookresearch/wav2letter.git
 cd wav2letter/bindings/python
