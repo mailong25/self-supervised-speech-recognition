@@ -24,9 +24,10 @@ Please follow this [instruction](https://github.com/mailong25/self-supervised-sp
 
 ## Steps to build an accurate speech recognition model for your language
 
-#### 1. Train a self-supervised model on unlabeled data
+### 1. Train a self-supervised model on unlabeled data
 
 **Prepare unlabeled audios**
+
 Collect unlabel audios and put them all together in a single directory. Audio format requirements:
 Format: wav, PCM 16 bit, single channel
 Sampling_rate: 16000
@@ -34,11 +35,14 @@ Length: 5 to 30 seconds
 Please look at unlabel_audio directory for examples.
 
 **Instead of training from scratch, we download and use english wav2vec model for weight initialization**
+```
 wget https://dl.fbaipublicfiles.com/fairseq/wav2vec/wav2vec_small.pt
+```
 
 **Pre-training**
+```
 python3 pretrain.py --fairseq_path path/to/libs/fairseq --audio_path path/to/audio_directory --init_model path/to/wav2vec_small.pt
-
+```
 
 #### 2. Train a language model
 
