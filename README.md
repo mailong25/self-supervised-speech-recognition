@@ -54,11 +54,12 @@ In my casse, it took ~ 2 days for the model to converge, train on 100 hours of d
 ---------------- Prepare text file ---------------- \
 Collect all texts and put them all together in a single file. \
 The text should include all transcripts from the labeled data (Required resources #1)\
-Text file format:\
-- One sentence per line\
-- Upper case\
+Text file format:
+- One sentence per line
+- Upper case
 - All numbers should be transformed into verbal form.
 - All special characters (eg. punctuation) should be removed. The final text should contain words only
+
 Example of a text file for English:
 ```
 AND IT WAS A MATTER OF COURSE THAT IN THE MIDDLE AGES WHEN THE CRAFTSMEN
