@@ -29,9 +29,11 @@ Please follow this [instruction](https://github.com/mailong25/self-supervised-sp
 **Prepare unlabeled audios**
 
 Collect unlabel audios and put them all together in a single directory. Audio format requirements:
+
 Format: wav, PCM 16 bit, single channel
 Sampling_rate: 16000
 Length: 5 to 30 seconds
+
 Please look at unlabel_audio directory for examples.
 
 **Instead of training from scratch, we download and use english wav2vec model for weight initialization**
