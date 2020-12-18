@@ -32,8 +32,7 @@ Format: wav, PCM 16 bit, single channel\
 Sampling_rate: 16000\
 Length: 5 to 30 seconds\
 Content: silence should be removed from the audio. Also, each audio should contain only one person speaking.\
-Please look at unlabel_audio directory for examples.\
-
+Please look at unlabel_audio directory for examples.
 
 ---------------- Download init model ---------------- \
 Instead of training from scratch, we download and use english wav2vec model for weight initialization. This pratice can be apply to all languages.
