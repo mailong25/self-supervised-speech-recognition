@@ -101,9 +101,15 @@ Audio format: wav, PCM 16 bit, single channel, Sampling_rate: 16000.\
 Silence should be removed from the audio.\
 Also, each audio should contain only one person speaking.\
 
+---------------- Generate dictionary file ----------------
+```
+python3 gen_dict.py --transcript_file path/to/transcript.txt --save_dir path/to/save_dir
+```
+The dictionary file will be stored at save_dir/dict.ltr.txt. Use the file for fine-tuning and inference.\
+
 ---------------- Finetune the Model ----------------
 ```
-python3 finetune.py --transcript_file path/to/transcript.txt --audio_dir path/to/audio_directory --pretrain_model path/to/pretrain_checkpoint_best.pt --save_dir path/to/save_dir
+python3 finetune.py --transcript_file path/to/transcript.txt --audio_dir path/to/audio_directory --pretrain_model path/to/pretrain_checkpoint_best.pt --dict_file path/to/dict.ltr.txt
 ```
 Logs and checkpoints will be stored at outputs directory\
 Log_file path: outputs/date_time/exp_id/hydra_train.log. You should check the loss value to decide when to stop the training process.\
