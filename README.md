@@ -105,6 +105,10 @@ Also, each audio should contain only one person speaking.\
 ```
 python3 finetune.py --transcript_file path/to/transcript.txt --audio_dir path/to/audio_directory --pretrain_model path/to/checkpoint_best.pt --save_dir path/to/save_dir
 ```
+Logs and checkpoints will be stored at outputs directory\
+Log_file path: outputs/date_time/exp_id/hydra_train.log. You should check the loss value to decide when to stop the training process.\
+Best_checkpoint path: outputs/date_time/exp_id/checkpoints/checkpoint_best.pt\
+In my casse, it took ~ 12 hours for the model to converge, train on 100 hours of data using 2 NVIDIA Tesla V100.\
 
 ### 4. Make prediction on single audio
 
