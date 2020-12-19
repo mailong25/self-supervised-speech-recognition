@@ -86,9 +86,9 @@ The LM model and the lexicon file will be stored at output_path
 ### 3. Finetune the self-supervised model on the labeled data
 
 ---------------- prepare labeled data  ---------------- \
-Transcript file 
-Text format should be the same as step 2 (Train a language model).
-One trainng sample per line with format "audio_name \tab transcript"
+Transcript file\
+Text format should be the same as step 2 (Train a language model).\
+One trainng sample per line with format "audio_name \tab transcript"\
 Example of a transcript file:
 ```
 1.wav AND IT WAS A MATTER OF COURSE THAT IN THE MIDDLE AGES WHEN THE CRAFTSMEN
