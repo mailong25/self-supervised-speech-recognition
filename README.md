@@ -59,6 +59,7 @@ Text file format:
 - Upper case
 - All numbers should be transformed into verbal form.
 - All special characters (eg. punctuation) should be removed. The final text should contain words only
+- Words in a sentence must be separated by whitespace character 
 
 Example of a text file for English case:
 ```
@@ -68,15 +69,26 @@ JOHN OF SPIRES AND HIS BROTHER VINDELIN FOLLOWED BY NICHOLAS JENSON BEGAN TO PRI
 BEING THIN TOUGH AND OPAQUE
 ...
 ```
+Example of a text file for Chinese case:
+```
+每 个 人 都 有 他 的 作 战 策 略 直 到 脸 上 中 了 一 拳
+这 是 我 年 轻 时 候 住 的 房 子 。
+这 首 歌 使 我 想 起 了 我 年 轻 的 时 候 。
+...
+```
+
 ---------------- Train Language Model ----------------
 ```
 python3 train_lm.py --kenlm_path path/to/libs/kenlm --text_file path/to/text_file.txt --output_path ./lm
 ```
 The LM model and the lexicon file will be stored at output_path
 
-#### 3. Finetune the self-supervised model on the labeled data
+### 3. Finetune the self-supervised model on the labeled data
 
-#### 4. Make prediction on single audio
+
+
+
+### 4. Make prediction on single audio
 
 ## Older version on Vietnamese speech recognition: 
 https://github.com/mailong25/self-supervised-speech-recognition/tree/vietnamese
