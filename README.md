@@ -24,7 +24,7 @@ Please follow this [instruction](https://github.com/mailong25/self-supervised-sp
 
 ## Steps to build an accurate speech recognition model for your language
 
-### 1. Train a self-supervised model on unlabeled data
+### 1. Train a self-supervised model on unlabeled data (Pretrain)
 
 ---------------- Prepare unlabeled audios ---------------- \
 Collect unlabel audios and put them all together in a single directory. Audio format requirements:\
