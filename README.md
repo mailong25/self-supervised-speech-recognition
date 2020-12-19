@@ -126,6 +126,7 @@ transcriber = Transcriber(w2vec = 'path/to/finetune.pt', w2vec_dict = 'path/to/d
 hypos = transcriber.transcribe(['path/to/wavs/0_1.wav','path/to/wavs/0_2.wav'])
 print(hypos)
 ```
+Note that the first prediction call will take a lot of time (model loading)
 
 ## Older version on Vietnamese speech recognition: 
 https://github.com/mailong25/self-supervised-speech-recognition/tree/vietnamese
