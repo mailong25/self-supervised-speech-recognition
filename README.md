@@ -120,7 +120,9 @@ In my casse, it took ~ 12 hours for the model to converge, train on 100 hours of
 
 ```
 from stt import Transcriber
-transcriber = Transcriber(w2vec = 'path/to/finetune.pt', w2vec_dict = 'path/to/dict.ltr.txt', lm_lexicon = 'path/to/lm/lexicon.txt', lm_model = 'path/to/lm/lexicon.txt', lm_weight = 1.5, word_score = -1, beam_size = 50)
+transcriber = Transcriber(w2vec = 'path/to/finetune.pt', w2vec_dict = 'path/to/dict.ltr.txt',
+                          lm_lexicon = 'path/to/lm/lexicon.txt', lm_model = 'path/to/lm/lexicon.txt',
+                          lm_weight = 1.5, word_score = -1, beam_size = 50)
 hypos = transcriber.transcribe(['path/to/wavs/0_1.wav','path/to/wavs/0_2.wav'])
 print(hypos)
 ```
