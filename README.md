@@ -85,8 +85,26 @@ The LM model and the lexicon file will be stored at output_path
 
 ### 3. Finetune the self-supervised model on the labeled data
 
+---------------- prepare labeled data  ---------------- \
+Transcript file 
+Text format should be the same as step 2 (Train a language model).
+One trainng sample per line with format "audio_name \tab transcript"
+Example of a transcript file:
+```
+1.wav AND IT WAS A MATTER OF COURSE THAT IN THE MIDDLE AGES WHEN THE CRAFTSMEN
+2.wav AND WAS IN FACT THE KIND OF LETTER USED IN THE MANY SPLENDID MISSALS PSALTERS PRODUCED BY PRINTING IN THE FIFTEENTH CENTURY
+3.wav JOHN OF SPIRES AND HIS BROTHER VINDELIN FOLLOWED BY NICHOLAS JENSON BEGAN TO PRINT IN THAT CITY
+4.wav BEING THIN TOUGH AND OPAQUE
+```
 
+Audio format: wav, PCM 16 bit, single channel, Sampling_rate: 16000.\
+Silence should be removed from the audio.\
+Also, each audio should contain only one person speaking.\
 
+---------------- Finetune the Model ----------------
+```
+python3 finetune.py --transcript_file path/to/transcript.txt --audio_dir path/to/audio_directory --pretrain_model path/to/checkpoint_best.pt --save_dir path/to/save_dir
+```
 
 ### 4. Make prediction on single audio
 
