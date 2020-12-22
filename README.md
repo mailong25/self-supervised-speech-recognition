@@ -156,3 +156,8 @@ Where:
 
 ## Older version on Vietnamese speech recognition: 
 https://github.com/mailong25/self-supervised-speech-recognition/tree/vietnamese
+
+## Reference:
+Paper: wav2vec 2.0: A Framework for Self-Supervised Learning of Speech Representations: https://arxiv.org/abs/2006.11477
+Source code: https://github.com/pytorch/fairseq/blob/master/examples/wav2vec/README.md
+
