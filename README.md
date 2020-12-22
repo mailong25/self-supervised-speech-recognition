@@ -69,7 +69,7 @@ Some notes on transcript file:\
 - Words in a sentence must be separated by whitespace character
 
 
--- Audio file ---\
+-- Labeled audio file ---\
 Format: wav, PCM 16 bit, single channel, Sampling_rate: 16000.\
 Silence should be removed from the audio.\
 Also, each audio should contain only one person speaking.\
