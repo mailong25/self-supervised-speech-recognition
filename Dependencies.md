@@ -28,7 +28,7 @@ pip install --editable ./
 cd ..
 ```
 
-#### 3. Install wav2letter decoder bindings
+#### 3. Install dependencies for wav2letter
 ```
 sudo apt-get update && apt-get upgrade -y && apt-get install -y && apt-get -y install apt-utils gcc libpq-dev libsndfile-dev
 sudo apt install build-essential cmake libboost-system-dev libboost-thread-dev libboost-program-options-dev libboost-test-dev libeigen3-dev zlib1g-dev libbz2-dev liblzma-dev
@@ -45,7 +45,7 @@ make -j 4
 cd ../..
 ```
 
-#### 5. Install wav2letter
+#### 5. Install wav2letter decoder bindings
 ```
 git clone -b v0.2 https://github.com/facebookresearch/wav2letter.git
 cd wav2letter/bindings/python
