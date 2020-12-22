@@ -136,7 +136,7 @@ Where:
 
 The LM model and the lexicon file will be stored at output_path
 
-### 4. Make prediction on single audio
+### 4. Make prediction on multiple audios programmatically
 
 ```
 from stt import Transcriber
