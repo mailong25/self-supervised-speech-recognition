@@ -154,6 +154,10 @@ Where:
  - dictionary: dictionary file generated from step 2.2
  - lm_lexicon and lm_model: generated from step 3.2
 
+## Pre-trained models (Pretrain + Fine-tune + LM)
+- [Vietnamese](https://drive.google.com/file/d/1kZFdvMQt-R7fVebTbfWMk8Op7I9d24so/view?usp=sharing)
+
+
 ## Older version on Vietnamese speech recognition: 
 https://github.com/mailong25/self-supervised-speech-recognition/tree/vietnamese
 
