@@ -47,7 +47,7 @@ python3 pretrain.py --fairseq_path path/to/libs/fairseq --audio_path path/to/aud
 Where:
  - fairseq_path: path to installed fairseq library, after install [instruction](https://github.com/mailong25/self-supervised-speech-recognition/blob/master/Dependencies.md)
  - audio_path: path to unlabel audio directory
- - init_model: downloaded model from step 1.2
+ - init_model: downloaded model from step [1.2](https://github.com/mailong25/self-supervised-speech-recognition#12-download-an-initial-model)
 
 Logs and checkpoints will be stored at outputs directory\
 Log_file path: outputs/date_time/exp_id/hydra_train.log.  You should check the loss value to decide when to stop the training process.\
