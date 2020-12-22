@@ -49,41 +49,7 @@ Log_file path: outputs/date_time/exp_id/hydra_train.log.  You should check the l
 Best_checkpoint path: outputs/date_time/exp_id/checkpoints/checkpoint_best.pt\
 In my casse, it took ~ 2 days for the model to converge, train on 100 hours of data using 2 NVIDIA Tesla V100.
 
-
-### 2. Train a language model
----------------- Prepare text file ---------------- \
-Collect all texts and put them all together in a single file. \
-To avoid vocabulary mismatch, the text must include all transcripts from the labeled data (Required resources #1)\
-Text file format:
-- One sentence per line
-- Upper case
-- All numbers should be transformed into verbal form.
-- All special characters (eg. punctuation) should be removed. The final text should contain words only
-- Words in a sentence must be separated by whitespace character 
-
-Example of a text file for English case:
-```
-AND IT WAS A MATTER OF COURSE THAT IN THE MIDDLE AGES WHEN THE CRAFTSMEN
-AND WAS IN FACT THE KIND OF LETTER USED IN THE MANY SPLENDID MISSALS PSALTERS PRODUCED BY PRINTING IN THE FIFTEENTH CENTURY
-JOHN OF SPIRES AND HIS BROTHER VINDELIN FOLLOWED BY NICHOLAS JENSON BEGAN TO PRINT IN THAT CITY
-BEING THIN TOUGH AND OPAQUE
-...
-```
-Example of a text file for Chinese case:
-```
-每 个 人 都 有 他 的 作 战 策 略 直 到 脸 上 中 了 一 拳
-这 是 我 年 轻 时 候 住 的 房 子 。
-这 首 歌 使 我 想 起 了 我 年 轻 的 时 候 。
-...
-```
-
----------------- Train Language Model ----------------
-```
-python3 train_lm.py --kenlm_path path/to/libs/kenlm --text_file path/to/text_file.txt --output_path ./lm
-```
-The LM model and the lexicon file will be stored at output_path
-
-### 3. Finetune the self-supervised model on the labeled data
+### 2. Finetune the self-supervised model on the labeled data
 
 ---------------- prepare labeled data  ---------------- \
 Transcript file\
@@ -115,6 +81,39 @@ Logs and checkpoints will be stored at outputs directory\
 Log_file path: outputs/date_time/exp_id/hydra_train.log. You should check the loss value to decide when to stop the training process.\
 Best_checkpoint path: outputs/date_time/exp_id/checkpoints/checkpoint_best.pt\
 In my casse, it took ~ 12 hours for the model to converge, train on 100 hours of data using 2 NVIDIA Tesla V100.\
+
+### 3. Train a language model
+---------------- Prepare text file ---------------- \
+Collect all texts and put them all together in a single file. \
+To avoid vocabulary mismatch, the text must include all transcripts from the labeled data (Required resources #1)\
+Text file format:
+- One sentence per line
+- Upper case
+- All numbers should be transformed into verbal form.
+- All special characters (eg. punctuation) should be removed. The final text should contain words only
+- Words in a sentence must be separated by whitespace character 
+
+Example of a text file for English case:
+```
+AND IT WAS A MATTER OF COURSE THAT IN THE MIDDLE AGES WHEN THE CRAFTSMEN
+AND WAS IN FACT THE KIND OF LETTER USED IN THE MANY SPLENDID MISSALS PSALTERS PRODUCED BY PRINTING IN THE FIFTEENTH CENTURY
+JOHN OF SPIRES AND HIS BROTHER VINDELIN FOLLOWED BY NICHOLAS JENSON BEGAN TO PRINT IN THAT CITY
+BEING THIN TOUGH AND OPAQUE
+...
+```
+Example of a text file for Chinese case:
+```
+每 个 人 都 有 他 的 作 战 策 略 直 到 脸 上 中 了 一 拳
+这 是 我 年 轻 时 候 住 的 房 子 。
+这 首 歌 使 我 想 起 了 我 年 轻 的 时 候 。
+...
+```
+
+---------------- Train Language Model ----------------
+```
+python3 train_lm.py --kenlm_path path/to/libs/kenlm --text_file path/to/text_file.txt --output_path ./lm
+```
+The LM model and the lexicon file will be stored at output_path
 
 ### 4. Make prediction on single audio
 
