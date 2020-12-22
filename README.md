@@ -44,7 +44,7 @@ wget https://dl.fbaipublicfiles.com/fairseq/wav2vec/wav2vec_small.pt
 ```
 python3 pretrain.py --fairseq_path path/to/libs/fairseq --audio_path path/to/audio_directory --init_model path/to/wav2vec_small.pt
 ```
-Where:\
+Where:
  - fairseq_path: path to installed fairseq library, after install [instruction](https://github.com/mailong25/self-supervised-speech-recognition/blob/master/Dependencies.md)
  - audio_path: path to unlabel audio directory
  - init_model: downloaded model from step 1.2
@@ -66,7 +66,7 @@ Example of a transcript file:
 /path/to/3.wav JOHN OF SPIRES AND HIS BROTHER VINDELIN FOLLOWED BY NICHOLAS JENSON BEGAN TO PRINT IN THAT CITY
 /path/to/4.wav BEING THIN TOUGH AND OPAQUE
 ```
-Some notes on transcript file:\
+Some notes on transcript file:
 - One sample per line
 - Upper case
 - All numbers should be transformed into verbal form.
@@ -83,13 +83,13 @@ Also, each audio should contain only one person speaking.\
 ```
 python3 gen_dict.py --transcript_file path/to/transcript.txt --save_dir path/to/save_dir
 ```
-The dictionary file will be stored at save_dir/dict.ltr.txt. Use the file for fine-tuning and inference.\
+The dictionary file will be stored at save_dir/dict.ltr.txt. Use the file for fine-tuning and inference.
 
 #### 2.3 Run Fine-tuning on the pretrain model
 ```
 python3 finetune.py --transcript_file path/to/transcript.txt --pretrain_model path/to/pretrain_checkpoint_best.pt --dict_file path/to/dict.ltr.txt
 ```
-Where:\
+Where:
  - transcript_file: path to transcript file from step 2.1
  - pretrain_model: path to best model checkpoint from step 1.3
  - dict_file: dictionary file generated from step 2.2
@@ -97,7 +97,7 @@ Where:\
 Logs and checkpoints will be stored at outputs directory\
 Log_file path: outputs/date_time/exp_id/hydra_train.log. You should check the loss value to decide when to stop the training process.\
 Best_checkpoint path: outputs/date_time/exp_id/checkpoints/checkpoint_best.pt\
-In my casse, it took ~ 12 hours for the model to converge, train on 100 hours of data using 2 NVIDIA Tesla V100.\
+In my casse, it took ~ 12 hours for the model to converge, train on 100 hours of data using 2 NVIDIA Tesla V100.
 
 ### 3. Train a language model
 #### 3.1 Prepare text corpus
@@ -129,7 +129,7 @@ Example of a text corpus file for Chinese case:
 ```
 python3 train_lm.py --kenlm_path path/to/libs/kenlm --transcript_file path/to/transcript.txt --additional_file path/to/text_corpus.txt --ngram 3 --output_path ./lm
 ```
-Where:\
+Where:
  - kenlm_path: path to installed kenlm library, after install [instruction](https://github.com/mailong25/self-supervised-speech-recognition/blob/master/Dependencies.md)
  - transcript_file: path to transcript file from step 2.1
  - additional_file: path to text corpus file from step 3.1
@@ -148,7 +148,7 @@ hypos = transcriber.transcribe(['path/to/wavs/0_1.wav','path/to/wavs/0_2.wav'])
 print(hypos)
 ```
 
-Where:\
+Where:
  - pretrain_model: path to best pretrain checkpoint from step 1.3 
  - finetune_model: path to best fine-tuned checkpoint from step 2.3
  - dictionary: dictionary file generated from step 2.2
