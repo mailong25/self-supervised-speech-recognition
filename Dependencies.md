@@ -1,4 +1,8 @@
 ## Install dependencies
+```
+git clone https://github.com/mailong25/self-supervised-speech-recognition.git
+cd self-supervised-speech-recognition
+```
 
 #### 0. Create a folder to store external libs
 ```
