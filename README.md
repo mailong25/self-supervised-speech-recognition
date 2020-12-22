@@ -142,7 +142,7 @@ The LM model and the lexicon file will be stored at output_path
 from stt import Transcriber
 transcriber = Transcriber(pretrain_model = 'path/to/pretrain.pt', finetune_model = 'path/to/finetune.pt', 
                           dictionary = 'path/to/dict.ltr.txt',
-                          lm_lexicon = 'path/to/lm/lexicon.txt', lm_model = 'path/to/lm/lexicon.txt',
+                          lm_lexicon = 'path/to/lm/lexicon.txt', lm_model = 'path/to/lm/lm.bin',
                           lm_weight = 1.5, word_score = -1, beam_size = 50)
 hypos = transcriber.transcribe(['path/to/wavs/0_1.wav','path/to/wavs/0_2.wav'])
 print(hypos)
