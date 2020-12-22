@@ -44,6 +44,11 @@ wget https://dl.fbaipublicfiles.com/fairseq/wav2vec/wav2vec_small.pt
 ```
 python3 pretrain.py --fairseq_path path/to/libs/fairseq --audio_path path/to/audio_directory --init_model path/to/wav2vec_small.pt
 ```
+Where:\
+ - fairseq_path: path to installed fairseq library, after install [instruction](https://github.com/mailong25/self-supervised-speech-recognition/blob/master/Dependencies.md)
+ - audio_path: path to unlabel audio directory
+ - init_model: downloaded model from step 1.2
+
 Logs and checkpoints will be stored at outputs directory\
 Log_file path: outputs/date_time/exp_id/hydra_train.log.  You should check the loss value to decide when to stop the training process.\
 Best_checkpoint path: outputs/date_time/exp_id/checkpoints/checkpoint_best.pt\
@@ -84,6 +89,11 @@ The dictionary file will be stored at save_dir/dict.ltr.txt. Use the file for fi
 ```
 python3 finetune.py --transcript_file path/to/transcript.txt --pretrain_model path/to/pretrain_checkpoint_best.pt --dict_file path/to/dict.ltr.txt
 ```
+Where:\
+ - transcript_file: path to transcript file from step 2.1
+ - pretrain_model: path to best model checkpoint from step 1.3
+ - dict_file: dictionary file generated from step 2.2
+
 Logs and checkpoints will be stored at outputs directory\
 Log_file path: outputs/date_time/exp_id/hydra_train.log. You should check the loss value to decide when to stop the training process.\
 Best_checkpoint path: outputs/date_time/exp_id/checkpoints/checkpoint_best.pt\
@@ -119,6 +129,11 @@ Example of a text corpus file for Chinese case:
 ```
 python3 train_lm.py --kenlm_path path/to/libs/kenlm --transcript_file path/to/transcript.txt --additional_file path/to/text_corpus.txt --ngram 3 --output_path ./lm
 ```
+Where:\
+ - kenlm_path: path to installed kenlm library, after install [instruction](https://github.com/mailong25/self-supervised-speech-recognition/blob/master/Dependencies.md)
+ - transcript_file: path to transcript file from step 2.1
+ - additional_file: path to text corpus file from step 3.1
+
 The LM model and the lexicon file will be stored at output_path
 
 ### 4. Make prediction on single audio
@@ -132,6 +147,12 @@ transcriber = Transcriber(pretrain_model = 'path/to/pretrain.pt', finetune_model
 hypos = transcriber.transcribe(['path/to/wavs/0_1.wav','path/to/wavs/0_2.wav'])
 print(hypos)
 ```
+
+Where:\
+ - pretrain_model: path to best pretrain checkpoint from step 1.3 
+ - finetune_model: path to best fine-tuned checkpoint from step 2.3
+ - dictionary: dictionary file generated from step 2.2
+ - lm_lexicon and lm_model: generated from step 3.2
 
 ## Older version on Vietnamese speech recognition: 
 https://github.com/mailong25/self-supervised-speech-recognition/tree/vietnamese
