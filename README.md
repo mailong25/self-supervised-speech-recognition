@@ -51,31 +51,38 @@ In my casse, it took ~ 2 days for the model to converge, train on 100 hours of d
 
 ### 2. Finetune the self-supervised model on the labeled data
 
----------------- prepare labeled data  ---------------- \
-Transcript file\
-Text format should be the same as step 2 (Train a language model).\
-One trainng sample per line with format "audio_name \tab transcript"\
+#### 2.1 Prepare labeled data
+-- Transcript file ---\
+One trainng sample per line with format "audio_absolute_path \tab transcript"\
 Example of a transcript file:
 ```
-1.wav AND IT WAS A MATTER OF COURSE THAT IN THE MIDDLE AGES WHEN THE CRAFTSMEN
-2.wav AND WAS IN FACT THE KIND OF LETTER USED IN THE MANY SPLENDID MISSALS PSALTERS PRODUCED BY PRINTING IN THE FIFTEENTH CENTURY
-3.wav JOHN OF SPIRES AND HIS BROTHER VINDELIN FOLLOWED BY NICHOLAS JENSON BEGAN TO PRINT IN THAT CITY
-4.wav BEING THIN TOUGH AND OPAQUE
+/patt/to/1.wav AND IT WAS A MATTER OF COURSE THAT IN THE MIDDLE AGES WHEN THE CRAFTSMEN
+/patt/to/2.wav AND WAS IN FACT THE KIND OF LETTER USED IN THE MANY SPLENDID MISSALS PSALTERS PRODUCED BY PRINTING IN THE FIFTEENTH CENTURY
+/patt/to/3.wav JOHN OF SPIRES AND HIS BROTHER VINDELIN FOLLOWED BY NICHOLAS JENSON BEGAN TO PRINT IN THAT CITY
+/patt/to/4.wav BEING THIN TOUGH AND OPAQUE
 ```
+Some notes on transcript file:\
+- One sample per line
+- Upper case
+- All numbers should be transformed into verbal form.
+- All special characters (eg. punctuation) should be removed. The final text should contain words only
+- Words in a sentence must be separated by whitespace character
 
-Audio format: wav, PCM 16 bit, single channel, Sampling_rate: 16000.\
+
+-- Audio file ---\
+Format: wav, PCM 16 bit, single channel, Sampling_rate: 16000.\
 Silence should be removed from the audio.\
 Also, each audio should contain only one person speaking.\
 
----------------- Generate dictionary file ----------------
+#### 2.2 Generate dictionary file
 ```
 python3 gen_dict.py --transcript_file path/to/transcript.txt --save_dir path/to/save_dir
 ```
 The dictionary file will be stored at save_dir/dict.ltr.txt. Use the file for fine-tuning and inference.\
 
----------------- Finetune the Model ----------------
+#### 2.3 Run Fine-tuning on the pretrain model
 ```
-python3 finetune.py --transcript_file path/to/transcript.txt --audio_dir path/to/audio_directory --pretrain_model path/to/pretrain_checkpoint_best.pt --dict_file path/to/dict.ltr.txt
+python3 finetune.py --transcript_file path/to/transcript.txt --pretrain_model path/to/pretrain_checkpoint_best.pt --dict_file path/to/dict.ltr.txt
 ```
 Logs and checkpoints will be stored at outputs directory\
 Log_file path: outputs/date_time/exp_id/hydra_train.log. You should check the loss value to decide when to stop the training process.\
@@ -83,17 +90,16 @@ Best_checkpoint path: outputs/date_time/exp_id/checkpoints/checkpoint_best.pt\
 In my casse, it took ~ 12 hours for the model to converge, train on 100 hours of data using 2 NVIDIA Tesla V100.\
 
 ### 3. Train a language model
----------------- Prepare text file ---------------- \
+#### 3.1 Prepare text corpus
 Collect all texts and put them all together in a single file. \
-To avoid vocabulary mismatch, the text must include all transcripts from the labeled data (Required resources #1)\
 Text file format:
 - One sentence per line
 - Upper case
 - All numbers should be transformed into verbal form.
 - All special characters (eg. punctuation) should be removed. The final text should contain words only
-- Words in a sentence must be separated by whitespace character 
+- Words in a sentence must be separated by whitespace character
 
-Example of a text file for English case:
+Example of a text corpus file for English case:
 ```
 AND IT WAS A MATTER OF COURSE THAT IN THE MIDDLE AGES WHEN THE CRAFTSMEN
 AND WAS IN FACT THE KIND OF LETTER USED IN THE MANY SPLENDID MISSALS PSALTERS PRODUCED BY PRINTING IN THE FIFTEENTH CENTURY
@@ -101,7 +107,7 @@ JOHN OF SPIRES AND HIS BROTHER VINDELIN FOLLOWED BY NICHOLAS JENSON BEGAN TO PRI
 BEING THIN TOUGH AND OPAQUE
 ...
 ```
-Example of a text file for Chinese case:
+Example of a text corpus file for Chinese case:
 ```
 每 个 人 都 有 他 的 作 战 策 略 直 到 脸 上 中 了 一 拳
 这 是 我 年 轻 时 候 住 的 房 子 。
@@ -109,9 +115,9 @@ Example of a text file for Chinese case:
 ...
 ```
 
----------------- Train Language Model ----------------
+#### 3.2 Train the language model
 ```
-python3 train_lm.py --kenlm_path path/to/libs/kenlm --text_file path/to/text_file.txt --output_path ./lm
+python3 train_lm.py --kenlm_path path/to/libs/kenlm --transcript_file path/to/transcript.txt --additional_file path/to/text_corpus.txt --ngram 3 --output_path ./lm
 ```
 The LM model and the lexicon file will be stored at output_path
 
@@ -119,13 +125,13 @@ The LM model and the lexicon file will be stored at output_path
 
 ```
 from stt import Transcriber
-transcriber = Transcriber(w2vec = 'path/to/finetune.pt', w2vec_dict = 'path/to/dict.ltr.txt',
+transcriber = Transcriber(pretrain_model = 'path/to/pretrain.pt', finetune_model = 'path/to/finetune.pt', 
+                          dictionary = 'path/to/dict.ltr.txt',
                           lm_lexicon = 'path/to/lm/lexicon.txt', lm_model = 'path/to/lm/lexicon.txt',
                           lm_weight = 1.5, word_score = -1, beam_size = 50)
 hypos = transcriber.transcribe(['path/to/wavs/0_1.wav','path/to/wavs/0_2.wav'])
 print(hypos)
 ```
-Note that the first prediction call will take a lot of time (model loading)
 
 ## Older version on Vietnamese speech recognition: 
 https://github.com/mailong25/self-supervised-speech-recognition/tree/vietnamese
