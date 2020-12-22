@@ -53,7 +53,7 @@ In my casse, it took ~ 2 days for the model to converge, train on 100 hours of d
 ### 2. Train a language model
 ---------------- Prepare text file ---------------- \
 Collect all texts and put them all together in a single file. \
-The text should include all transcripts from the labeled data (Required resources #1)\
+To avoid vocabulary mismatch, the text must include all transcripts from the labeled data (Required resources #1)\
 Text file format:
 - One sentence per line
 - Upper case
