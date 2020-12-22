@@ -15,20 +15,19 @@ def main():
     
     parser = argparse.ArgumentParser()
     
-    parser.add_argument("--transcript_file", default='/mnt/disks/', type=str,
-                        required=False, help="Path to transcript file")
+    parser.add_argument("--transcript_file", default=None, type=str,
+                        required=True, help="Path to transcript file")
     
-    parser.add_argument("--audio_dir", default='/mnt/disks/', type=str,
-                        required=False, help="Path to audio directory correspond to the transcript file")
-    
-    parser.add_argument("--pretrain_model", default='mnt/disks/a.txt', required=False,
+    parser.add_argument("--pretrain_model", default=None, required=True,
                         type=str,help="Path to pretrain wav2vec model")
     
-    parser.add_argument("--dict_file", default='mnt/disks/a.txt', required=False,
+    parser.add_argument("--dict_file", default=None, required=True,
                         type=str,help="Path to dictionary file")
     
     args = parser.parse_args()
-    args.save_dir = 'manifest'
+    
+    args.pretrain_model = os.path.abspath(args.pretrain_model)
+    args.save_dir = os.path.abspath('./manifest')
     if not os.path.exists(args.save_dir):
         os.makedirs(args.save_dir)
     copy2(args.dict_file,args.save_dir)
@@ -59,10 +58,8 @@ def main():
     paths = [d.split('\t')[0] for d in data]
     total_duration = 0
     
-    PATH_URL = args.audio_dir
-    
     for i in tqdm(range(0,len(paths))):
-        audio_info = soundfile.info(join_path(PATH_URL,paths[i]))
+        audio_info = soundfile.info(paths[i])
         frames = audio_info.frames
         total_duration += audio_info.duration
         paths[i] = paths[i] + '\t' + str(frames)
@@ -88,11 +85,11 @@ def main():
         f.write('\n'.join(valid_l))
         
     with open(train_map,'w') as f:
-        f.write(PATH_URL + '\n')
+        f.write('\n')
         f.write('\n'.join(train_p))
     
     with open(valid_map,'w') as f:
-        f.write(PATH_URL + '\n')
+        f.write('\n')
         f.write('\n'.join(valid_p))
     
     total_duration = total_duration / 3600.0
@@ -107,6 +104,8 @@ def main():
         config_name = "base_960h"
     
     cmd = "fairseq-hydra-train task.data=" + str(args.save_dir) + " distributed_training.distributed_world_size=" + str(NUM_GPU) + " +optimization.update_freq='[" + str(int(24/NUM_GPU)) + "]' model.w2v_path=" + args.pretrain_model + " dataset.num_workers=" + str(NUM_CPU) + " --config-dir config/finetuning --config-name " + config_name
+    
+    print(cmd)
     
     os.system(cmd)
     

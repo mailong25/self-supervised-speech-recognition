@@ -189,11 +189,25 @@ class ExistingEmissionsDecoder(object):
             raise Exception("invalid sizes")
         emissions = torch.from_numpy(emissions)
         return self.decoder.decode(emissions)
+    
+    
+import random, struct, wave
+
+def generate_random_wav(wav_path,sr = 16000):
+    noise_output = wave.open(wav_path, 'w')
+    noise_output.setparams((1, 2, sr, 0, 'NONE', 'not compressed'))
+
+    for i in range(0, sr*3):
+        value = random.randint(-32767, 32767)
+        packed_value = struct.pack('h', value)
+        noise_output.writeframes(packed_value)
+
+    noise_output.close()
 
 sys.argv.append('/mnt/disks2/data')
 
 class Transcriber:
-    def __init__(self, w2vec, w2vec_dict, lm_lexicon, lm_model,
+    def __init__(self, pretrain_model, finetune_model, dictionary, lm_lexicon, lm_model,
                  lm_weight = 1.51, word_score = 2.57, beam_size = 100,
                  temp_path = 'temp'):
         
@@ -211,27 +225,36 @@ class Transcriber:
         parser = add_asr_eval_argument(parser, lm_model, lm_weight, word_score, lm_lexicon, beam_size)
         args = options.parse_args_and_arch(parser)
         args.task = 'audio_pretraining'
-        args.path = w2vec
+        args.path = finetune_model
         args.nbest = 1
         args.criterion = 'ctc'
         args.labels = 'ltr'
         args.post_process = 'letter'
         args.max_tokens = 4000000
-        args.w2vec_dict = w2vec_dict
+        args.w2vec_dict = dictionary
         self.args = args
         self.models = None
         self.saved_cfg = None
         self.generator = None
-        self.temp_path = temp_path
+        self.state = None
+        self.temp_path = os.path.abspath(temp_path)
+        self.pretrain_model = os.path.abspath(pretrain_model)
+        self.beam_size = beam_size
         
         if not os.path.exists(self.temp_path):
             os.makedirs(self.temp_path)
+        
+        # Transcribe a test sample
+        sample_audio_path = os.path.join(self.temp_path,'noise.wav')
+        generate_random_wav(sample_audio_path,16000)
+        self.transcribe([sample_audio_path])
+        os.remove(sample_audio_path)
+        print("Loading completed !")
         
     def transcribe(self,wav_files):
         process_dir = uuid.uuid1().hex
         process_dir = os.path.join(self.temp_path, process_dir)
         os.makedirs(process_dir)
-        process_dir = os.path.abspath(process_dir)
         self.args.data=process_dir
         self.args.gen_subset='test'
         self.args.results_path=process_dir
@@ -268,6 +291,14 @@ class Transcriber:
 
         use_cuda = torch.cuda.is_available() and not args.cpu
         task = tasks.setup_task(args)
+        
+        if self.state is None:
+            state = checkpoint_utils.load_checkpoint_to_cpu(args.path, None)
+            state['cfg']['model']['w2v_path'] = self.pretrain_model
+            state['cfg']['generation']['beam'] = self.beam_size
+            self.state = state
+        else:
+            state = self.state
 
         if self.models is None:
             models, saved_cfg = checkpoint_utils.load_model_ensemble(
@@ -277,7 +308,7 @@ class Transcriber:
                 suffix=args.checkpoint_suffix,
                 strict=(args.checkpoint_shard_count == 1),
                 num_shards=args.checkpoint_shard_count,
-                state=None,)
+                state=state,)
             self.models, self.saved_cfg = models, saved_cfg
         else:
             models, saved_cfg = self.models, self.saved_cfg
@@ -435,7 +466,6 @@ class Transcriber:
         else:
             if lengths_t > 0:
                 wer = errs_t * 100.0 / lengths_t
-        
         
         hypo_file = [file for file in os.listdir(process_dir) if 'hypo.word' in file][0]
         hypo_file = os.path.join(process_dir,hypo_file)

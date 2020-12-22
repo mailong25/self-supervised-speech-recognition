@@ -1,6 +1,7 @@
 from os.path import abspath
 import os
 import argparse
+from tqdm import tqdm
 
 def main():
     
@@ -8,22 +9,44 @@ def main():
     
     parser.add_argument("--kenlm_path", default=None, type=str,
                         required=True, help="Path to kenlm library")
+
+    parser.add_argument("--transcript_file", default=None, type=str,required=True,
+                        help="Path to text file")
     
-    parser.add_argument("--text_file", default=None, type=str,required=True,
-                        help="Path to general text (optional) , check in resources/general_text.txt")
+    parser.add_argument("--additional_file", default=None, type=str,required=False,
+                        help="Path to text file")
+    
+    parser.add_argument("--ngram", default=3, type=int,
+                        required=False, help="Ngram")
     
     parser.add_argument("--output_path", default=None, type=str,
-                        required=True, help="Output path for storing model")
+                    required=True, help="Output path for storing model")
     
     args = parser.parse_args()
     
-    with open(args.text_file) as f:
+    if not os.path.exists(args.output_path):
+        os.makedirs(args.output_path)
+    
+    with open(args.transcript_file) as f:
         train = f.read().upper().splitlines()
+        train = [d.split('\t')[1] for d in train]
+    
+    chars = [list(d.replace(' ','')) for d in train]
+    chars = [j for i in chars for j in i]
+    chars = set(chars)
+    
+    if args.additional_file != None:
+        with open(args.additional_file) as f:
+            train += f.read().upper().splitlines()
     
     vocabs = set([])
-    for line in train:
-        vocabs = vocabs | set(line.split())    
+    for line in tqdm(train):
+        for word in line.split():
+             vocabs.add(word)
     vocabs = list(vocabs)
+    print(len(vocabs))
+    vocabs = [v for v in vocabs if not any(c for c in list(v) if c not in chars)]
+    print(len(vocabs))
     
     vocab_path = os.path.join(args.output_path,'vocabs.txt')
     lexicon_path = os.path.join(args.output_path,'lexicon.txt')
@@ -47,7 +70,7 @@ def main():
     with open(lexicon_path,'w') as f:
         f.write('\n'.join(vocabs))
     
-    cmd = kenlm_path_train + " -T /tmp -S 4G --discount_fallback -o 4 --limit_vocab_file " + vocab_path + " trie < " + train_text_path +  ' > ' + model_arpa
+    cmd = kenlm_path_train + " -T /tmp -S 4G --discount_fallback -o " + str(args.ngram) +" --limit_vocab_file " + vocab_path + " trie < " + train_text_path +  ' > ' + model_arpa
     os.system(cmd)
     cmd = kenlm_path_convert +' trie ' + model_arpa + ' ' + model_bin
     os.system(cmd)

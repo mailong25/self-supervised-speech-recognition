@@ -14,10 +14,10 @@ def main():
     
     parser = argparse.ArgumentParser()
     
-    parser.add_argument("--transcript_file", default='/mnt/disks/', type=str,
-                        required=False, help="Path to transcript file")
+    parser.add_argument("--transcript_file", default=None, type=str,
+                        required=True, help="Path to transcript file")
     
-    parser.add_argument("--save_dir", default='mnt/disks/a.txt', required=False,
+    parser.add_argument("--save_dir", default=None, required=True,
                         type=str,help="Directory to save dictionary file")
     
     args = parser.parse_args()
