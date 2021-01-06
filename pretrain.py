@@ -18,6 +18,9 @@ def main():
     parser.add_argument("--init_model", default=None, required=True,
                         type=str,help="Path to English pretrain wav2vec model")
     
+    parser.add_argument("--batch_size", default=1200000, required=False,
+                        type=int,help="Batch size, try to decrease this number if any CUDA memory problems occur")
+    
     args = parser.parse_args()
     args.init_model = os.path.abspath(args.init_model)
     
