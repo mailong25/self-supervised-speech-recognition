@@ -42,7 +42,17 @@ def main():
         print("pytorch cannot find any GPUs !")
         sys.exit(0)
     
-    cmd = "fairseq-hydra-train task.data=" + str(temp_dir)  + " distributed_training.distributed_world_size=" + str(NUM_GPU) + " +optimization.update_freq='[" + str(int(64/NUM_GPU)) + "]' checkpoint.finetune_from_model=" + args.init_model + " dataset.num_workers=" + str(NUM_CPU) + " --config-dir config/pretraining --config-name wav2vec2_base_librispeech"
+    cmd = ["fairseq-hydra-train"]
+    cmd.append("task.data=" + str(temp_dir))
+    cmd.append("distributed_training.distributed_world_size=" + str(NUM_GPU))
+    cmd.append("+optimization.update_freq='[" + str(int(64/NUM_GPU)) + "]'")
+    cmd.append("checkpoint.finetune_from_model=" + args.init_model)
+    cmd.append("dataset.num_workers=" + str(NUM_CPU))
+    cmd.append("dataset.max_tokens=" + str(args.batch_size))
+    cmd.append("--config-dir config/pretraining")
+    cmd.append("--config-name wav2vec2_base_librispeech")
+    cmd = ' '.join(cmd)
+    print(cmd)
     
     os.system(cmd)
     

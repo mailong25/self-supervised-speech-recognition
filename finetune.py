@@ -24,6 +24,12 @@ def main():
     parser.add_argument("--dict_file", default=None, required=True,
                         type=str,help="Path to dictionary file")
     
+    parser.add_argument("--batch_size", default=2800000, required=False,
+                        type=int,help="Batch size, try to decrease this number if any CUDA memory problems occur")
+    
+    parser.add_argument("--restore_file", default=None, required=False,
+                        type=str,help= "Resume training from fine-tuned checkpoint")
+    
     args = parser.parse_args()
     
     args.pretrain_model = os.path.abspath(args.pretrain_model)
@@ -103,8 +109,20 @@ def main():
     else:
         config_name = "base_960h"
     
-    cmd = "fairseq-hydra-train task.data=" + str(args.save_dir) + " distributed_training.distributed_world_size=" + str(NUM_GPU) + " +optimization.update_freq='[" + str(int(24/NUM_GPU)) + "]' model.w2v_path=" + args.pretrain_model + " dataset.num_workers=" + str(NUM_CPU) + " --config-dir config/finetuning --config-name " + config_name
+    cmd = ["fairseq-hydra-train"]
+    cmd.append("task.data=" + str(args.save_dir))
+    cmd.append("distributed_training.distributed_world_size=" + str(NUM_GPU))
+    cmd.append("+optimization.update_freq='[" + str(int(24/NUM_GPU)) + "]'")
+    cmd.append("model.w2v_path=" + args.pretrain_model)
+    cmd.append("dataset.num_workers=" + str(NUM_CPU))
+    cmd.append("dataset.max_tokens=" + str(args.batch_size))
     
+    if args.restore_file is not None:
+        cmd.append("checkpoint.restore_file=" + args.restore_file)
+    
+    cmd.append("--config-dir config/finetuning")
+    cmd.append("--config-name " + config_name)
+    cmd = ' '.join(cmd)
     print(cmd)
     
     os.system(cmd)
