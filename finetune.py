@@ -30,6 +30,9 @@ def main():
     parser.add_argument("--restore_file", default=None, required=False,
                         type=str,help= "Resume training from fine-tuned checkpoint")
     
+    parser.add_argument("--valid_percent", default=0.05, required=False,
+                        type=float,help= "Percentage of data use for validation")
+    
     args = parser.parse_args()
     
     args.pretrain_model = os.path.abspath(args.pretrain_model)
@@ -70,7 +73,7 @@ def main():
         total_duration += audio_info.duration
         paths[i] = paths[i] + '\t' + str(frames)
     
-    SPLIT_NUM = int(len(words)*0.95)
+    SPLIT_NUM = int(len(words) * (1 - args.valid_percent))
     
     words,letters,paths = shuffle(words,letters,paths)
     
