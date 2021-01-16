@@ -4,7 +4,7 @@ import configparser
 import glob
 import os
 
-def main():
+def speech2text():
 	config = configparser.ConfigParser()
 	config.read("config.txt")
 	transcriber = Transcriber(pretrain_model = config["TRANSCRIBER"]["pretrain_model"],
@@ -21,5 +21,7 @@ def main():
 
 	hypos = transcriber.transcribe(audioList)
 	print(hypos)
+	return audioList, hypos
 
-main()
+if __name__ == '__main__':
+	speech2text()
