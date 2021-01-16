@@ -3,6 +3,7 @@ import sys
 import configparser
 import glob
 import os
+import pandas as pd
 
 def speech2text():
 	config = configparser.ConfigParser()
@@ -21,7 +22,14 @@ def speech2text():
 
 	hypos = transcriber.transcribe(audioList)
 	print(hypos)
-	return audioList, hypos
+
+	result_path = 'result.csv'
+	if 'result_path' in config["TRANSCRIBER"]:
+		result_path = config["TRANSCRIBER"]["result_path"]
+
+	dict_df = {'path': audioList, 'hypos': hypos}		
+	result_df = pd.DataFrame(dict_df)
+	result_df.to_csv(result_path, index=False)
 
 if __name__ == '__main__':
 	speech2text()
