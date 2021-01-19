@@ -15,14 +15,13 @@ def main():
     parser.add_argument("--audio_path", default=None, type=str,
                         required=True, help="Path to unlabeled audio")
     
-    parser.add_argument("--init_model", default=None, required=True,
+    parser.add_argument("--init_model", default=None, required=False,
                         type=str,help="Path to English pretrain wav2vec model")
     
     parser.add_argument("--batch_size", default=1200000, required=False,
                         type=int,help="Batch size, try to decrease this number if any CUDA memory problems occur")
     
     args = parser.parse_args()
-    args.init_model = os.path.abspath(args.init_model)
     
     #Prepare manifest file
     MANIFEST_PATH = join_path(args.fairseq_path, 'examples/wav2vec/wav2vec_manifest.py')
@@ -46,7 +45,10 @@ def main():
     cmd.append("task.data=" + str(temp_dir))
     cmd.append("distributed_training.distributed_world_size=" + str(NUM_GPU))
     cmd.append("+optimization.update_freq='[" + str(int(64/NUM_GPU)) + "]'")
-    cmd.append("checkpoint.finetune_from_model=" + args.init_model)
+    
+    if args.init_model != None:
+        cmd.append("checkpoint.finetune_from_model=" + os.path.abspath(args.init_model))
+    
     cmd.append("dataset.num_workers=" + str(NUM_CPU))
     cmd.append("dataset.max_tokens=" + str(args.batch_size))
     cmd.append("--config-dir config/pretraining")
