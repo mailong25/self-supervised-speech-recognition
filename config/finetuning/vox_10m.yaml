@@ -17,6 +17,8 @@ task:
   data: ???
   normalize: true
   labels: ltr
+  sample_rate: 16000
+  autoregressive: false
 
 dataset:
   num_workers: 6
