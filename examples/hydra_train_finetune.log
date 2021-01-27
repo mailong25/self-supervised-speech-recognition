@@ -1,0 +1,1260 @@
+[2020-12-19 17:31:51,967][fairseq_cli.train][INFO] - {'_name': None, 'common': {'_name': None, 'no_progress_bar': False, 'log_interval': 200, 'log_format': 'json', 'tensorboard_logdir': None, 'wandb_project': None, 'azureml_logging': False, 'seed': 1, 'cpu': False, 'tpu': False, 'bf16': False, 'memory_efficient_bf16': False, 'fp16': True, 'memory_efficient_fp16': False, 'fp16_no_flatten_grads': False, 'fp16_init_scale': 128, 'fp16_scale_window': None, 'fp16_scale_tolerance': 0.0, 'min_loss_scale': 0.0001, 'threshold_loss_scale': None, 'user_dir': None, 'empty_cache_freq': 0, 'all_gather_list_size': 16384, 'model_parallel_size': 1, 'quantization_config_path': None, 'profile': False, 'reset_logging': True}, 'common_eval': {'_name': None, 'path': None, 'post_process': None, 'quiet': False, 'model_overrides': '{}', 'results_path': None}, 'distributed_training': {'_name': None, 'distributed_world_size': 1, 'distributed_rank': 0, 'distributed_backend': 'nccl', 'distributed_init_method': None, 'distributed_port': -1, 'device_id': 0, 'distributed_no_spawn': False, 'ddp_backend': 'no_c10d', 'bucket_cap_mb': 25, 'fix_batches_to_gpus': False, 'find_unused_parameters': False, 'fast_stat_sync': False, 'broadcast_buffers': False, 'distributed_wrapper': 'DDP', 'slowmo_momentum': None, 'slowmo_algorithm': 'LocalSGD', 'localsgd_frequency': 3, 'nprocs_per_node': 1, 'pipeline_model_parallel': False, 'pipeline_balance': None, 'pipeline_devices': None, 'pipeline_chunks': 0, 'pipeline_encoder_balance': None, 'pipeline_encoder_devices': None, 'pipeline_decoder_balance': None, 'pipeline_decoder_devices': None, 'pipeline_checkpoint': 'never', 'zero_sharding': 'none', 'tpu': False, 'distributed_num_procs': 1}, 'dataset': {'_name': None, 'num_workers': 8, 'skip_invalid_size_inputs_valid_test': True, 'max_tokens': 2800000, 'batch_size': None, 'required_batch_size_multiple': 8, 'required_seq_len_multiple': 1, 'dataset_impl': None, 'data_buffer_size': 10, 'train_subset': 'train', 'valid_subset': 'valid', 'validate_interval': 1, 'validate_interval_updates': 0, 'validate_after_updates': 0, 'fixed_validation_seed': None, 'disable_validation': False, 'max_tokens_valid': 2800000, 'batch_size_valid': None, 'curriculum': 0, 'gen_subset': 'test', 'num_shards': 1, 'shard_id': 0}, 'optimization': {'_name': None, 'max_epoch': 0, 'max_update': 80000, 'stop_time_hours': 0.0, 'clip_norm': 0.0, 'sentence_avg': True, 'update_freq': [24], 'lr': [3e-05], 'stop_min_lr': -1.0, 'use_bmuf': False}, 'checkpoint': {'_name': None, 'save_dir': 'checkpoints', 'restore_file': 'checkpoint_last.pt', 'finetune_from_model': None, 'reset_dataloader': False, 'reset_lr_scheduler': False, 'reset_meters': False, 'reset_optimizer': False, 'optimizer_overrides': '{}', 'save_interval': 1, 'save_interval_updates': 0, 'keep_interval_updates': -1, 'keep_last_epochs': -1, 'keep_best_checkpoints': -1, 'no_save': False, 'no_epoch_checkpoints': True, 'no_last_checkpoints': False, 'no_save_optimizer_state': False, 'best_checkpoint_metric': 'wer', 'maximize_best_checkpoint_metric': False, 'patience': -1, 'checkpoint_suffix': '', 'checkpoint_shard_count': 1, 'load_checkpoint_on_all_dp_ranks': False, 'model_parallel_size': 1, 'distributed_rank': 0}, 'bmuf': {'_name': None, 'block_lr': 1.0, 'block_momentum': 0.875, 'global_sync_iter': 50, 'warmup_iterations': 500, 'use_nbm': False, 'average_sync': False, 'distributed_world_size': 1}, 'generation': {'_name': None, 'beam': 5, 'nbest': 1, 'max_len_a': 0.0, 'max_len_b': 200, 'min_len': 1, 'match_source_len': False, 'unnormalized': False, 'no_early_stop': False, 'no_beamable_mm': False, 'lenpen': 1.0, 'unkpen': 0.0, 'replace_unk': None, 'sacrebleu': False, 'score_reference': False, 'prefix_size': 0, 'no_repeat_ngram_size': 0, 'sampling': False, 'sampling_topk': -1, 'sampling_topp': -1.0, 'constraints': None, 'temperature': 1.0, 'diverse_beam_groups': -1, 'diverse_beam_strength': 0.5, 'diversity_rate': -1.0, 'print_alignment': None, 'print_step': False, 'lm_path': None, 'lm_weight': 0.0, 'iter_decode_eos_penalty': 0.0, 'iter_decode_max_iter': 10, 'iter_decode_force_max_iter': False, 'iter_decode_with_beam': 1, 'iter_decode_with_external_reranker': False, 'retain_iter_history': False, 'retain_dropout': False, 'retain_dropout_modules': None, 'decoding_format': None, 'no_seed_provided': False}, 'eval_lm': {'_name': None, 'output_word_probs': False, 'output_word_stats': False, 'context_window': 0, 'softmax_batch': 9223372036854775807}, 'interactive': {'_name': None, 'buffer_size': 0, 'input': '-'}, 'model': {'_name': 'wav2vec_ctc', 'w2v_path': '/mnt/disks2/asr/wav2vec_small_vie.pt', 'apply_mask': True, 'mask_prob': 0.65, 'mask_channel_prob': 0.5, 'mask_channel_length': 64, 'layerdrop': 0.1, 'activation_dropout': 0.1, 'feature_grad_mult': 0.0, 'freeze_finetune_updates': 0}, 'task': {'_name': 'audio_pretraining', 'data': '/mnt/disks2/wav2vec/dataset', 'normalize': False, 'labels': 'ltr', 'sample_rate': 16000, 'autoregressive': False}, 'criterion': {'_name': 'ctc', 'zero_infinity': True}, 'optimizer': {'_name': 'adam', 'adam_betas': '(0.9,0.98)', 'adam_eps': 1e-08}, 'lr_scheduler': {'_name': 'tri_stage', 'phase_ratio': [0.1, 0.4, 0.5], 'final_lr_scale': 0.05}, 'scoring': None, 'bpe': None, 'tokenizer': None}
+[2020-12-19 17:31:52,017][fairseq.data.audio.raw_audio_dataset][INFO] - loaded 688, skipped 0 samples
+[2020-12-19 17:32:08,664][fairseq_cli.train][INFO] - Wav2VecCtc(
+  (w2v_encoder): Wav2VecEncoder(
+    (w2v_model): Wav2Vec2Model(
+      (feature_extractor): ConvFeatureExtractionModel(
+        (conv_layers): ModuleList(
+          (0): Sequential(
+            (0): Conv1d(1, 512, kernel_size=(10,), stride=(5,), bias=False)
+            (1): Dropout(p=0.0, inplace=False)
+            (2): Fp32GroupNorm(512, 512, eps=1e-05, affine=True)
+            (3): GELU()
+          )
+          (1): Sequential(
+            (0): Conv1d(512, 512, kernel_size=(3,), stride=(2,), bias=False)
+            (1): Dropout(p=0.0, inplace=False)
+            (2): GELU()
+          )
+          (2): Sequential(
+            (0): Conv1d(512, 512, kernel_size=(3,), stride=(2,), bias=False)
+            (1): Dropout(p=0.0, inplace=False)
+            (2): GELU()
+          )
+          (3): Sequential(
+            (0): Conv1d(512, 512, kernel_size=(3,), stride=(2,), bias=False)
+            (1): Dropout(p=0.0, inplace=False)
+            (2): GELU()
+          )
+          (4): Sequential(
+            (0): Conv1d(512, 512, kernel_size=(3,), stride=(2,), bias=False)
+            (1): Dropout(p=0.0, inplace=False)
+            (2): GELU()
+          )
+          (5): Sequential(
+            (0): Conv1d(512, 512, kernel_size=(2,), stride=(2,), bias=False)
+            (1): Dropout(p=0.0, inplace=False)
+            (2): GELU()
+          )
+          (6): Sequential(
+            (0): Conv1d(512, 512, kernel_size=(2,), stride=(2,), bias=False)
+            (1): Dropout(p=0.0, inplace=False)
+            (2): GELU()
+          )
+        )
+      )
+      (post_extract_proj): Linear(in_features=512, out_features=768, bias=True)
+      (dropout_input): Dropout(p=0.0, inplace=False)
+      (dropout_features): Dropout(p=0.1, inplace=False)
+      (quantizer): None
+      (project_q): None
+      (encoder): TransformerEncoder(
+        (pos_conv): Sequential(
+          (0): Conv1d(768, 768, kernel_size=(128,), stride=(1,), padding=(64,), groups=16)
+          (1): SamePad()
+          (2): GELU()
+        )
+        (layers): ModuleList(
+          (0): TransformerSentenceEncoderLayer(
+            (self_attn): MultiheadAttention(
+              (dropout_module): FairseqDropout()
+              (k_proj): Linear(in_features=768, out_features=768, bias=True)
+              (v_proj): Linear(in_features=768, out_features=768, bias=True)
+              (q_proj): Linear(in_features=768, out_features=768, bias=True)
+              (out_proj): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (dropout1): Dropout(p=0.1, inplace=False)
+            (dropout2): Dropout(p=0.0, inplace=False)
+            (dropout3): Dropout(p=0.1, inplace=False)
+            (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (fc1): Linear(in_features=768, out_features=3072, bias=True)
+            (fc2): Linear(in_features=3072, out_features=768, bias=True)
+            (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          )
+          (1): TransformerSentenceEncoderLayer(
+            (self_attn): MultiheadAttention(
+              (dropout_module): FairseqDropout()
+              (k_proj): Linear(in_features=768, out_features=768, bias=True)
+              (v_proj): Linear(in_features=768, out_features=768, bias=True)
+              (q_proj): Linear(in_features=768, out_features=768, bias=True)
+              (out_proj): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (dropout1): Dropout(p=0.1, inplace=False)
+            (dropout2): Dropout(p=0.0, inplace=False)
+            (dropout3): Dropout(p=0.1, inplace=False)
+            (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (fc1): Linear(in_features=768, out_features=3072, bias=True)
+            (fc2): Linear(in_features=3072, out_features=768, bias=True)
+            (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          )
+          (2): TransformerSentenceEncoderLayer(
+            (self_attn): MultiheadAttention(
+              (dropout_module): FairseqDropout()
+              (k_proj): Linear(in_features=768, out_features=768, bias=True)
+              (v_proj): Linear(in_features=768, out_features=768, bias=True)
+              (q_proj): Linear(in_features=768, out_features=768, bias=True)
+              (out_proj): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (dropout1): Dropout(p=0.1, inplace=False)
+            (dropout2): Dropout(p=0.0, inplace=False)
+            (dropout3): Dropout(p=0.1, inplace=False)
+            (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (fc1): Linear(in_features=768, out_features=3072, bias=True)
+            (fc2): Linear(in_features=3072, out_features=768, bias=True)
+            (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          )
+          (3): TransformerSentenceEncoderLayer(
+            (self_attn): MultiheadAttention(
+              (dropout_module): FairseqDropout()
+              (k_proj): Linear(in_features=768, out_features=768, bias=True)
+              (v_proj): Linear(in_features=768, out_features=768, bias=True)
+              (q_proj): Linear(in_features=768, out_features=768, bias=True)
+              (out_proj): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (dropout1): Dropout(p=0.1, inplace=False)
+            (dropout2): Dropout(p=0.0, inplace=False)
+            (dropout3): Dropout(p=0.1, inplace=False)
+            (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (fc1): Linear(in_features=768, out_features=3072, bias=True)
+            (fc2): Linear(in_features=3072, out_features=768, bias=True)
+            (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          )
+          (4): TransformerSentenceEncoderLayer(
+            (self_attn): MultiheadAttention(
+              (dropout_module): FairseqDropout()
+              (k_proj): Linear(in_features=768, out_features=768, bias=True)
+              (v_proj): Linear(in_features=768, out_features=768, bias=True)
+              (q_proj): Linear(in_features=768, out_features=768, bias=True)
+              (out_proj): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (dropout1): Dropout(p=0.1, inplace=False)
+            (dropout2): Dropout(p=0.0, inplace=False)
+            (dropout3): Dropout(p=0.1, inplace=False)
+            (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (fc1): Linear(in_features=768, out_features=3072, bias=True)
+            (fc2): Linear(in_features=3072, out_features=768, bias=True)
+            (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          )
+          (5): TransformerSentenceEncoderLayer(
+            (self_attn): MultiheadAttention(
+              (dropout_module): FairseqDropout()
+              (k_proj): Linear(in_features=768, out_features=768, bias=True)
+              (v_proj): Linear(in_features=768, out_features=768, bias=True)
+              (q_proj): Linear(in_features=768, out_features=768, bias=True)
+              (out_proj): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (dropout1): Dropout(p=0.1, inplace=False)
+            (dropout2): Dropout(p=0.0, inplace=False)
+            (dropout3): Dropout(p=0.1, inplace=False)
+            (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (fc1): Linear(in_features=768, out_features=3072, bias=True)
+            (fc2): Linear(in_features=3072, out_features=768, bias=True)
+            (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          )
+          (6): TransformerSentenceEncoderLayer(
+            (self_attn): MultiheadAttention(
+              (dropout_module): FairseqDropout()
+              (k_proj): Linear(in_features=768, out_features=768, bias=True)
+              (v_proj): Linear(in_features=768, out_features=768, bias=True)
+              (q_proj): Linear(in_features=768, out_features=768, bias=True)
+              (out_proj): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (dropout1): Dropout(p=0.1, inplace=False)
+            (dropout2): Dropout(p=0.0, inplace=False)
+            (dropout3): Dropout(p=0.1, inplace=False)
+            (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (fc1): Linear(in_features=768, out_features=3072, bias=True)
+            (fc2): Linear(in_features=3072, out_features=768, bias=True)
+            (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          )
+          (7): TransformerSentenceEncoderLayer(
+            (self_attn): MultiheadAttention(
+              (dropout_module): FairseqDropout()
+              (k_proj): Linear(in_features=768, out_features=768, bias=True)
+              (v_proj): Linear(in_features=768, out_features=768, bias=True)
+              (q_proj): Linear(in_features=768, out_features=768, bias=True)
+              (out_proj): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (dropout1): Dropout(p=0.1, inplace=False)
+            (dropout2): Dropout(p=0.0, inplace=False)
+            (dropout3): Dropout(p=0.1, inplace=False)
+            (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (fc1): Linear(in_features=768, out_features=3072, bias=True)
+            (fc2): Linear(in_features=3072, out_features=768, bias=True)
+            (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          )
+          (8): TransformerSentenceEncoderLayer(
+            (self_attn): MultiheadAttention(
+              (dropout_module): FairseqDropout()
+              (k_proj): Linear(in_features=768, out_features=768, bias=True)
+              (v_proj): Linear(in_features=768, out_features=768, bias=True)
+              (q_proj): Linear(in_features=768, out_features=768, bias=True)
+              (out_proj): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (dropout1): Dropout(p=0.1, inplace=False)
+            (dropout2): Dropout(p=0.0, inplace=False)
+            (dropout3): Dropout(p=0.1, inplace=False)
+            (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (fc1): Linear(in_features=768, out_features=3072, bias=True)
+            (fc2): Linear(in_features=3072, out_features=768, bias=True)
+            (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          )
+          (9): TransformerSentenceEncoderLayer(
+            (self_attn): MultiheadAttention(
+              (dropout_module): FairseqDropout()
+              (k_proj): Linear(in_features=768, out_features=768, bias=True)
+              (v_proj): Linear(in_features=768, out_features=768, bias=True)
+              (q_proj): Linear(in_features=768, out_features=768, bias=True)
+              (out_proj): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (dropout1): Dropout(p=0.1, inplace=False)
+            (dropout2): Dropout(p=0.0, inplace=False)
+            (dropout3): Dropout(p=0.1, inplace=False)
+            (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (fc1): Linear(in_features=768, out_features=3072, bias=True)
+            (fc2): Linear(in_features=3072, out_features=768, bias=True)
+            (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          )
+          (10): TransformerSentenceEncoderLayer(
+            (self_attn): MultiheadAttention(
+              (dropout_module): FairseqDropout()
+              (k_proj): Linear(in_features=768, out_features=768, bias=True)
+              (v_proj): Linear(in_features=768, out_features=768, bias=True)
+              (q_proj): Linear(in_features=768, out_features=768, bias=True)
+              (out_proj): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (dropout1): Dropout(p=0.1, inplace=False)
+            (dropout2): Dropout(p=0.0, inplace=False)
+            (dropout3): Dropout(p=0.1, inplace=False)
+            (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (fc1): Linear(in_features=768, out_features=3072, bias=True)
+            (fc2): Linear(in_features=3072, out_features=768, bias=True)
+            (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          )
+          (11): TransformerSentenceEncoderLayer(
+            (self_attn): MultiheadAttention(
+              (dropout_module): FairseqDropout()
+              (k_proj): Linear(in_features=768, out_features=768, bias=True)
+              (v_proj): Linear(in_features=768, out_features=768, bias=True)
+              (q_proj): Linear(in_features=768, out_features=768, bias=True)
+              (out_proj): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (dropout1): Dropout(p=0.1, inplace=False)
+            (dropout2): Dropout(p=0.0, inplace=False)
+            (dropout3): Dropout(p=0.1, inplace=False)
+            (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (fc1): Linear(in_features=768, out_features=3072, bias=True)
+            (fc2): Linear(in_features=3072, out_features=768, bias=True)
+            (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          )
+        )
+        (layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      )
+      (layer_norm): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+      (final_proj): None
+    )
+    (final_dropout): Dropout(p=0.0, inplace=False)
+    (proj): Linear(in_features=768, out_features=98, bias=True)
+  )
+)
+[2020-12-19 17:32:08,666][fairseq_cli.train][INFO] - task: AudioPretrainingTask
+[2020-12-19 17:32:08,667][fairseq_cli.train][INFO] - model: Wav2VecCtc
+[2020-12-19 17:32:08,667][fairseq_cli.train][INFO] - criterion: CtcCriterion)
+[2020-12-19 17:32:08,668][fairseq_cli.train][INFO] - num. model params: 94447074 (num. trained: 94447074)
+[2020-12-19 17:32:25,413][fairseq.trainer][INFO] - detected shared parameter: w2v_encoder.w2v_model.feature_extractor.conv_layers.0.0.bias <- w2v_encoder.w2v_model.feature_extractor.conv_layers.1.0.bias
+[2020-12-19 17:32:25,414][fairseq.trainer][INFO] - detected shared parameter: w2v_encoder.w2v_model.feature_extractor.conv_layers.0.0.bias <- w2v_encoder.w2v_model.feature_extractor.conv_layers.2.0.bias
+[2020-12-19 17:32:25,414][fairseq.trainer][INFO] - detected shared parameter: w2v_encoder.w2v_model.feature_extractor.conv_layers.0.0.bias <- w2v_encoder.w2v_model.feature_extractor.conv_layers.3.0.bias
+[2020-12-19 17:32:25,414][fairseq.trainer][INFO] - detected shared parameter: w2v_encoder.w2v_model.feature_extractor.conv_layers.0.0.bias <- w2v_encoder.w2v_model.feature_extractor.conv_layers.4.0.bias
+[2020-12-19 17:32:25,414][fairseq.trainer][INFO] - detected shared parameter: w2v_encoder.w2v_model.feature_extractor.conv_layers.0.0.bias <- w2v_encoder.w2v_model.feature_extractor.conv_layers.5.0.bias
+[2020-12-19 17:32:25,414][fairseq.trainer][INFO] - detected shared parameter: w2v_encoder.w2v_model.feature_extractor.conv_layers.0.0.bias <- w2v_encoder.w2v_model.feature_extractor.conv_layers.6.0.bias
+[2020-12-19 17:32:25,415][fairseq.utils][INFO] - ***********************CUDA enviroments for all 1 workers***********************
+[2020-12-19 17:32:25,415][fairseq.utils][INFO] - rank   0: capabilities =  7.0  ; total memory = 15.752 GB ; name = Tesla V100-SXM2-16GB                    
+[2020-12-19 17:32:25,415][fairseq.utils][INFO] - ***********************CUDA enviroments for all 1 workers***********************
+[2020-12-19 17:32:25,415][fairseq_cli.train][INFO] - training on 1 devices (GPUs/TPUs)
+[2020-12-19 17:32:25,415][fairseq_cli.train][INFO] - max tokens per GPU = 2800000 and batch size per GPU = None
+[2020-12-19 17:32:25,416][fairseq.trainer][INFO] - no existing checkpoint found checkpoints/checkpoint_last.pt
+[2020-12-19 17:32:25,416][fairseq.trainer][INFO] - loading train data for epoch 1
+[2020-12-19 17:32:25,634][fairseq.data.audio.raw_audio_dataset][INFO] - loaded 103592, skipped 0 samples
+[2020-12-19 17:32:27,339][fairseq.trainer][INFO] - begin training epoch 1
+[2020-12-19 17:32:42,190][fairseq.trainer][INFO] - NOTE: overflow detected, setting loss scale to: 64.0
+[2020-12-19 17:32:48,058][fairseq.trainer][INFO] - NOTE: overflow detected, setting loss scale to: 32.0
+[2020-12-19 17:32:54,063][fairseq.trainer][INFO] - NOTE: overflow detected, setting loss scale to: 16.0
+[2020-12-19 17:33:00,246][fairseq.trainer][INFO] - NOTE: overflow detected, setting loss scale to: 8.0
+[2020-12-19 17:33:06,061][fairseq.trainer][INFO] - NOTE: overflow detected, setting loss scale to: 4.0
+[2020-12-19 17:33:11,956][fairseq.trainer][INFO] - NOTE: overflow detected, setting loss scale to: 2.0
+[2020-12-19 17:33:17,870][fairseq.trainer][INFO] - NOTE: overflow detected, setting loss scale to: 1.0
+[2020-12-19 17:33:23,955][fairseq.trainer][INFO] - NOTE: overflow detected, setting loss scale to: 0.5
+[2020-12-19 17:40:08,592][fairseq.trainer][INFO] - NOTE: overflow detected, setting loss scale to: 0.25
+[2020-12-19 17:41:16,018][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-19 17:41:22,153][valid][INFO] - {"epoch": 1, "valid_loss": "729.494", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "14.215", "valid_uer": "123.012", "valid_wer": "100.393", "valid_raw_wer": "100.393", "valid_wps": "6759", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "85"}
+[2020-12-19 17:41:22,155][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-19 17:41:22,156][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_best.pt after 85 updates
+[2020-12-19 17:41:24,604][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2020-12-19 17:41:25,543][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_best.pt (epoch 1 @ 85 updates, score 100.393) (writing took 3.387641379999991 seconds)
+[2020-12-19 17:41:25,543][fairseq_cli.train][INFO] - end of epoch 1 (average epoch stats below)
+[2020-12-19 17:41:25,566][train][INFO] - {"epoch": 1, "train_loss": "887.379", "train_ntokens": "49633.1", "train_nsentences": "1096.66", "train_nll_loss": "19.607", "train_wps": "8766.3", "train_ups": "0.18", "train_wpb": "49633.1", "train_bsz": "1096.7", "train_num_updates": "85", "train_lr": "6.15563e-07", "train_gnorm": "460.893", "train_loss_scale": "0.25", "train_train_wall": "515", "train_wall": "540"}
+[2020-12-19 17:41:25,585][fairseq.trainer][INFO] - begin training epoch 2
+[2020-12-19 17:50:07,105][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-19 17:50:12,777][valid][INFO] - {"epoch": 2, "valid_loss": "647.256", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "12.613", "valid_uer": "89.351", "valid_wer": "100.578", "valid_raw_wer": "100.578", "valid_wps": "6611.8", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "179", "valid_best_wer": "100.393"}
+[2020-12-19 17:50:12,780][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-19 17:50:12,781][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_last.pt after 179 updates
+[2020-12-19 17:50:22,026][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_last.pt
+[2020-12-19 17:50:22,027][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_last.pt (epoch 2 @ 179 updates, score 100.578) (writing took 9.246185888000127 seconds)
+[2020-12-19 17:50:22,027][fairseq_cli.train][INFO] - end of epoch 2 (average epoch stats below)
+[2020-12-19 17:50:22,028][train][INFO] - {"epoch": 2, "train_loss": "822.103", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "18.224", "train_wps": "8711.3", "train_ups": "0.18", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "179", "train_lr": "9.64538e-07", "train_gnorm": "631.338", "train_loss_scale": "0.25", "train_train_wall": "509", "train_wall": "1077"}
+[2020-12-19 17:50:22,049][fairseq.trainer][INFO] - begin training epoch 3
+[2020-12-19 17:52:20,233][train_inner][INFO] - {"epoch": 3, "update": 2.223, "loss": "844.186", "ntokens": "49722.2", "nsentences": "1099.04", "nll_loss": "18.66", "wps": "8754.3", "ups": "0.18", "wpb": "49722.2", "bsz": "1099", "num_updates": "200", "lr": "1.0425e-06", "gnorm": "569.865", "loss_scale": "0.25", "train_wall": "1139", "wall": "1195"}
+[2020-12-19 17:59:03,888][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-19 17:59:09,448][valid][INFO] - {"epoch": 3, "valid_loss": "477.959", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "9.314", "valid_uer": "92.121", "valid_wer": "99.954", "valid_raw_wer": "99.954", "valid_wps": "6766.4", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "273", "valid_best_wer": "99.954"}
+[2020-12-19 17:59:09,450][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-19 17:59:09,451][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_best.pt after 273 updates
+[2020-12-19 17:59:18,718][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2020-12-19 17:59:27,627][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_best.pt (epoch 3 @ 273 updates, score 99.954) (writing took 18.176178973000106 seconds)
+[2020-12-19 17:59:27,628][fairseq_cli.train][INFO] - end of epoch 3 (average epoch stats below)
+[2020-12-19 17:59:27,628][train][INFO] - {"epoch": 3, "train_loss": "679.775", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "15.069", "train_wps": "8565.4", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "273", "train_lr": "1.31351e-06", "train_gnorm": "783.386", "train_loss_scale": "0.25", "train_train_wall": "509", "train_wall": "1622"}
+[2020-12-19 17:59:27,650][fairseq.trainer][INFO] - begin training epoch 4
+[2020-12-19 18:08:09,508][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-19 18:08:14,955][valid][INFO] - {"epoch": 4, "valid_loss": "321.244", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "6.26", "valid_uer": "99.68", "valid_wer": "100", "valid_raw_wer": "100", "valid_wps": "6961.6", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "367", "valid_best_wer": "99.954"}
+[2020-12-19 18:08:14,957][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-19 18:08:14,958][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_last.pt after 367 updates
+[2020-12-19 18:08:24,305][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_last.pt
+[2020-12-19 18:08:24,305][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_last.pt (epoch 4 @ 367 updates, score 100.0) (writing took 9.347894416000145 seconds)
+[2020-12-19 18:08:24,306][fairseq_cli.train][INFO] - end of epoch 4 (average epoch stats below)
+[2020-12-19 18:08:24,306][train][INFO] - {"epoch": 4, "train_loss": "462.888", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "10.261", "train_wps": "8707.8", "train_ups": "0.18", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "367", "train_lr": "1.66249e-06", "train_gnorm": "583.314", "train_loss_scale": "0.25", "train_train_wall": "509", "train_wall": "2159"}
+[2020-12-19 18:08:24,329][fairseq.trainer][INFO] - begin training epoch 5
+[2020-12-19 18:11:29,851][train_inner][INFO] - {"epoch": 5, "update": 4.351, "loss": "512.706", "ntokens": "49726.7", "nsentences": "1110.92", "nll_loss": "11.454", "wps": "8651", "ups": "0.17", "wpb": "49726.7", "bsz": "1110.9", "num_updates": "400", "lr": "1.785e-06", "gnorm": "609.423", "loss_scale": "0.25", "train_wall": "1084", "wall": "2344"}
+[2020-12-19 18:17:07,164][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-19 18:17:12,910][valid][INFO] - {"epoch": 5, "valid_loss": "307.522", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "5.992", "valid_uer": "100", "valid_wer": "100", "valid_raw_wer": "100", "valid_wps": "6538.4", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "461", "valid_best_wer": "99.954"}
+[2020-12-19 18:17:12,912][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-19 18:17:12,913][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_last.pt after 461 updates
+[2020-12-19 18:17:22,323][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_last.pt
+[2020-12-19 18:17:22,323][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_last.pt (epoch 5 @ 461 updates, score 100.0) (writing took 9.410171445000287 seconds)
+[2020-12-19 18:17:22,323][fairseq_cli.train][INFO] - end of epoch 5 (average epoch stats below)
+[2020-12-19 18:17:22,324][train][INFO] - {"epoch": 5, "train_loss": "335.684", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "7.441", "train_wps": "8686.1", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "461", "train_lr": "2.01146e-06", "train_gnorm": "209.003", "train_loss_scale": "0.25", "train_train_wall": "510", "train_wall": "2697"}
+[2020-12-19 18:17:22,349][fairseq.trainer][INFO] - begin training epoch 6
+[2020-12-19 18:26:05,954][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-19 18:26:11,393][valid][INFO] - {"epoch": 6, "valid_loss": "269.492", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "5.251", "valid_uer": "100", "valid_wer": "100", "valid_raw_wer": "100", "valid_wps": "6942.6", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "555", "valid_best_wer": "99.954"}
+[2020-12-19 18:26:11,395][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-19 18:26:11,397][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_last.pt after 555 updates
+[2020-12-19 18:26:21,712][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_last.pt
+[2020-12-19 18:26:21,712][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_last.pt (epoch 6 @ 555 updates, score 100.0) (writing took 10.316075360000013 seconds)
+[2020-12-19 18:26:21,713][fairseq_cli.train][INFO] - end of epoch 6 (average epoch stats below)
+[2020-12-19 18:26:21,713][train][INFO] - {"epoch": 6, "train_loss": "280.955", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "6.228", "train_wps": "8664", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "555", "train_lr": "2.36044e-06", "train_gnorm": "142.229", "train_loss_scale": "0.25", "train_train_wall": "511", "train_wall": "3236"}
+[2020-12-19 18:26:21,733][fairseq.trainer][INFO] - begin training epoch 7
+[2020-12-19 18:30:34,685][train_inner][INFO] - {"epoch": 7, "update": 6.479, "loss": "289.64", "ntokens": "49806", "nsentences": "1094.32", "nll_loss": "6.364", "wps": "8701", "ups": "0.17", "wpb": "49806", "bsz": "1094.3", "num_updates": "600", "lr": "2.5275e-06", "gnorm": "143.319", "loss_scale": "0.25", "train_wall": "1086", "wall": "3489"}
+[2020-12-19 18:35:03,623][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-19 18:35:09,149][valid][INFO] - {"epoch": 7, "valid_loss": "257.521", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "5.018", "valid_uer": "100", "valid_wer": "100", "valid_raw_wer": "100", "valid_wps": "6833", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "649", "valid_best_wer": "99.954"}
+[2020-12-19 18:35:09,151][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-19 18:35:09,152][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_last.pt after 649 updates
+[2020-12-19 18:35:18,447][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_last.pt
+[2020-12-19 18:35:18,448][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_last.pt (epoch 7 @ 649 updates, score 100.0) (writing took 9.29608344799999 seconds)
+[2020-12-19 18:35:18,448][fairseq_cli.train][INFO] - end of epoch 7 (average epoch stats below)
+[2020-12-19 18:35:18,449][train][INFO] - {"epoch": 7, "train_loss": "247.95", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "5.496", "train_wps": "8706.8", "train_ups": "0.18", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "649", "train_lr": "2.70941e-06", "train_gnorm": "82.039", "train_loss_scale": "0.25", "train_train_wall": "509", "train_wall": "3773"}
+[2020-12-19 18:35:18,469][fairseq.trainer][INFO] - begin training epoch 8
+[2020-12-19 18:44:00,649][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-19 18:44:06,055][valid][INFO] - {"epoch": 8, "valid_loss": "252.098", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "4.912", "valid_uer": "100", "valid_wer": "100", "valid_raw_wer": "100", "valid_wps": "6959.1", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "743", "valid_best_wer": "99.954"}
+[2020-12-19 18:44:06,058][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-19 18:44:06,059][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_last.pt after 743 updates
+[2020-12-19 18:44:15,313][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_last.pt
+[2020-12-19 18:44:15,314][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_last.pt (epoch 8 @ 743 updates, score 100.0) (writing took 9.25520679500005 seconds)
+[2020-12-19 18:44:15,314][fairseq_cli.train][INFO] - end of epoch 8 (average epoch stats below)
+[2020-12-19 18:44:15,315][train][INFO] - {"epoch": 8, "train_loss": "234.633", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "5.201", "train_wps": "8704.7", "train_ups": "0.18", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "743", "train_lr": "3.05839e-06", "train_gnorm": "53.57", "train_loss_scale": "0.25", "train_train_wall": "509", "train_wall": "4310"}
+[2020-12-19 18:44:15,338][fairseq.trainer][INFO] - begin training epoch 9
+[2020-12-19 18:49:36,861][train_inner][INFO] - {"epoch": 9, "update": 8.606, "loss": "233.943", "ntokens": "49784.7", "nsentences": "1107.12", "nll_loss": "5.202", "wps": "8717.5", "ups": "0.18", "wpb": "49784.7", "bsz": "1107.1", "num_updates": "800", "lr": "3.27e-06", "gnorm": "52.256", "loss_scale": "0.5", "train_wall": "1085", "wall": "4631"}
+[2020-12-19 18:52:58,267][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-19 18:53:03,889][valid][INFO] - {"epoch": 9, "valid_loss": "248.935", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "4.851", "valid_uer": "100", "valid_wer": "100", "valid_raw_wer": "100", "valid_wps": "6649.4", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "837", "valid_best_wer": "99.954"}
+[2020-12-19 18:53:03,892][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-19 18:53:03,893][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_last.pt after 837 updates
+[2020-12-19 18:53:14,223][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_last.pt
+[2020-12-19 18:53:14,223][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_last.pt (epoch 9 @ 837 updates, score 100.0) (writing took 10.331174455999644 seconds)
+[2020-12-19 18:53:14,224][fairseq_cli.train][INFO] - end of epoch 9 (average epoch stats below)
+[2020-12-19 18:53:14,225][train][INFO] - {"epoch": 9, "train_loss": "227.03", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "5.033", "train_wps": "8671.7", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "837", "train_lr": "3.40736e-06", "train_gnorm": "35.568", "train_loss_scale": "0.5", "train_train_wall": "510", "train_wall": "4849"}
+[2020-12-19 18:53:14,247][fairseq.trainer][INFO] - begin training epoch 10
+[2020-12-19 19:01:57,291][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-19 19:02:02,796][valid][INFO] - {"epoch": 10, "valid_loss": "246.82", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "4.81", "valid_uer": "100", "valid_wer": "100", "valid_raw_wer": "100", "valid_wps": "6862.8", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "931", "valid_best_wer": "99.954"}
+[2020-12-19 19:02:02,799][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-19 19:02:02,807][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_last.pt after 931 updates
+[2020-12-19 19:02:12,040][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_last.pt
+[2020-12-19 19:02:12,041][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_last.pt (epoch 10 @ 931 updates, score 100.0) (writing took 9.23404820900032 seconds)
+[2020-12-19 19:02:12,041][fairseq_cli.train][INFO] - end of epoch 10 (average epoch stats below)
+[2020-12-19 19:02:12,042][train][INFO] - {"epoch": 10, "train_loss": "223.201", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "4.948", "train_wps": "8689.3", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "931", "train_lr": "3.75634e-06", "train_gnorm": "25.865", "train_loss_scale": "0.5", "train_train_wall": "510", "train_wall": "5387"}
+[2020-12-19 19:02:12,066][fairseq.trainer][INFO] - begin training epoch 11
+[2020-12-19 19:08:39,029][train_inner][INFO] - {"epoch": 11, "update": 10.734, "loss": "223.137", "ntokens": "49644.2", "nsentences": "1099.76", "nll_loss": "4.943", "wps": "8693", "ups": "0.18", "wpb": "49644.2", "bsz": "1099.8", "num_updates": "1000", "lr": "4.0125e-06", "gnorm": "26.136", "loss_scale": "0.5", "train_wall": "1084", "wall": "5774"}
+[2020-12-19 19:10:54,682][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-19 19:11:00,229][valid][INFO] - {"epoch": 11, "valid_loss": "245.705", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "4.788", "valid_uer": "100", "valid_wer": "100", "valid_raw_wer": "100", "valid_wps": "6818.4", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "1025", "valid_best_wer": "99.954"}
+[2020-12-19 19:11:00,231][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-19 19:11:00,232][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_last.pt after 1025 updates
+[2020-12-19 19:11:10,540][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_last.pt
+[2020-12-19 19:11:10,541][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_last.pt (epoch 11 @ 1025 updates, score 100.0) (writing took 10.30885366199982 seconds)
+[2020-12-19 19:11:10,541][fairseq_cli.train][INFO] - end of epoch 11 (average epoch stats below)
+[2020-12-19 19:11:10,542][train][INFO] - {"epoch": 11, "train_loss": "221.438", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "4.909", "train_wps": "8678.3", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "1025", "train_lr": "4.10531e-06", "train_gnorm": "27.441", "train_loss_scale": "0.5", "train_train_wall": "510", "train_wall": "5925"}
+[2020-12-19 19:11:10,563][fairseq.trainer][INFO] - begin training epoch 12
+[2020-12-19 19:19:55,820][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-19 19:20:01,511][valid][INFO] - {"epoch": 12, "valid_loss": "245.248", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "4.779", "valid_uer": "100", "valid_wer": "100", "valid_raw_wer": "100", "valid_wps": "6663.1", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "1119", "valid_best_wer": "99.954"}
+[2020-12-19 19:20:01,513][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-19 19:20:01,514][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_last.pt after 1119 updates
+[2020-12-19 19:20:11,907][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_last.pt
+[2020-12-19 19:20:11,907][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_last.pt (epoch 12 @ 1119 updates, score 100.0) (writing took 10.393270780999956 seconds)
+[2020-12-19 19:20:11,907][fairseq_cli.train][INFO] - end of epoch 12 (average epoch stats below)
+[2020-12-19 19:20:11,908][train][INFO] - {"epoch": 12, "train_loss": "220.416", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "4.886", "train_wps": "8632.4", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "1119", "train_lr": "4.45429e-06", "train_gnorm": "20.502", "train_loss_scale": "0.5", "train_train_wall": "512", "train_wall": "6466"}
+[2020-12-19 19:20:11,928][fairseq.trainer][INFO] - begin training epoch 13
+[2020-12-19 19:27:45,891][train_inner][INFO] - {"epoch": 13, "update": 12.862, "loss": "219.745", "ntokens": "49732.9", "nsentences": "1103.48", "nll_loss": "4.876", "wps": "8672.9", "ups": "0.17", "wpb": "49732.9", "bsz": "1103.5", "num_updates": "1200", "lr": "4.755e-06", "gnorm": "24.024", "loss_scale": "0.5", "train_wall": "1087", "wall": "6920"}
+[2020-12-19 19:28:53,153][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-19 19:28:58,789][valid][INFO] - {"epoch": 13, "valid_loss": "245.201", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "4.778", "valid_uer": "100", "valid_wer": "100", "valid_raw_wer": "100", "valid_wps": "6701.9", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "1213", "valid_best_wer": "99.954"}
+[2020-12-19 19:28:58,791][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-19 19:28:58,792][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_last.pt after 1213 updates
+[2020-12-19 19:29:09,108][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_last.pt
+[2020-12-19 19:29:09,109][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_last.pt (epoch 13 @ 1213 updates, score 100.0) (writing took 10.317078535000292 seconds)
+[2020-12-19 19:29:09,109][fairseq_cli.train][INFO] - end of epoch 13 (average epoch stats below)
+[2020-12-19 19:29:09,110][train][INFO] - {"epoch": 13, "train_loss": "219.035", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "4.855", "train_wps": "8699.3", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "1213", "train_lr": "4.80326e-06", "train_gnorm": "23.552", "train_loss_scale": "0.5", "train_train_wall": "508", "train_wall": "7004"}
+[2020-12-19 19:29:09,131][fairseq.trainer][INFO] - begin training epoch 14
+[2020-12-19 19:37:50,236][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-19 19:37:55,620][valid][INFO] - {"epoch": 14, "valid_loss": "244.038", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "4.755", "valid_uer": "100", "valid_wer": "100", "valid_raw_wer": "100", "valid_wps": "6974.7", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "1307", "valid_best_wer": "99.954"}
+[2020-12-19 19:37:55,622][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-19 19:37:55,623][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_last.pt after 1307 updates
+[2020-12-19 19:38:06,782][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_last.pt
+[2020-12-19 19:38:06,782][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_last.pt (epoch 14 @ 1307 updates, score 100.0) (writing took 11.159500330999435 seconds)
+[2020-12-19 19:38:06,782][fairseq_cli.train][INFO] - end of epoch 14 (average epoch stats below)
+[2020-12-19 19:38:06,783][train][INFO] - {"epoch": 14, "train_loss": "218.197", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "4.837", "train_wps": "8691.7", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "1307", "train_lr": "5.15224e-06", "train_gnorm": "20.879", "train_loss_scale": "0.5", "train_train_wall": "508", "train_wall": "7541"}
+[2020-12-19 19:38:06,807][fairseq.trainer][INFO] - begin training epoch 15
+[2020-12-19 19:46:47,584][train_inner][INFO] - {"epoch": 15, "update": 14.989, "loss": "218.395", "ntokens": "49795.9", "nsentences": "1102.24", "nll_loss": "4.834", "wps": "8723.2", "ups": "0.18", "wpb": "49795.9", "bsz": "1102.2", "num_updates": "1400", "lr": "5.4975e-06", "gnorm": "20.54", "loss_scale": "0.5", "train_wall": "1082", "wall": "8062"}
+[2020-12-19 19:46:47,851][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-19 19:46:53,517][valid][INFO] - {"epoch": 15, "valid_loss": "243.523", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "4.745", "valid_uer": "100", "valid_wer": "100", "valid_raw_wer": "100", "valid_wps": "6659.2", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "1401", "valid_best_wer": "99.954"}
+[2020-12-19 19:46:53,520][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-19 19:46:53,521][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_last.pt after 1401 updates
+[2020-12-19 19:47:03,804][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_last.pt
+[2020-12-19 19:47:03,805][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_last.pt (epoch 15 @ 1401 updates, score 100.0) (writing took 10.284345332000157 seconds)
+[2020-12-19 19:47:03,805][fairseq_cli.train][INFO] - end of epoch 15 (average epoch stats below)
+[2020-12-19 19:47:03,805][train][INFO] - {"epoch": 15, "train_loss": "217.854", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "4.829", "train_wps": "8702.2", "train_ups": "0.18", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "1401", "train_lr": "5.50121e-06", "train_gnorm": "20.438", "train_loss_scale": "0.5", "train_train_wall": "508", "train_wall": "8078"}
+[2020-12-19 19:47:03,826][fairseq.trainer][INFO] - begin training epoch 16
+[2020-12-19 19:55:42,603][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-19 19:55:48,129][valid][INFO] - {"epoch": 16, "valid_loss": "242.243", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "4.72", "valid_uer": "100", "valid_wer": "100", "valid_raw_wer": "100", "valid_wps": "6814.4", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "1495", "valid_best_wer": "99.954"}
+[2020-12-19 19:55:48,131][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-19 19:55:48,144][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_last.pt after 1495 updates
+[2020-12-19 19:55:57,432][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_last.pt
+[2020-12-19 19:55:57,432][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_last.pt (epoch 16 @ 1495 updates, score 100.0) (writing took 9.28904464200059 seconds)
+[2020-12-19 19:55:57,433][fairseq_cli.train][INFO] - end of epoch 16 (average epoch stats below)
+[2020-12-19 19:55:57,433][train][INFO] - {"epoch": 16, "train_loss": "217.016", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "4.811", "train_wps": "8757.6", "train_ups": "0.18", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "1495", "train_lr": "5.85019e-06", "train_gnorm": "16.821", "train_loss_scale": "1", "train_train_wall": "506", "train_wall": "8612"}
+[2020-12-19 19:55:57,460][fairseq.trainer][INFO] - begin training epoch 17
+[2020-12-19 20:04:38,639][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-19 20:04:44,305][valid][INFO] - {"epoch": 17, "valid_loss": "241.046", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "4.697", "valid_uer": "99.994", "valid_wer": "100", "valid_raw_wer": "100", "valid_wps": "6687.9", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "1589", "valid_best_wer": "99.954"}
+[2020-12-19 20:04:44,321][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-19 20:04:44,322][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_last.pt after 1589 updates
+[2020-12-19 20:04:53,550][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_last.pt
+[2020-12-19 20:04:53,551][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_last.pt (epoch 17 @ 1589 updates, score 100.0) (writing took 9.228991480000332 seconds)
+[2020-12-19 20:04:53,551][fairseq_cli.train][INFO] - end of epoch 17 (average epoch stats below)
+[2020-12-19 20:04:53,552][train][INFO] - {"epoch": 17, "train_loss": "216.267", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "4.794", "train_wps": "8716.9", "train_ups": "0.18", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "1589", "train_lr": "6.19916e-06", "train_gnorm": "19.933", "train_loss_scale": "1", "train_train_wall": "508", "train_wall": "9148"}
+[2020-12-19 20:04:53,572][fairseq.trainer][INFO] - begin training epoch 18
+[2020-12-19 20:05:55,937][train_inner][INFO] - {"epoch": 18, "update": 17.117, "loss": "216.005", "ntokens": "49569.3", "nsentences": "1101.8", "nll_loss": "4.801", "wps": "8633.1", "ups": "0.17", "wpb": "49569.3", "bsz": "1101.8", "num_updates": "1600", "lr": "6.24e-06", "gnorm": "20.847", "loss_scale": "1", "train_wall": "1075", "wall": "9211"}
+[2020-12-19 20:13:36,743][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-19 20:13:42,211][valid][INFO] - {"epoch": 18, "valid_loss": "231.382", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "4.509", "valid_uer": "93.435", "valid_wer": "100", "valid_raw_wer": "100", "valid_wps": "6862.3", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "1683", "valid_best_wer": "99.954"}
+[2020-12-19 20:13:42,213][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-19 20:13:42,227][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_last.pt after 1683 updates
+[2020-12-19 20:13:51,485][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_last.pt
+[2020-12-19 20:13:51,486][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_last.pt (epoch 18 @ 1683 updates, score 100.0) (writing took 9.259149313000307 seconds)
+[2020-12-19 20:13:51,486][fairseq_cli.train][INFO] - end of epoch 18 (average epoch stats below)
+[2020-12-19 20:13:51,487][train][INFO] - {"epoch": 18, "train_loss": "214.574", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "4.756", "train_wps": "8687.4", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "1683", "train_lr": "6.54814e-06", "train_gnorm": "29.112", "train_loss_scale": "1", "train_train_wall": "510", "train_wall": "9686"}
+[2020-12-19 20:13:51,508][fairseq.trainer][INFO] - begin training epoch 19
+[2020-12-19 20:22:33,042][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-19 20:22:38,738][valid][INFO] - {"epoch": 19, "valid_loss": "196.695", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "3.833", "valid_uer": "68.159", "valid_wer": "100", "valid_raw_wer": "100", "valid_wps": "6620.8", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "1777", "valid_best_wer": "99.954"}
+[2020-12-19 20:22:38,740][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-19 20:22:38,741][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_last.pt after 1777 updates
+[2020-12-19 20:22:47,979][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_last.pt
+[2020-12-19 20:22:47,979][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_last.pt (epoch 19 @ 1777 updates, score 100.0) (writing took 9.238491948000956 seconds)
+[2020-12-19 20:22:47,979][fairseq_cli.train][INFO] - end of epoch 19 (average epoch stats below)
+[2020-12-19 20:22:47,980][train][INFO] - {"epoch": 19, "train_loss": "200.105", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "4.436", "train_wps": "8710.8", "train_ups": "0.18", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "1777", "train_lr": "6.89711e-06", "train_gnorm": "36.102", "train_loss_scale": "1", "train_train_wall": "509", "train_wall": "10223"}
+[2020-12-19 20:22:48,003][fairseq.trainer][INFO] - begin training epoch 20
+[2020-12-19 20:24:57,987][train_inner][INFO] - {"epoch": 20, "update": 19.245, "loss": "203.922", "ntokens": "49678.8", "nsentences": "1103.8", "nll_loss": "4.531", "wps": "8699.9", "ups": "0.18", "wpb": "49678.8", "bsz": "1103.8", "num_updates": "1800", "lr": "6.9825e-06", "gnorm": "32.485", "loss_scale": "1", "train_wall": "1085", "wall": "10353"}
+[2020-12-19 20:31:29,434][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-19 20:31:34,992][valid][INFO] - {"epoch": 20, "valid_loss": "169.02", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "3.294", "valid_uer": "56", "valid_wer": "100.081", "valid_raw_wer": "100.081", "valid_wps": "6757.1", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "1871", "valid_best_wer": "99.954"}
+[2020-12-19 20:31:34,994][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-19 20:31:35,008][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_last.pt after 1871 updates
+[2020-12-19 20:31:44,267][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_last.pt
+[2020-12-19 20:31:44,268][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_last.pt (epoch 20 @ 1871 updates, score 100.081) (writing took 9.25965640099821 seconds)
+[2020-12-19 20:31:44,268][fairseq_cli.train][INFO] - end of epoch 20 (average epoch stats below)
+[2020-12-19 20:31:44,269][train][INFO] - {"epoch": 20, "train_loss": "178.873", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "3.965", "train_wps": "8714.1", "train_ups": "0.18", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "1871", "train_lr": "7.24609e-06", "train_gnorm": "35.851", "train_loss_scale": "1", "train_train_wall": "509", "train_wall": "10759"}
+[2020-12-19 20:31:44,290][fairseq.trainer][INFO] - begin training epoch 21
+[2020-12-19 20:40:25,334][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-19 20:40:30,811][valid][INFO] - {"epoch": 21, "valid_loss": "141.664", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "2.76", "valid_uer": "46.189", "valid_wer": "100.046", "valid_raw_wer": "100.046", "valid_wps": "6912.2", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "1965", "valid_best_wer": "99.954"}
+[2020-12-19 20:40:30,813][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-19 20:40:30,827][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_last.pt after 1965 updates
+[2020-12-19 20:40:41,130][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_last.pt
+[2020-12-19 20:40:41,131][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_last.pt (epoch 21 @ 1965 updates, score 100.046) (writing took 10.30412090900063 seconds)
+[2020-12-19 20:40:41,131][fairseq_cli.train][INFO] - end of epoch 21 (average epoch stats below)
+[2020-12-19 20:40:41,132][train][INFO] - {"epoch": 21, "train_loss": "158.971", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "3.524", "train_wps": "8704.8", "train_ups": "0.18", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "1965", "train_lr": "7.59506e-06", "train_gnorm": "32.281", "train_loss_scale": "1", "train_train_wall": "508", "train_wall": "11296"}
+[2020-12-19 20:40:41,156][fairseq.trainer][INFO] - begin training epoch 22
+[2020-12-19 20:43:58,544][train_inner][INFO] - {"epoch": 22, "update": 21.372, "loss": "163.922", "ntokens": "49759.9", "nsentences": "1097.76", "nll_loss": "3.616", "wps": "8725.5", "ups": "0.18", "wpb": "49759.9", "bsz": "1097.8", "num_updates": "2000", "lr": "7.725e-06", "gnorm": "32.042", "loss_scale": "1", "train_wall": "1083", "wall": "11493"}
+[2020-12-19 20:49:23,328][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-19 20:49:29,132][valid][INFO] - {"epoch": 22, "valid_loss": "119.21", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "2.323", "valid_uer": "39.043", "valid_wer": "95.379", "valid_raw_wer": "95.379", "valid_wps": "6455.1", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "2059", "valid_best_wer": "95.379"}
+[2020-12-19 20:49:29,134][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-19 20:49:29,136][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_best.pt after 2059 updates
+[2020-12-19 20:49:39,445][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2020-12-19 20:49:48,357][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_best.pt (epoch 22 @ 2059 updates, score 95.379) (writing took 19.221842416000072 seconds)
+[2020-12-19 20:49:48,358][fairseq_cli.train][INFO] - end of epoch 22 (average epoch stats below)
+[2020-12-19 20:49:48,358][train][INFO] - {"epoch": 22, "train_loss": "141.675", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "3.141", "train_wps": "8539.9", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "2059", "train_lr": "7.94404e-06", "train_gnorm": "29.517", "train_loss_scale": "1", "train_train_wall": "509", "train_wall": "11843"}
+[2020-12-19 20:49:48,382][fairseq.trainer][INFO] - begin training epoch 23
+[2020-12-19 20:58:30,245][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-19 20:58:35,777][valid][INFO] - {"epoch": 23, "valid_loss": "101.084", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "1.97", "valid_uer": "32.679", "valid_wer": "83.793", "valid_raw_wer": "83.793", "valid_wps": "6784.7", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "2153", "valid_best_wer": "83.793"}
+[2020-12-19 20:58:35,779][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-19 20:58:35,787][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_best.pt after 2153 updates
+[2020-12-19 20:58:45,043][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2020-12-19 20:58:53,914][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_best.pt (epoch 23 @ 2153 updates, score 83.793) (writing took 18.12812845999906 seconds)
+[2020-12-19 20:58:53,915][fairseq_cli.train][INFO] - end of epoch 23 (average epoch stats below)
+[2020-12-19 20:58:53,915][train][INFO] - {"epoch": 23, "train_loss": "125.556", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "2.783", "train_wps": "8566.1", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "2153", "train_lr": "8.29301e-06", "train_gnorm": "29.786", "train_loss_scale": "2", "train_train_wall": "509", "train_wall": "12389"}
+[2020-12-19 20:58:53,936][fairseq.trainer][INFO] - begin training epoch 24
+[2020-12-19 21:03:18,113][train_inner][INFO] - {"epoch": 24, "update": 23.5, "loss": "126.76", "ntokens": "49820.3", "nsentences": "1107.04", "nll_loss": "2.817", "wps": "8592.9", "ups": "0.17", "wpb": "49820.3", "bsz": "1107", "num_updates": "2200", "lr": "8.4675e-06", "gnorm": "31.704", "loss_scale": "2", "train_wall": "1084", "wall": "12653"}
+[2020-12-19 21:07:35,681][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-19 21:07:41,096][valid][INFO] - {"epoch": 24, "valid_loss": "87.784", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "1.711", "valid_uer": "27.196", "valid_wer": "69.747", "valid_raw_wer": "69.747", "valid_wps": "6961.3", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "2247", "valid_best_wer": "69.747"}
+[2020-12-19 21:07:41,098][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-19 21:07:41,099][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_best.pt after 2247 updates
+[2020-12-19 21:07:51,363][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2020-12-19 21:07:59,222][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_best.pt (epoch 24 @ 2247 updates, score 69.747) (writing took 18.12299175699991 seconds)
+[2020-12-19 21:07:59,222][fairseq_cli.train][INFO] - end of epoch 24 (average epoch stats below)
+[2020-12-19 21:07:59,223][train][INFO] - {"epoch": 24, "train_loss": "114.169", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "2.531", "train_wps": "8570", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "2247", "train_lr": "8.64199e-06", "train_gnorm": "31.985", "train_loss_scale": "2", "train_train_wall": "509", "train_wall": "12934"}
+[2020-12-19 21:07:59,248][fairseq.trainer][INFO] - begin training epoch 25
+[2020-12-19 21:16:40,474][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-19 21:16:46,147][valid][INFO] - {"epoch": 25, "valid_loss": "76.661", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "1.494", "valid_uer": "23.582", "valid_wer": "59.466", "valid_raw_wer": "59.466", "valid_wps": "6592.1", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "2341", "valid_best_wer": "59.466"}
+[2020-12-19 21:16:46,149][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-19 21:16:46,150][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_best.pt after 2341 updates
+[2020-12-19 21:16:55,415][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2020-12-19 21:17:05,345][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_best.pt (epoch 25 @ 2341 updates, score 59.466) (writing took 19.19590843000151 seconds)
+[2020-12-19 21:17:05,346][fairseq_cli.train][INFO] - end of epoch 25 (average epoch stats below)
+[2020-12-19 21:17:05,347][train][INFO] - {"epoch": 25, "train_loss": "104.972", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "2.327", "train_wps": "8557.2", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "2341", "train_lr": "8.99096e-06", "train_gnorm": "26.303", "train_loss_scale": "2", "train_train_wall": "509", "train_wall": "13480"}
+[2020-12-19 21:17:05,368][fairseq.trainer][INFO] - begin training epoch 26
+[2020-12-19 21:22:35,534][train_inner][INFO] - {"epoch": 26, "update": 25.628, "loss": "104.93", "ntokens": "49656.5", "nsentences": "1096.64", "nll_loss": "2.317", "wps": "8580.5", "ups": "0.17", "wpb": "49656.5", "bsz": "1096.6", "num_updates": "2400", "lr": "9.21e-06", "gnorm": "25.466", "loss_scale": "2", "train_wall": "1082", "wall": "13810"}
+[2020-12-19 21:25:46,698][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-19 21:25:52,589][valid][INFO] - {"epoch": 26, "valid_loss": "68.683", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "1.338", "valid_uer": "20.121", "valid_wer": "49.509", "valid_raw_wer": "49.509", "valid_wps": "6390", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "2435", "valid_best_wer": "49.509"}
+[2020-12-19 21:25:52,591][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-19 21:25:52,592][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_best.pt after 2435 updates
+[2020-12-19 21:26:01,889][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2020-12-19 21:26:11,814][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_best.pt (epoch 26 @ 2435 updates, score 49.509) (writing took 19.221472498998992 seconds)
+[2020-12-19 21:26:11,814][fairseq_cli.train][INFO] - end of epoch 26 (average epoch stats below)
+[2020-12-19 21:26:11,815][train][INFO] - {"epoch": 26, "train_loss": "96.46", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "2.138", "train_wps": "8551.8", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "2435", "train_lr": "9.33994e-06", "train_gnorm": "23.985", "train_loss_scale": "2", "train_train_wall": "509", "train_wall": "14026"}
+[2020-12-19 21:26:11,839][fairseq.trainer][INFO] - begin training epoch 27
+[2020-12-19 21:34:54,261][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-19 21:34:59,946][valid][INFO] - {"epoch": 27, "valid_loss": "61.939", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "1.207", "valid_uer": "18.059", "valid_wer": "43.329", "valid_raw_wer": "43.329", "valid_wps": "6596.9", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "2529", "valid_best_wer": "43.329"}
+[2020-12-19 21:34:59,948][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-19 21:34:59,959][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_best.pt after 2529 updates
+[2020-12-19 21:35:10,268][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2020-12-19 21:35:18,192][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_best.pt (epoch 27 @ 2529 updates, score 43.329) (writing took 18.2331350630011 seconds)
+[2020-12-19 21:35:18,193][fairseq_cli.train][INFO] - end of epoch 27 (average epoch stats below)
+[2020-12-19 21:35:18,193][train][INFO] - {"epoch": 27, "train_loss": "88.834", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "1.969", "train_wps": "8553.2", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "2529", "train_lr": "9.68891e-06", "train_gnorm": "23.806", "train_loss_scale": "2", "train_train_wall": "509", "train_wall": "14573"}
+[2020-12-19 21:35:18,214][fairseq.trainer][INFO] - begin training epoch 28
+[2020-12-19 21:41:55,646][train_inner][INFO] - {"epoch": 28, "update": 27.755, "loss": "87.959", "ntokens": "49789.1", "nsentences": "1100.4", "nll_loss": "1.944", "wps": "8583.5", "ups": "0.17", "wpb": "49789.1", "bsz": "1100.4", "num_updates": "2600", "lr": "9.9525e-06", "gnorm": "22.744", "loss_scale": "2", "train_wall": "1084", "wall": "14970"}
+[2020-12-19 21:44:00,268][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-19 21:44:05,723][valid][INFO] - {"epoch": 28, "valid_loss": "56.592", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "1.103", "valid_uer": "16.75", "valid_wer": "39.748", "valid_raw_wer": "39.748", "valid_wps": "6877.5", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "2623", "valid_best_wer": "39.748"}
+[2020-12-19 21:44:05,726][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-19 21:44:05,739][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_best.pt after 2623 updates
+[2020-12-19 21:44:14,951][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2020-12-19 21:44:23,843][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_best.pt (epoch 28 @ 2623 updates, score 39.748) (writing took 18.104374962000293 seconds)
+[2020-12-19 21:44:23,843][fairseq_cli.train][INFO] - end of epoch 28 (average epoch stats below)
+[2020-12-19 21:44:23,844][train][INFO] - {"epoch": 28, "train_loss": "83.033", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "1.841", "train_wps": "8564.6", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "2623", "train_lr": "1.00379e-05", "train_gnorm": "21.64", "train_loss_scale": "2", "train_train_wall": "509", "train_wall": "15118"}
+[2020-12-19 21:44:23,864][fairseq.trainer][INFO] - begin training epoch 29
+[2020-12-19 21:53:04,464][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-19 21:53:10,204][valid][INFO] - {"epoch": 29, "valid_loss": "52.694", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "1.027", "valid_uer": "15.549", "valid_wer": "35.855", "valid_raw_wer": "35.855", "valid_wps": "6573.6", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "2717", "valid_best_wer": "35.855"}
+[2020-12-19 21:53:10,206][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-19 21:53:10,207][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_best.pt after 2717 updates
+[2020-12-19 21:53:19,415][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2020-12-19 21:53:28,316][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_best.pt (epoch 29 @ 2717 updates, score 35.855) (writing took 18.110179622999567 seconds)
+[2020-12-19 21:53:28,317][fairseq_cli.train][INFO] - end of epoch 29 (average epoch stats below)
+[2020-12-19 21:53:28,318][train][INFO] - {"epoch": 29, "train_loss": "78.029", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "1.73", "train_wps": "8583.1", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "2717", "train_lr": "1.03869e-05", "train_gnorm": "20.743", "train_loss_scale": "2", "train_train_wall": "508", "train_wall": "15663"}
+[2020-12-19 21:53:28,340][fairseq.trainer][INFO] - begin training epoch 30
+[2020-12-19 22:01:11,680][train_inner][INFO] - {"epoch": 30, "update": 29.883, "loss": "76.306", "ntokens": "49709.9", "nsentences": "1103.08", "nll_loss": "1.693", "wps": "8600.1", "ups": "0.17", "wpb": "49709.9", "bsz": "1103.1", "num_updates": "2800", "lr": "1.0695e-05", "gnorm": "20.764", "loss_scale": "4", "train_wall": "1082", "wall": "16126"}
+[2020-12-19 22:02:07,423][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-19 22:02:12,842][valid][INFO] - {"epoch": 30, "valid_loss": "49.307", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.961", "valid_uer": "14.728", "valid_wer": "33.892", "valid_raw_wer": "33.892", "valid_wps": "6969", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "2811", "valid_best_wer": "33.892"}
+[2020-12-19 22:02:12,844][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-19 22:02:12,845][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_best.pt after 2811 updates
+[2020-12-19 22:02:22,024][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2020-12-19 22:02:30,915][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_best.pt (epoch 30 @ 2811 updates, score 33.892) (writing took 18.070666270999936 seconds)
+[2020-12-19 22:02:30,916][fairseq_cli.train][INFO] - end of epoch 30 (average epoch stats below)
+[2020-12-19 22:02:30,916][train][INFO] - {"epoch": 30, "train_loss": "72.979", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "1.618", "train_wps": "8612.8", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "2811", "train_lr": "1.07358e-05", "train_gnorm": "21.365", "train_loss_scale": "4", "train_train_wall": "507", "train_wall": "16206"}
+[2020-12-19 22:02:30,937][fairseq.trainer][INFO] - begin training epoch 31
+[2020-12-19 22:11:09,607][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-19 22:11:15,254][valid][INFO] - {"epoch": 31, "valid_loss": "47.03", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.916", "valid_uer": "13.972", "valid_wer": "31.246", "valid_raw_wer": "31.246", "valid_wps": "6660.4", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "2905", "valid_best_wer": "31.246"}
+[2020-12-19 22:11:15,256][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-19 22:11:15,258][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_best.pt after 2905 updates
+[2020-12-19 22:11:24,496][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2020-12-19 22:11:33,371][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_best.pt (epoch 31 @ 2905 updates, score 31.246) (writing took 18.113390274000267 seconds)
+[2020-12-19 22:11:33,371][fairseq_cli.train][INFO] - end of epoch 31 (average epoch stats below)
+[2020-12-19 22:11:33,372][train][INFO] - {"epoch": 31, "train_loss": "69.932", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "1.55", "train_wps": "8615", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "2905", "train_lr": "1.10848e-05", "train_gnorm": "21.399", "train_loss_scale": "4", "train_train_wall": "506", "train_wall": "16748"}
+[2020-12-19 22:11:33,393][fairseq.trainer][INFO] - begin training epoch 32
+[2020-12-19 22:20:12,117][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-19 22:20:17,630][valid][INFO] - {"epoch": 32, "valid_loss": "44.637", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.87", "valid_uer": "13.261", "valid_wer": "29.467", "valid_raw_wer": "29.467", "valid_wps": "6841.4", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "2999", "valid_best_wer": "29.467"}
+[2020-12-19 22:20:17,632][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-19 22:20:17,634][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_best.pt after 2999 updates
+[2020-12-19 22:20:26,810][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2020-12-19 22:20:35,695][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_best.pt (epoch 32 @ 2999 updates, score 29.467) (writing took 18.06160225500207 seconds)
+[2020-12-19 22:20:35,695][fairseq_cli.train][INFO] - end of epoch 32 (average epoch stats below)
+[2020-12-19 22:20:35,696][train][INFO] - {"epoch": 32, "train_loss": "67.927", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "1.506", "train_wps": "8617.1", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "2999", "train_lr": "1.14338e-05", "train_gnorm": "20.129", "train_loss_scale": "4", "train_train_wall": "506", "train_wall": "17290"}
+[2020-12-19 22:20:35,716][fairseq.trainer][INFO] - begin training epoch 33
+[2020-12-19 22:20:41,748][train_inner][INFO] - {"epoch": 33, "update": 32.011, "loss": "68.77", "ntokens": "49507.7", "nsentences": "1102", "nll_loss": "1.531", "wps": "8462.4", "ups": "0.17", "wpb": "49507.7", "bsz": "1102", "num_updates": "3000", "lr": "1.14375e-05", "gnorm": "21.299", "loss_scale": "4", "train_wall": "1072", "wall": "17296"}
+[2020-12-19 22:29:15,116][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-19 22:29:20,627][valid][INFO] - {"epoch": 33, "valid_loss": "42.819", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.834", "valid_uer": "12.745", "valid_wer": "28.197", "valid_raw_wer": "28.197", "valid_wps": "6784.5", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "3093", "valid_best_wer": "28.197"}
+[2020-12-19 22:29:20,629][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-19 22:29:20,630][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_best.pt after 3093 updates
+[2020-12-19 22:29:29,805][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2020-12-19 22:29:39,768][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_best.pt (epoch 33 @ 3093 updates, score 28.197) (writing took 19.137753170001815 seconds)
+[2020-12-19 22:29:39,768][fairseq_cli.train][INFO] - end of epoch 33 (average epoch stats below)
+[2020-12-19 22:29:39,769][train][INFO] - {"epoch": 33, "train_loss": "63.914", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "1.417", "train_wps": "8589.4", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "3093", "train_lr": "1.17828e-05", "train_gnorm": "21.918", "train_loss_scale": "4", "train_train_wall": "507", "train_wall": "17834"}
+[2020-12-19 22:29:39,790][fairseq.trainer][INFO] - begin training epoch 34
+[2020-12-19 22:38:18,327][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-19 22:38:23,656][valid][INFO] - {"epoch": 34, "valid_loss": "41.535", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.809", "valid_uer": "12.36", "valid_wer": "26.718", "valid_raw_wer": "26.718", "valid_wps": "7114.8", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "3187", "valid_best_wer": "26.718"}
+[2020-12-19 22:38:23,657][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-19 22:38:23,673][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_best.pt after 3187 updates
+[2020-12-19 22:38:33,976][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2020-12-19 22:38:42,867][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_best.pt (epoch 34 @ 3187 updates, score 26.718) (writing took 19.193810147000477 seconds)
+[2020-12-19 22:38:42,867][fairseq_cli.train][INFO] - end of epoch 34 (average epoch stats below)
+[2020-12-19 22:38:42,868][train][INFO] - {"epoch": 34, "train_loss": "62.042", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "1.375", "train_wps": "8604.8", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "3187", "train_lr": "1.21317e-05", "train_gnorm": "20.02", "train_loss_scale": "4", "train_train_wall": "506", "train_wall": "18377"}
+[2020-12-19 22:38:42,893][fairseq.trainer][INFO] - begin training epoch 35
+[2020-12-19 22:39:55,987][train_inner][INFO] - {"epoch": 35, "update": 34.138, "loss": "63.144", "ntokens": "49745.6", "nsentences": "1097.28", "nll_loss": "1.393", "wps": "8619.6", "ups": "0.17", "wpb": "49745.6", "bsz": "1097.3", "num_updates": "3200", "lr": "1.218e-05", "gnorm": "20.955", "loss_scale": "4", "train_wall": "1078", "wall": "18451"}
+[2020-12-19 22:47:21,996][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-19 22:47:27,428][valid][INFO] - {"epoch": 35, "valid_loss": "39.929", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.778", "valid_uer": "12.029", "valid_wer": "25.898", "valid_raw_wer": "25.898", "valid_wps": "6932.1", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "3281", "valid_best_wer": "25.898"}
+[2020-12-19 22:47:27,430][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-19 22:47:27,431][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_best.pt after 3281 updates
+[2020-12-19 22:47:36,631][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2020-12-19 22:47:45,521][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_best.pt (epoch 35 @ 3281 updates, score 25.898) (writing took 18.090432613000303 seconds)
+[2020-12-19 22:47:45,522][fairseq_cli.train][INFO] - end of epoch 35 (average epoch stats below)
+[2020-12-19 22:47:45,523][train][INFO] - {"epoch": 35, "train_loss": "59.981", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "1.33", "train_wps": "8611.9", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "3281", "train_lr": "1.24807e-05", "train_gnorm": "21.465", "train_loss_scale": "4", "train_train_wall": "507", "train_wall": "18920"}
+[2020-12-19 22:47:45,543][fairseq.trainer][INFO] - begin training epoch 36
+[2020-12-19 22:56:25,087][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-19 22:56:30,804][valid][INFO] - {"epoch": 36, "valid_loss": "39.3", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.766", "valid_uer": "11.907", "valid_wer": "25.494", "valid_raw_wer": "25.494", "valid_wps": "6526.5", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "3375", "valid_best_wer": "25.494"}
+[2020-12-19 22:56:30,806][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-19 22:56:30,807][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_best.pt after 3375 updates
+[2020-12-19 22:56:41,040][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2020-12-19 22:56:49,183][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_best.pt (epoch 36 @ 3375 updates, score 25.494) (writing took 18.37717470700227 seconds)
+[2020-12-19 22:56:49,184][fairseq_cli.train][INFO] - end of epoch 36 (average epoch stats below)
+[2020-12-19 22:56:49,185][train][INFO] - {"epoch": 36, "train_loss": "58.241", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "1.291", "train_wps": "8595.9", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "3375", "train_lr": "1.28297e-05", "train_gnorm": "20.412", "train_loss_scale": "4", "train_train_wall": "507", "train_wall": "19464"}
+[2020-12-19 22:56:49,205][fairseq.trainer][INFO] - begin training epoch 37
+[2020-12-19 22:59:09,924][train_inner][INFO] - {"epoch": 37, "update": 36.266, "loss": "58.36", "ntokens": "49687.5", "nsentences": "1105.68", "nll_loss": "1.299", "wps": "8611.8", "ups": "0.17", "wpb": "49687.5", "bsz": "1105.7", "num_updates": "3400", "lr": "1.29225e-05", "gnorm": "20.725", "loss_scale": "4", "train_wall": "1080", "wall": "19605"}
+[2020-12-19 23:05:29,185][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-19 23:05:34,521][valid][INFO] - {"epoch": 37, "valid_loss": "39.199", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.764", "valid_uer": "11.547", "valid_wer": "24.142", "valid_raw_wer": "24.142", "valid_wps": "7079.2", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "3469", "valid_best_wer": "24.142"}
+[2020-12-19 23:05:34,523][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-19 23:05:34,525][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_best.pt after 3469 updates
+[2020-12-19 23:05:43,699][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2020-12-19 23:05:52,599][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_best.pt (epoch 37 @ 3469 updates, score 24.142) (writing took 18.075151944001846 seconds)
+[2020-12-19 23:05:52,600][fairseq_cli.train][INFO] - end of epoch 37 (average epoch stats below)
+[2020-12-19 23:05:52,600][train][INFO] - {"epoch": 37, "train_loss": "56.418", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "1.251", "train_wps": "8599.8", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "3469", "train_lr": "1.31787e-05", "train_gnorm": "24.327", "train_loss_scale": "4", "train_train_wall": "507", "train_wall": "20007"}
+[2020-12-19 23:05:52,622][fairseq.trainer][INFO] - begin training epoch 38
+[2020-12-19 23:14:30,936][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-19 23:14:36,829][valid][INFO] - {"epoch": 38, "valid_loss": "37.828", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.737", "valid_uer": "11.516", "valid_wer": "24.212", "valid_raw_wer": "24.212", "valid_wps": "6388.9", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "3563", "valid_best_wer": "24.142"}
+[2020-12-19 23:14:36,831][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-19 23:14:36,832][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_last.pt after 3563 updates
+[2020-12-19 23:14:46,130][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_last.pt
+[2020-12-19 23:14:46,131][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_last.pt (epoch 38 @ 3563 updates, score 24.212) (writing took 9.299233913003263 seconds)
+[2020-12-19 23:14:46,131][fairseq_cli.train][INFO] - end of epoch 38 (average epoch stats below)
+[2020-12-19 23:14:46,132][train][INFO] - {"epoch": 38, "train_loss": "55.561", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "1.232", "train_wps": "8759.1", "train_ups": "0.18", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "3563", "train_lr": "1.35276e-05", "train_gnorm": "23.492", "train_loss_scale": "8", "train_train_wall": "506", "train_wall": "20541"}
+[2020-12-19 23:14:46,152][fairseq.trainer][INFO] - begin training epoch 39
+[2020-12-19 23:18:12,288][train_inner][INFO] - {"epoch": 39, "update": 38.394, "loss": "56.054", "ntokens": "49816", "nsentences": "1103", "nll_loss": "1.241", "wps": "8721.6", "ups": "0.18", "wpb": "49816", "bsz": "1103", "num_updates": "3600", "lr": "1.3665e-05", "gnorm": "24.282", "loss_scale": "8", "train_wall": "1077", "wall": "20747"}
+[2020-12-19 23:21:16,033][fairseq.trainer][INFO] - NOTE: overflow detected, setting loss scale to: 4.0
+[2020-12-19 23:23:24,496][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-19 23:23:29,752][valid][INFO] - {"epoch": 39, "valid_loss": "37.211", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.725", "valid_uer": "11.411", "valid_wer": "24.096", "valid_raw_wer": "24.096", "valid_wps": "7172.3", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "3656", "valid_best_wer": "24.096"}
+[2020-12-19 23:23:29,754][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-19 23:23:29,767][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_best.pt after 3656 updates
+[2020-12-19 23:23:40,035][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2020-12-19 23:23:47,964][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_best.pt (epoch 39 @ 3656 updates, score 24.096) (writing took 18.197607669000718 seconds)
+[2020-12-19 23:23:47,965][fairseq_cli.train][INFO] - end of epoch 39 (average epoch stats below)
+[2020-12-19 23:23:47,966][train][INFO] - {"epoch": 39, "train_loss": "54.43", "train_ntokens": "49723.7", "train_nsentences": "1103.23", "train_nll_loss": "1.208", "train_wps": "8534.6", "train_ups": "0.17", "train_wpb": "49723.7", "train_bsz": "1103.2", "train_num_updates": "3656", "train_lr": "1.38729e-05", "train_gnorm": "20.17", "train_loss_scale": "4", "train_train_wall": "506", "train_wall": "21083"}
+[2020-12-19 23:23:47,990][fairseq.trainer][INFO] - begin training epoch 40
+[2020-12-19 23:32:26,508][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-19 23:32:31,835][valid][INFO] - {"epoch": 40, "valid_loss": "36.38", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.709", "valid_uer": "11.21", "valid_wer": "23.426", "valid_raw_wer": "23.426", "valid_wps": "7093.7", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "3750", "valid_best_wer": "23.426"}
+[2020-12-19 23:32:31,837][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-19 23:32:31,846][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_best.pt after 3750 updates
+[2020-12-19 23:32:42,101][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2020-12-19 23:32:49,934][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_best.pt (epoch 40 @ 3750 updates, score 23.426) (writing took 18.088306195997575 seconds)
+[2020-12-19 23:32:49,934][fairseq_cli.train][INFO] - end of epoch 40 (average epoch stats below)
+[2020-12-19 23:32:49,935][train][INFO] - {"epoch": 40, "train_loss": "53.139", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "1.178", "train_wps": "8622.8", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "3750", "train_lr": "1.42219e-05", "train_gnorm": "19.28", "train_loss_scale": "4", "train_train_wall": "506", "train_wall": "21625"}
+[2020-12-19 23:32:49,959][fairseq.trainer][INFO] - begin training epoch 41
+[2020-12-19 23:37:29,039][train_inner][INFO] - {"epoch": 41, "update": 40.532, "loss": "52.786", "ntokens": "49748.9", "nsentences": "1106.36", "nll_loss": "1.174", "wps": "8601.5", "ups": "0.17", "wpb": "49748.9", "bsz": "1106.4", "num_updates": "3800", "lr": "1.44075e-05", "gnorm": "19.059", "loss_scale": "4", "train_wall": "1083", "wall": "21904"}
+[2020-12-19 23:41:28,311][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-19 23:41:33,888][valid][INFO] - {"epoch": 41, "valid_loss": "35.767", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.697", "valid_uer": "11.032", "valid_wer": "23.253", "valid_raw_wer": "23.253", "valid_wps": "6727.8", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "3844", "valid_best_wer": "23.253"}
+[2020-12-19 23:41:33,890][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-19 23:41:33,891][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_best.pt after 3844 updates
+[2020-12-19 23:41:43,122][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2020-12-19 23:41:51,988][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_best.pt (epoch 41 @ 3844 updates, score 23.253) (writing took 18.097171003999392 seconds)
+[2020-12-19 23:41:51,988][fairseq_cli.train][INFO] - end of epoch 41 (average epoch stats below)
+[2020-12-19 23:41:51,989][train][INFO] - {"epoch": 41, "train_loss": "52.142", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "1.156", "train_wps": "8621.4", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "3844", "train_lr": "1.45709e-05", "train_gnorm": "19.892", "train_loss_scale": "4", "train_train_wall": "506", "train_wall": "22167"}
+[2020-12-19 23:41:52,014][fairseq.trainer][INFO] - begin training epoch 42
+[2020-12-19 23:50:31,860][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-19 23:50:37,503][valid][INFO] - {"epoch": 42, "valid_loss": "35.248", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.687", "valid_uer": "10.836", "valid_wer": "22.317", "valid_raw_wer": "22.317", "valid_wps": "6628.1", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "3938", "valid_best_wer": "22.317"}
+[2020-12-19 23:50:37,505][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-19 23:50:37,506][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_best.pt after 3938 updates
+[2020-12-19 23:50:47,792][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2020-12-19 23:50:56,403][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_best.pt (epoch 42 @ 3938 updates, score 22.317) (writing took 18.898047362003126 seconds)
+[2020-12-19 23:50:56,404][fairseq_cli.train][INFO] - end of epoch 42 (average epoch stats below)
+[2020-12-19 23:50:56,404][train][INFO] - {"epoch": 42, "train_loss": "50.52", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "1.12", "train_wps": "8584", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "3938", "train_lr": "1.49198e-05", "train_gnorm": "19.395", "train_loss_scale": "4", "train_train_wall": "507", "train_wall": "22711"}
+[2020-12-19 23:50:56,424][fairseq.trainer][INFO] - begin training epoch 43
+[2020-12-19 23:56:41,503][train_inner][INFO] - {"epoch": 43, "update": 42.66, "loss": "50.856", "ntokens": "49715.5", "nsentences": "1099.88", "nll_loss": "1.125", "wps": "8627.7", "ups": "0.17", "wpb": "49715.5", "bsz": "1099.9", "num_updates": "4000", "lr": "1.515e-05", "gnorm": "19.335", "loss_scale": "4", "train_wall": "1077", "wall": "23056"}
+[2020-12-19 23:59:34,283][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-19 23:59:39,960][valid][INFO] - {"epoch": 43, "valid_loss": "34.373", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.67", "valid_uer": "10.74", "valid_wer": "22.352", "valid_raw_wer": "22.352", "valid_wps": "6649.3", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "4032", "valid_best_wer": "22.317"}
+[2020-12-19 23:59:39,962][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-19 23:59:39,963][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_last.pt after 4032 updates
+[2020-12-19 23:59:49,214][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_last.pt
+[2020-12-19 23:59:49,214][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_last.pt (epoch 43 @ 4032 updates, score 22.352) (writing took 9.25124903500182 seconds)
+[2020-12-19 23:59:49,214][fairseq_cli.train][INFO] - end of epoch 43 (average epoch stats below)
+[2020-12-19 23:59:49,215][train][INFO] - {"epoch": 43, "train_loss": "49.835", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "1.105", "train_wps": "8771", "train_ups": "0.18", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "4032", "train_lr": "1.52688e-05", "train_gnorm": "18.829", "train_loss_scale": "4", "train_train_wall": "505", "train_wall": "23244"}
+[2020-12-19 23:59:49,235][fairseq.trainer][INFO] - begin training epoch 44
+[2020-12-20 00:08:28,268][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 00:08:33,894][valid][INFO] - {"epoch": 44, "valid_loss": "33.88", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.66", "valid_uer": "10.652", "valid_wer": "22.225", "valid_raw_wer": "22.225", "valid_wps": "6660", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "4126", "valid_best_wer": "22.225"}
+[2020-12-20 00:08:33,896][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 00:08:33,911][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_best.pt after 4126 updates
+[2020-12-20 00:08:43,113][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2020-12-20 00:08:51,980][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_best.pt (epoch 44 @ 4126 updates, score 22.225) (writing took 18.069347623000795 seconds)
+[2020-12-20 00:08:51,980][fairseq_cli.train][INFO] - end of epoch 44 (average epoch stats below)
+[2020-12-20 00:08:51,981][train][INFO] - {"epoch": 44, "train_loss": "48.694", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "1.079", "train_wps": "8610.1", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "4126", "train_lr": "1.56178e-05", "train_gnorm": "19.202", "train_loss_scale": "4", "train_train_wall": "506", "train_wall": "23787"}
+[2020-12-20 00:08:52,002][fairseq.trainer][INFO] - begin training epoch 45
+[2020-12-20 00:15:44,140][train_inner][INFO] - {"epoch": 45, "update": 44.787, "loss": "48.666", "ntokens": "49764.7", "nsentences": "1105.64", "nll_loss": "1.081", "wps": "8710.5", "ups": "0.18", "wpb": "49764.7", "bsz": "1105.6", "num_updates": "4200", "lr": "1.58925e-05", "gnorm": "19.24", "loss_scale": "4", "train_wall": "1077", "wall": "24199"}
+[2020-12-20 00:17:29,790][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 00:17:35,361][valid][INFO] - {"epoch": 45, "valid_loss": "33.525", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.653", "valid_uer": "10.386", "valid_wer": "21.301", "valid_raw_wer": "21.301", "valid_wps": "6722.8", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "4220", "valid_best_wer": "21.301"}
+[2020-12-20 00:17:35,363][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 00:17:35,364][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_best.pt after 4220 updates
+[2020-12-20 00:17:44,559][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2020-12-20 00:17:53,442][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_best.pt (epoch 45 @ 4220 updates, score 21.301) (writing took 18.07809816599911 seconds)
+[2020-12-20 00:17:53,442][fairseq_cli.train][INFO] - end of epoch 45 (average epoch stats below)
+[2020-12-20 00:17:53,443][train][INFO] - {"epoch": 45, "train_loss": "48.707", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "1.08", "train_wps": "8630.8", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "4220", "train_lr": "1.59668e-05", "train_gnorm": "19.364", "train_loss_scale": "4", "train_train_wall": "505", "train_wall": "24328"}
+[2020-12-20 00:17:53,467][fairseq.trainer][INFO] - begin training epoch 46
+[2020-12-20 00:26:32,845][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 00:26:38,354][valid][INFO] - {"epoch": 46, "valid_loss": "32.974", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.643", "valid_uer": "10.253", "valid_wer": "21.081", "valid_raw_wer": "21.081", "valid_wps": "6851.3", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "4314", "valid_best_wer": "21.081"}
+[2020-12-20 00:26:38,369][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 00:26:38,370][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_best.pt after 4314 updates
+[2020-12-20 00:26:47,590][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2020-12-20 00:26:56,479][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_best.pt (epoch 46 @ 4314 updates, score 21.081) (writing took 18.108769845999632 seconds)
+[2020-12-20 00:26:56,479][fairseq_cli.train][INFO] - end of epoch 46 (average epoch stats below)
+[2020-12-20 00:26:56,480][train][INFO] - {"epoch": 46, "train_loss": "47.321", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "1.049", "train_wps": "8605.8", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "4314", "train_lr": "1.63157e-05", "train_gnorm": "19.832", "train_loss_scale": "8", "train_train_wall": "507", "train_wall": "24871"}
+[2020-12-20 00:26:56,509][fairseq.trainer][INFO] - begin training epoch 47
+[2020-12-20 00:34:55,483][train_inner][INFO] - {"epoch": 47, "update": 46.915, "loss": "47.336", "ntokens": "49714.7", "nsentences": "1102", "nll_loss": "1.049", "wps": "8635.9", "ups": "0.17", "wpb": "49714.7", "bsz": "1102", "num_updates": "4400", "lr": "1.6635e-05", "gnorm": "19.343", "loss_scale": "8", "train_wall": "1077", "wall": "25350"}
+[2020-12-20 00:35:35,088][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 00:35:40,740][valid][INFO] - {"epoch": 47, "valid_loss": "32.775", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.639", "valid_uer": "10.106", "valid_wer": "20.584", "valid_raw_wer": "20.584", "valid_wps": "6622", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "4408", "valid_best_wer": "20.584"}
+[2020-12-20 00:35:40,741][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 00:35:40,743][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_best.pt after 4408 updates
+[2020-12-20 00:35:51,031][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2020-12-20 00:35:59,054][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_best.pt (epoch 47 @ 4408 updates, score 20.584) (writing took 18.311541811002826 seconds)
+[2020-12-20 00:35:59,054][fairseq_cli.train][INFO] - end of epoch 47 (average epoch stats below)
+[2020-12-20 00:35:59,055][train][INFO] - {"epoch": 47, "train_loss": "46.91", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "1.04", "train_wps": "8613.1", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "4408", "train_lr": "1.66647e-05", "train_gnorm": "18.839", "train_loss_scale": "8", "train_train_wall": "506", "train_wall": "25414"}
+[2020-12-20 00:35:59,078][fairseq.trainer][INFO] - begin training epoch 48
+[2020-12-20 00:36:04,957][fairseq.trainer][INFO] - NOTE: overflow detected, setting loss scale to: 4.0
+[2020-12-20 00:44:38,556][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 00:44:44,098][valid][INFO] - {"epoch": 48, "valid_loss": "32.641", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.636", "valid_uer": "10.094", "valid_wer": "20.088", "valid_raw_wer": "20.088", "valid_wps": "6778.2", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "4501", "valid_best_wer": "20.088"}
+[2020-12-20 00:44:44,100][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 00:44:44,110][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_best.pt after 4501 updates
+[2020-12-20 00:44:53,382][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2020-12-20 00:45:02,256][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_best.pt (epoch 48 @ 4501 updates, score 20.088) (writing took 18.145885795998765 seconds)
+[2020-12-20 00:45:02,256][fairseq_cli.train][INFO] - end of epoch 48 (average epoch stats below)
+[2020-12-20 00:45:02,257][train][INFO] - {"epoch": 48, "train_loss": "46.002", "train_ntokens": "49741.3", "train_nsentences": "1104.6", "train_nll_loss": "1.022", "train_wps": "8516.1", "train_ups": "0.17", "train_wpb": "49741.3", "train_bsz": "1104.6", "train_num_updates": "4501", "train_lr": "1.701e-05", "train_gnorm": "19.369", "train_loss_scale": "4", "train_train_wall": "507", "train_wall": "25957"}
+[2020-12-20 00:45:02,282][fairseq.trainer][INFO] - begin training epoch 49
+[2020-12-20 00:53:42,732][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 00:53:48,395][valid][INFO] - {"epoch": 49, "valid_loss": "32.34", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.63", "valid_uer": "9.967", "valid_wer": "19.811", "valid_raw_wer": "19.811", "valid_wps": "6640.5", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "4595", "valid_best_wer": "19.811"}
+[2020-12-20 00:53:48,397][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 00:53:48,398][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_best.pt after 4595 updates
+[2020-12-20 00:53:57,792][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2020-12-20 00:54:06,676][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_best.pt (epoch 49 @ 4595 updates, score 19.811) (writing took 18.27876659300091 seconds)
+[2020-12-20 00:54:06,677][fairseq_cli.train][INFO] - end of epoch 49 (average epoch stats below)
+[2020-12-20 00:54:06,678][train][INFO] - {"epoch": 49, "train_loss": "45.372", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "1.006", "train_wps": "8583.9", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "4595", "train_lr": "1.73589e-05", "train_gnorm": "18.949", "train_loss_scale": "4", "train_train_wall": "508", "train_wall": "26501"}
+[2020-12-20 00:54:06,702][fairseq.trainer][INFO] - begin training epoch 50
+[2020-12-20 00:54:35,825][train_inner][INFO] - {"epoch": 50, "update": 49.053, "loss": "45.739", "ntokens": "49538.2", "nsentences": "1097.88", "nll_loss": "1.014", "wps": "8393.9", "ups": "0.17", "wpb": "49538.2", "bsz": "1097.9", "num_updates": "4600", "lr": "1.73775e-05", "gnorm": "19.271", "loss_scale": "4", "train_wall": "1080", "wall": "26530"}
+[2020-12-20 01:02:51,060][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 01:02:56,793][valid][INFO] - {"epoch": 50, "valid_loss": "31.882", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.621", "valid_uer": "9.851", "valid_wer": "19.683", "valid_raw_wer": "19.683", "valid_wps": "6506.1", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "4689", "valid_best_wer": "19.683"}
+[2020-12-20 01:02:56,795][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 01:02:56,796][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_best.pt after 4689 updates
+[2020-12-20 01:03:06,032][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2020-12-20 01:03:14,926][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_best.pt (epoch 50 @ 4689 updates, score 19.683) (writing took 18.1302132109995 seconds)
+[2020-12-20 01:03:14,926][fairseq_cli.train][INFO] - end of epoch 50 (average epoch stats below)
+[2020-12-20 01:03:14,927][train][INFO] - {"epoch": 50, "train_loss": "44.553", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "0.988", "train_wps": "8524", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "4689", "train_lr": "1.77079e-05", "train_gnorm": "18.875", "train_loss_scale": "4", "train_train_wall": "510", "train_wall": "27050"}
+[2020-12-20 01:03:14,949][fairseq.trainer][INFO] - begin training epoch 51
+[2020-12-20 01:11:55,318][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 01:12:00,909][valid][INFO] - {"epoch": 51, "valid_loss": "31.407", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.612", "valid_uer": "9.746", "valid_wer": "19.568", "valid_raw_wer": "19.568", "valid_wps": "6686.7", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "4783", "valid_best_wer": "19.568"}
+[2020-12-20 01:12:00,911][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 01:12:00,925][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_best.pt after 4783 updates
+[2020-12-20 01:12:11,166][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2020-12-20 01:12:19,080][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_best.pt (epoch 51 @ 4783 updates, score 19.568) (writing took 18.15482190500188 seconds)
+[2020-12-20 01:12:19,080][fairseq_cli.train][INFO] - end of epoch 51 (average epoch stats below)
+[2020-12-20 01:12:19,081][train][INFO] - {"epoch": 51, "train_loss": "43.475", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "0.964", "train_wps": "8588.2", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "4783", "train_lr": "1.80569e-05", "train_gnorm": "18.323", "train_loss_scale": "4", "train_train_wall": "508", "train_wall": "27594"}
+[2020-12-20 01:12:19,100][fairseq.trainer][INFO] - begin training epoch 52
+[2020-12-20 01:13:54,323][train_inner][INFO] - {"epoch": 52, "update": 51.181, "loss": "44.234", "ntokens": "49774.9", "nsentences": "1098.32", "nll_loss": "0.976", "wps": "8593", "ups": "0.17", "wpb": "49774.9", "bsz": "1098.3", "num_updates": "4800", "lr": "1.812e-05", "gnorm": "18.765", "loss_scale": "4", "train_wall": "1084", "wall": "27689"}
+[2020-12-20 01:21:01,169][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 01:21:06,852][valid][INFO] - {"epoch": 52, "valid_loss": "31.192", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.608", "valid_uer": "9.686", "valid_wer": "19.314", "valid_raw_wer": "19.314", "valid_wps": "6639.3", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "4877", "valid_best_wer": "19.314"}
+[2020-12-20 01:21:06,854][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 01:21:06,855][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_best.pt after 4877 updates
+[2020-12-20 01:21:16,326][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2020-12-20 01:21:25,206][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_best.pt (epoch 52 @ 4877 updates, score 19.314) (writing took 18.351967484999477 seconds)
+[2020-12-20 01:21:25,207][fairseq_cli.train][INFO] - end of epoch 52 (average epoch stats below)
+[2020-12-20 01:21:25,208][train][INFO] - {"epoch": 52, "train_loss": "43.513", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "0.965", "train_wps": "8557.1", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "4877", "train_lr": "1.84059e-05", "train_gnorm": "19.938", "train_loss_scale": "4", "train_train_wall": "509", "train_wall": "28140"}
+[2020-12-20 01:21:25,238][fairseq.trainer][INFO] - begin training epoch 53
+[2020-12-20 01:30:05,849][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 01:30:11,345][valid][INFO] - {"epoch": 53, "valid_loss": "31.089", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.606", "valid_uer": "9.669", "valid_wer": "19.441", "valid_raw_wer": "19.441", "valid_wps": "6831.9", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "4971", "valid_best_wer": "19.314"}
+[2020-12-20 01:30:11,347][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 01:30:11,348][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_last.pt after 4971 updates
+[2020-12-20 01:30:20,590][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_last.pt
+[2020-12-20 01:30:20,591][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_last.pt (epoch 53 @ 4971 updates, score 19.441) (writing took 9.243487245999859 seconds)
+[2020-12-20 01:30:20,591][fairseq_cli.train][INFO] - end of epoch 53 (average epoch stats below)
+[2020-12-20 01:30:20,592][train][INFO] - {"epoch": 53, "train_loss": "42.92", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "0.951", "train_wps": "8728.8", "train_ups": "0.18", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "4971", "train_lr": "1.87548e-05", "train_gnorm": "19.181", "train_loss_scale": "4", "train_train_wall": "508", "train_wall": "28675"}
+[2020-12-20 01:30:20,613][fairseq.trainer][INFO] - begin training epoch 54
+[2020-12-20 01:33:03,048][train_inner][INFO] - {"epoch": 54, "update": 53.309, "loss": "42.86", "ntokens": "49731.9", "nsentences": "1107.52", "nll_loss": "0.954", "wps": "8658.6", "ups": "0.17", "wpb": "49731.9", "bsz": "1107.5", "num_updates": "5000", "lr": "1.88625e-05", "gnorm": "19.372", "loss_scale": "4", "train_wall": "1083", "wall": "28838"}
+[2020-12-20 01:38:58,822][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 01:39:04,213][valid][INFO] - {"epoch": 54, "valid_loss": "30.599", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.596", "valid_uer": "9.627", "valid_wer": "18.99", "valid_raw_wer": "18.99", "valid_wps": "6967.6", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "5065", "valid_best_wer": "18.99"}
+[2020-12-20 01:39:04,228][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 01:39:04,229][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_best.pt after 5065 updates
+[2020-12-20 01:39:13,415][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2020-12-20 01:39:22,287][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_best.pt (epoch 54 @ 5065 updates, score 18.99) (writing took 18.058254658997612 seconds)
+[2020-12-20 01:39:22,288][fairseq_cli.train][INFO] - end of epoch 54 (average epoch stats below)
+[2020-12-20 01:39:22,288][train][INFO] - {"epoch": 54, "train_loss": "42.489", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "0.942", "train_wps": "8627.1", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "5065", "train_lr": "1.91038e-05", "train_gnorm": "20.5", "train_loss_scale": "4", "train_train_wall": "506", "train_wall": "29217"}
+[2020-12-20 01:39:22,312][fairseq.trainer][INFO] - begin training epoch 55
+[2020-12-20 01:47:59,948][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 01:48:05,306][valid][INFO] - {"epoch": 55, "valid_loss": "30.338", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.591", "valid_uer": "9.449", "valid_wer": "18.782", "valid_raw_wer": "18.782", "valid_wps": "7065.5", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "5159", "valid_best_wer": "18.782"}
+[2020-12-20 01:48:05,308][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 01:48:05,309][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_best.pt after 5159 updates
+[2020-12-20 01:48:14,510][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2020-12-20 01:48:24,459][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_best.pt (epoch 55 @ 5159 updates, score 18.782) (writing took 19.15017565600283 seconds)
+[2020-12-20 01:48:24,459][fairseq_cli.train][INFO] - end of epoch 55 (average epoch stats below)
+[2020-12-20 01:48:24,460][train][INFO] - {"epoch": 55, "train_loss": "41.866", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "0.928", "train_wps": "8619.5", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "5159", "train_lr": "1.94528e-05", "train_gnorm": "20.637", "train_loss_scale": "8", "train_train_wall": "506", "train_wall": "29759"}
+[2020-12-20 01:48:24,479][fairseq.trainer][INFO] - begin training epoch 56
+[2020-12-20 01:50:42,989][fairseq.trainer][INFO] - NOTE: overflow detected, setting loss scale to: 4.0
+[2020-12-20 01:52:17,235][train_inner][INFO] - {"epoch": 56, "update": 55.447, "loss": "42.327", "ntokens": "49732.9", "nsentences": "1093.08", "nll_loss": "0.93", "wps": "8617.8", "ups": "0.17", "wpb": "49732.9", "bsz": "1093.1", "num_updates": "5200", "lr": "1.9605e-05", "gnorm": "20.433", "loss_scale": "4", "train_wall": "1080", "wall": "29992"}
+[2020-12-20 01:57:02,108][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 01:57:07,643][valid][INFO] - {"epoch": 56, "valid_loss": "30.803", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.6", "valid_uer": "9.468", "valid_wer": "18.32", "valid_raw_wer": "18.32", "valid_wps": "6843.8", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "5252", "valid_best_wer": "18.32"}
+[2020-12-20 01:57:07,645][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 01:57:07,646][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_best.pt after 5252 updates
+[2020-12-20 01:57:16,805][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2020-12-20 01:57:25,679][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_best.pt (epoch 56 @ 5252 updates, score 18.32) (writing took 18.033589943999687 seconds)
+[2020-12-20 01:57:25,680][fairseq_cli.train][INFO] - end of epoch 56 (average epoch stats below)
+[2020-12-20 01:57:25,680][train][INFO] - {"epoch": 56, "train_loss": "41.941", "train_ntokens": "49697.9", "train_nsentences": "1096.09", "train_nll_loss": "0.925", "train_wps": "8539.8", "train_ups": "0.17", "train_wpb": "49697.9", "train_bsz": "1096.1", "train_num_updates": "5252", "train_lr": "1.97981e-05", "train_gnorm": "20.81", "train_loss_scale": "4", "train_train_wall": "505", "train_wall": "30300"}
+[2020-12-20 01:57:25,703][fairseq.trainer][INFO] - begin training epoch 57
+[2020-12-20 02:06:03,785][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 02:06:09,409][valid][INFO] - {"epoch": 57, "valid_loss": "30.203", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.589", "valid_uer": "9.352", "valid_wer": "18.286", "valid_raw_wer": "18.286", "valid_wps": "6656.4", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "5346", "valid_best_wer": "18.286"}
+[2020-12-20 02:06:09,411][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 02:06:09,412][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_best.pt after 5346 updates
+[2020-12-20 02:06:18,599][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2020-12-20 02:06:27,489][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_best.pt (epoch 57 @ 5346 updates, score 18.286) (writing took 18.077685952001048 seconds)
+[2020-12-20 02:06:27,490][fairseq_cli.train][INFO] - end of epoch 57 (average epoch stats below)
+[2020-12-20 02:06:27,490][train][INFO] - {"epoch": 57, "train_loss": "41.165", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "0.913", "train_wps": "8625.3", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "5346", "train_lr": "2.0147e-05", "train_gnorm": "19.516", "train_loss_scale": "4", "train_train_wall": "506", "train_wall": "30842"}
+[2020-12-20 02:06:27,514][fairseq.trainer][INFO] - begin training epoch 58
+[2020-12-20 02:11:28,320][train_inner][INFO] - {"epoch": 58, "update": 57.574, "loss": "41.182", "ntokens": "49810", "nsentences": "1105.48", "nll_loss": "0.914", "wps": "8654.4", "ups": "0.17", "wpb": "49810", "bsz": "1105.5", "num_updates": "5400", "lr": "2.03475e-05", "gnorm": "19.874", "loss_scale": "4", "train_wall": "1077", "wall": "31143"}
+[2020-12-20 02:15:06,479][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 02:15:12,001][valid][INFO] - {"epoch": 58, "valid_loss": "29.977", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.584", "valid_uer": "9.301", "valid_wer": "18.078", "valid_raw_wer": "18.078", "valid_wps": "6816.1", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "5440", "valid_best_wer": "18.078"}
+[2020-12-20 02:15:12,002][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 02:15:12,019][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_best.pt after 5440 updates
+[2020-12-20 02:15:21,238][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2020-12-20 02:15:30,129][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_best.pt (epoch 58 @ 5440 updates, score 18.078) (writing took 18.110405717001413 seconds)
+[2020-12-20 02:15:30,129][fairseq_cli.train][INFO] - end of epoch 58 (average epoch stats below)
+[2020-12-20 02:15:30,130][train][INFO] - {"epoch": 58, "train_loss": "41", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "0.909", "train_wps": "8612.1", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "5440", "train_lr": "2.0496e-05", "train_gnorm": "19.829", "train_loss_scale": "4", "train_train_wall": "506", "train_wall": "31385"}
+[2020-12-20 02:15:30,150][fairseq.trainer][INFO] - begin training epoch 59
+[2020-12-20 02:24:08,870][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 02:24:14,616][valid][INFO] - {"epoch": 59, "valid_loss": "29.764", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.58", "valid_uer": "9.191", "valid_wer": "17.847", "valid_raw_wer": "17.847", "valid_wps": "6484.2", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "5534", "valid_best_wer": "17.847"}
+[2020-12-20 02:24:14,618][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 02:24:14,620][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_best.pt after 5534 updates
+[2020-12-20 02:24:23,817][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2020-12-20 02:24:32,696][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_best.pt (epoch 59 @ 5534 updates, score 17.847) (writing took 18.076820468999358 seconds)
+[2020-12-20 02:24:32,696][fairseq_cli.train][INFO] - end of epoch 59 (average epoch stats below)
+[2020-12-20 02:24:32,697][train][INFO] - {"epoch": 59, "train_loss": "40.447", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "0.897", "train_wps": "8613.3", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "5534", "train_lr": "2.0845e-05", "train_gnorm": "19.311", "train_loss_scale": "4", "train_train_wall": "506", "train_wall": "31927"}
+[2020-12-20 02:24:32,718][fairseq.trainer][INFO] - begin training epoch 60
+[2020-12-20 02:30:39,944][train_inner][INFO] - {"epoch": 60, "update": 59.702, "loss": "40.338", "ntokens": "49701.5", "nsentences": "1107.8", "nll_loss": "0.899", "wps": "8631.5", "ups": "0.17", "wpb": "49701.5", "bsz": "1107.8", "num_updates": "5600", "lr": "2.109e-05", "gnorm": "19.474", "loss_scale": "4", "train_wall": "1077", "wall": "32295"}
+[2020-12-20 02:33:10,599][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 02:33:16,043][valid][INFO] - {"epoch": 60, "valid_loss": "29.545", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.576", "valid_uer": "9.114", "valid_wer": "17.743", "valid_raw_wer": "17.743", "valid_wps": "6904.7", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "5628", "valid_best_wer": "17.743"}
+[2020-12-20 02:33:16,044][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 02:33:16,057][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_best.pt after 5628 updates
+[2020-12-20 02:33:25,240][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2020-12-20 02:33:35,178][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_best.pt (epoch 60 @ 5628 updates, score 17.743) (writing took 19.12123862199951 seconds)
+[2020-12-20 02:33:35,178][fairseq_cli.train][INFO] - end of epoch 60 (average epoch stats below)
+[2020-12-20 02:33:35,179][train][INFO] - {"epoch": 60, "train_loss": "40.041", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "0.888", "train_wps": "8614.6", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "5628", "train_lr": "2.1194e-05", "train_gnorm": "18.122", "train_loss_scale": "4", "train_train_wall": "506", "train_wall": "32470"}
+[2020-12-20 02:33:35,203][fairseq.trainer][INFO] - begin training epoch 61
+[2020-12-20 02:42:13,752][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 02:42:19,363][valid][INFO] - {"epoch": 61, "valid_loss": "29.351", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.572", "valid_uer": "9.112", "valid_wer": "17.916", "valid_raw_wer": "17.916", "valid_wps": "6695", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "5722", "valid_best_wer": "17.743"}
+[2020-12-20 02:42:19,365][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 02:42:19,366][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_last.pt after 5722 updates
+[2020-12-20 02:42:28,614][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_last.pt
+[2020-12-20 02:42:28,615][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_last.pt (epoch 61 @ 5722 updates, score 17.916) (writing took 9.249420330001158 seconds)
+[2020-12-20 02:42:28,615][fairseq_cli.train][INFO] - end of epoch 61 (average epoch stats below)
+[2020-12-20 02:42:28,616][train][INFO] - {"epoch": 61, "train_loss": "40.025", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "0.887", "train_wps": "8760.7", "train_ups": "0.18", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "5722", "train_lr": "2.15429e-05", "train_gnorm": "18.875", "train_loss_scale": "4", "train_train_wall": "506", "train_wall": "33003"}
+[2020-12-20 02:42:28,637][fairseq.trainer][INFO] - begin training epoch 62
+[2020-12-20 02:49:42,706][train_inner][INFO] - {"epoch": 62, "update": 61.83, "loss": "39.829", "ntokens": "49743.7", "nsentences": "1100.2", "nll_loss": "0.881", "wps": "8705.9", "ups": "0.18", "wpb": "49743.7", "bsz": "1100.2", "num_updates": "5800", "lr": "2.18325e-05", "gnorm": "18.492", "loss_scale": "4", "train_wall": "1077", "wall": "33437"}
+[2020-12-20 02:51:06,394][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 02:51:11,805][valid][INFO] - {"epoch": 62, "valid_loss": "29.254", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.57", "valid_uer": "9.015", "valid_wer": "17.5", "valid_raw_wer": "17.5", "valid_wps": "6946.4", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "5816", "valid_best_wer": "17.5"}
+[2020-12-20 02:51:11,807][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 02:51:11,808][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_best.pt after 5816 updates
+[2020-12-20 02:51:21,034][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2020-12-20 02:51:29,933][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_best.pt (epoch 62 @ 5816 updates, score 17.5) (writing took 18.12529100899701 seconds)
+[2020-12-20 02:51:29,933][fairseq_cli.train][INFO] - end of epoch 62 (average epoch stats below)
+[2020-12-20 02:51:29,934][train][INFO] - {"epoch": 62, "train_loss": "39.459", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "0.875", "train_wps": "8633.1", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "5816", "train_lr": "2.18919e-05", "train_gnorm": "18.913", "train_loss_scale": "4", "train_train_wall": "506", "train_wall": "33545"}
+[2020-12-20 02:51:29,963][fairseq.trainer][INFO] - begin training epoch 63
+[2020-12-20 03:00:09,942][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 03:00:15,456][valid][INFO] - {"epoch": 63, "valid_loss": "29.239", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.57", "valid_uer": "9.046", "valid_wer": "17.616", "valid_raw_wer": "17.616", "valid_wps": "6796.1", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "5910", "valid_best_wer": "17.5"}
+[2020-12-20 03:00:15,458][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 03:00:15,459][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_last.pt after 5910 updates
+[2020-12-20 03:00:24,725][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_last.pt
+[2020-12-20 03:00:24,726][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_last.pt (epoch 63 @ 5910 updates, score 17.616) (writing took 9.26749332199688 seconds)
+[2020-12-20 03:00:24,726][fairseq_cli.train][INFO] - end of epoch 63 (average epoch stats below)
+[2020-12-20 03:00:24,727][train][INFO] - {"epoch": 63, "train_loss": "39.045", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "0.866", "train_wps": "8738.5", "train_ups": "0.18", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "5910", "train_lr": "2.22409e-05", "train_gnorm": "19.622", "train_loss_scale": "8", "train_train_wall": "507", "train_wall": "34079"}
+[2020-12-20 03:00:24,748][fairseq.trainer][INFO] - begin training epoch 64
+[2020-12-20 03:08:47,468][train_inner][INFO] - {"epoch": 64, "update": 63.957, "loss": "38.83", "ntokens": "49742.7", "nsentences": "1103.24", "nll_loss": "0.861", "wps": "8690.5", "ups": "0.17", "wpb": "49742.7", "bsz": "1103.2", "num_updates": "6000", "lr": "2.2575e-05", "gnorm": "19.542", "loss_scale": "8", "train_wall": "1080", "wall": "34582"}
+[2020-12-20 03:09:04,314][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 03:09:09,564][valid][INFO] - {"epoch": 64, "valid_loss": "28.892", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.563", "valid_uer": "8.916", "valid_wer": "17.246", "valid_raw_wer": "17.246", "valid_wps": "7168.7", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "6004", "valid_best_wer": "17.246"}
+[2020-12-20 03:09:09,566][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 03:09:09,567][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_best.pt after 6004 updates
+[2020-12-20 03:09:18,783][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2020-12-20 03:09:27,675][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_best.pt (epoch 64 @ 6004 updates, score 17.246) (writing took 18.10873634699965 seconds)
+[2020-12-20 03:09:27,676][fairseq_cli.train][INFO] - end of epoch 64 (average epoch stats below)
+[2020-12-20 03:09:27,677][train][INFO] - {"epoch": 64, "train_loss": "38.689", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "0.858", "train_wps": "8607.2", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "6004", "train_lr": "2.25899e-05", "train_gnorm": "18.806", "train_loss_scale": "8", "train_train_wall": "507", "train_wall": "34622"}
+[2020-12-20 03:09:27,706][fairseq.trainer][INFO] - begin training epoch 65
+[2020-12-20 03:11:47,407][fairseq.trainer][INFO] - NOTE: overflow detected, setting loss scale to: 4.0
+[2020-12-20 03:18:06,270][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 03:18:11,788][valid][INFO] - {"epoch": 65, "valid_loss": "28.62", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.558", "valid_uer": "8.967", "valid_wer": "17.258", "valid_raw_wer": "17.258", "valid_wps": "6816.7", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "6097", "valid_best_wer": "17.246"}
+[2020-12-20 03:18:11,790][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 03:18:11,807][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_last.pt after 6097 updates
+[2020-12-20 03:18:21,017][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_last.pt
+[2020-12-20 03:18:21,017][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_last.pt (epoch 65 @ 6097 updates, score 17.258) (writing took 9.209796814000583 seconds)
+[2020-12-20 03:18:21,017][fairseq_cli.train][INFO] - end of epoch 65 (average epoch stats below)
+[2020-12-20 03:18:21,018][train][INFO] - {"epoch": 65, "train_loss": "38.326", "train_ntokens": "49714.4", "train_nsentences": "1102.97", "train_nll_loss": "0.85", "train_wps": "8668.8", "train_ups": "0.17", "train_wpb": "49714.4", "train_bsz": "1103", "train_num_updates": "6097", "train_lr": "2.29351e-05", "train_gnorm": "19.217", "train_loss_scale": "4", "train_train_wall": "506", "train_wall": "35156"}
+[2020-12-20 03:18:21,042][fairseq.trainer][INFO] - begin training epoch 66
+[2020-12-20 03:26:59,398][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 03:27:04,721][valid][INFO] - {"epoch": 66, "valid_loss": "28.465", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.555", "valid_uer": "8.925", "valid_wer": "17.362", "valid_raw_wer": "17.362", "valid_wps": "7103.6", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "6191", "valid_best_wer": "17.246"}
+[2020-12-20 03:27:04,723][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 03:27:04,724][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_last.pt after 6191 updates
+[2020-12-20 03:27:13,985][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_last.pt
+[2020-12-20 03:27:13,985][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_last.pt (epoch 66 @ 6191 updates, score 17.362) (writing took 9.261376028996892 seconds)
+[2020-12-20 03:27:13,985][fairseq_cli.train][INFO] - end of epoch 66 (average epoch stats below)
+[2020-12-20 03:27:13,986][train][INFO] - {"epoch": 66, "train_loss": "38.291", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "0.849", "train_wps": "8768.4", "train_ups": "0.18", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "6191", "train_lr": "2.32841e-05", "train_gnorm": "20.155", "train_loss_scale": "4", "train_train_wall": "506", "train_wall": "35689"}
+[2020-12-20 03:27:14,006][fairseq.trainer][INFO] - begin training epoch 67
+[2020-12-20 03:28:04,407][train_inner][INFO] - {"epoch": 67, "update": 66.096, "loss": "38.374", "ntokens": "49505.9", "nsentences": "1097.2", "nll_loss": "0.85", "wps": "8558.1", "ups": "0.17", "wpb": "49505.9", "bsz": "1097.2", "num_updates": "6200", "lr": "2.33175e-05", "gnorm": "19.734", "loss_scale": "4", "train_wall": "1077", "wall": "35739"}
+[2020-12-20 03:35:52,544][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 03:35:58,263][valid][INFO] - {"epoch": 67, "valid_loss": "28.303", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.552", "valid_uer": "8.845", "valid_wer": "17.027", "valid_raw_wer": "17.027", "valid_wps": "6553.8", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "6285", "valid_best_wer": "17.027"}
+[2020-12-20 03:35:58,265][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 03:35:58,266][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_best.pt after 6285 updates
+[2020-12-20 03:36:08,520][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2020-12-20 03:36:16,351][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_best.pt (epoch 67 @ 6285 updates, score 17.027) (writing took 18.085340999001346 seconds)
+[2020-12-20 03:36:16,351][fairseq_cli.train][INFO] - end of epoch 67 (average epoch stats below)
+[2020-12-20 03:36:16,352][train][INFO] - {"epoch": 67, "train_loss": "37.965", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "0.842", "train_wps": "8616.5", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "6285", "train_lr": "2.36331e-05", "train_gnorm": "18.937", "train_loss_scale": "4", "train_train_wall": "506", "train_wall": "36231"}
+[2020-12-20 03:36:16,377][fairseq.trainer][INFO] - begin training epoch 68
+[2020-12-20 03:44:57,507][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 03:45:02,952][valid][INFO] - {"epoch": 68, "valid_loss": "28.094", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.547", "valid_uer": "8.84", "valid_wer": "17.142", "valid_raw_wer": "17.142", "valid_wps": "6984.7", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "6379", "valid_best_wer": "17.027"}
+[2020-12-20 03:45:02,954][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 03:45:02,967][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_last.pt after 6379 updates
+[2020-12-20 03:45:12,209][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_last.pt
+[2020-12-20 03:45:12,209][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_last.pt (epoch 68 @ 6379 updates, score 17.142) (writing took 9.242464299000858 seconds)
+[2020-12-20 03:45:12,210][fairseq_cli.train][INFO] - end of epoch 68 (average epoch stats below)
+[2020-12-20 03:45:12,210][train][INFO] - {"epoch": 68, "train_loss": "37.784", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "0.838", "train_wps": "8721.1", "train_ups": "0.18", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "6379", "train_lr": "2.3982e-05", "train_gnorm": "18.639", "train_loss_scale": "4", "train_train_wall": "508", "train_wall": "36767"}
+[2020-12-20 03:45:12,231][fairseq.trainer][INFO] - begin training epoch 69
+[2020-12-20 03:47:10,013][train_inner][INFO] - {"epoch": 69, "update": 68.223, "loss": "37.607", "ntokens": "49734.8", "nsentences": "1106.68", "nll_loss": "0.837", "wps": "8682.7", "ups": "0.17", "wpb": "49734.8", "bsz": "1106.7", "num_updates": "6400", "lr": "2.406e-05", "gnorm": "18.615", "loss_scale": "4", "train_wall": "1080", "wall": "36885"}
+[2020-12-20 03:53:51,755][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 03:53:57,137][valid][INFO] - {"epoch": 69, "valid_loss": "27.775", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.541", "valid_uer": "8.791", "valid_wer": "17.188", "valid_raw_wer": "17.188", "valid_wps": "6969.9", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "6473", "valid_best_wer": "17.027"}
+[2020-12-20 03:53:57,139][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 03:53:57,140][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_last.pt after 6473 updates
+[2020-12-20 03:54:06,348][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_last.pt
+[2020-12-20 03:54:06,348][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_last.pt (epoch 69 @ 6473 updates, score 17.188) (writing took 9.207967819995247 seconds)
+[2020-12-20 03:54:06,348][fairseq_cli.train][INFO] - end of epoch 69 (average epoch stats below)
+[2020-12-20 03:54:06,349][train][INFO] - {"epoch": 69, "train_loss": "37.353", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "0.828", "train_wps": "8749.2", "train_ups": "0.18", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "6473", "train_lr": "2.4331e-05", "train_gnorm": "19.924", "train_loss_scale": "4", "train_train_wall": "507", "train_wall": "37301"}
+[2020-12-20 03:54:06,369][fairseq.trainer][INFO] - begin training epoch 70
+[2020-12-20 04:02:45,843][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 04:02:51,330][valid][INFO] - {"epoch": 70, "valid_loss": "27.852", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.543", "valid_uer": "8.729", "valid_wer": "17.073", "valid_raw_wer": "17.073", "valid_wps": "6823.8", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "6567", "valid_best_wer": "17.027"}
+[2020-12-20 04:02:51,332][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 04:02:51,343][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_last.pt after 6567 updates
+[2020-12-20 04:03:00,576][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_last.pt
+[2020-12-20 04:03:00,577][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_last.pt (epoch 70 @ 6567 updates, score 17.073) (writing took 9.234456335994764 seconds)
+[2020-12-20 04:03:00,577][fairseq_cli.train][INFO] - end of epoch 70 (average epoch stats below)
+[2020-12-20 04:03:00,578][train][INFO] - {"epoch": 70, "train_loss": "36.871", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "0.817", "train_wps": "8747.7", "train_ups": "0.18", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "6567", "train_lr": "2.468e-05", "train_gnorm": "19.385", "train_loss_scale": "4", "train_train_wall": "507", "train_wall": "37835"}
+[2020-12-20 04:03:00,598][fairseq.trainer][INFO] - begin training epoch 71
+[2020-12-20 04:06:05,212][train_inner][INFO] - {"epoch": 71, "update": 70.351, "loss": "37.18", "ntokens": "49794.7", "nsentences": "1098", "nll_loss": "0.82", "wps": "8772.9", "ups": "0.18", "wpb": "49794.7", "bsz": "1098", "num_updates": "6600", "lr": "2.48025e-05", "gnorm": "19.646", "loss_scale": "4", "train_wall": "1079", "wall": "38020"}
+[2020-12-20 04:11:39,408][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 04:11:44,700][valid][INFO] - {"epoch": 71, "valid_loss": "28.073", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.547", "valid_uer": "8.622", "valid_wer": "16.611", "valid_raw_wer": "16.611", "valid_wps": "7182", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "6661", "valid_best_wer": "16.611"}
+[2020-12-20 04:11:44,702][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 04:11:44,703][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_best.pt after 6661 updates
+[2020-12-20 04:11:53,866][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2020-12-20 04:12:02,756][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_best.pt (epoch 71 @ 6661 updates, score 16.611) (writing took 18.05334117000166 seconds)
+[2020-12-20 04:12:02,756][fairseq_cli.train][INFO] - end of epoch 71 (average epoch stats below)
+[2020-12-20 04:12:02,757][train][INFO] - {"epoch": 71, "train_loss": "36.984", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "0.82", "train_wps": "8619.4", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "6661", "train_lr": "2.5029e-05", "train_gnorm": "20.701", "train_loss_scale": "4", "train_train_wall": "507", "train_wall": "38377"}
+[2020-12-20 04:12:02,777][fairseq.trainer][INFO] - begin training epoch 72
+[2020-12-20 04:20:40,354][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 04:20:45,766][valid][INFO] - {"epoch": 72, "valid_loss": "27.892", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.544", "valid_uer": "8.67", "valid_wer": "16.946", "valid_raw_wer": "16.946", "valid_wps": "6961.6", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "6755", "valid_best_wer": "16.611"}
+[2020-12-20 04:20:45,768][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 04:20:45,781][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_last.pt after 6755 updates
+[2020-12-20 04:20:54,999][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_last.pt
+[2020-12-20 04:20:55,000][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_last.pt (epoch 72 @ 6755 updates, score 16.946) (writing took 9.218892154996865 seconds)
+[2020-12-20 04:20:55,000][fairseq_cli.train][INFO] - end of epoch 72 (average epoch stats below)
+[2020-12-20 04:20:55,001][train][INFO] - {"epoch": 72, "train_loss": "36.96", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "0.819", "train_wps": "8780.3", "train_ups": "0.18", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "6755", "train_lr": "2.53779e-05", "train_gnorm": "19.082", "train_loss_scale": "8", "train_train_wall": "505", "train_wall": "38910"}
+[2020-12-20 04:20:55,023][fairseq.trainer][INFO] - begin training epoch 73
+[2020-12-20 04:23:31,953][fairseq.trainer][INFO] - NOTE: overflow detected, setting loss scale to: 4.0
+[2020-12-20 04:25:13,166][train_inner][INFO] - {"epoch": 73, "update": 72.489, "loss": "36.667", "ntokens": "49794.6", "nsentences": "1111.88", "nll_loss": "0.819", "wps": "8675.4", "ups": "0.17", "wpb": "49794.6", "bsz": "1111.9", "num_updates": "6800", "lr": "2.5545e-05", "gnorm": "19.676", "loss_scale": "4", "train_wall": "1084", "wall": "39168"}
+[2020-12-20 04:29:35,201][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 04:29:40,983][valid][INFO] - {"epoch": 73, "valid_loss": "27.706", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.54", "valid_uer": "8.729", "valid_wer": "16.911", "valid_raw_wer": "16.911", "valid_wps": "6565.2", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "6848", "valid_best_wer": "16.611"}
+[2020-12-20 04:29:40,985][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 04:29:40,996][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_last.pt after 6848 updates
+[2020-12-20 04:29:50,285][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_last.pt
+[2020-12-20 04:29:50,286][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_last.pt (epoch 73 @ 6848 updates, score 16.911) (writing took 9.290447526000207 seconds)
+[2020-12-20 04:29:50,286][fairseq_cli.train][INFO] - end of epoch 73 (average epoch stats below)
+[2020-12-20 04:29:50,287][train][INFO] - {"epoch": 73, "train_loss": "36.357", "train_ntokens": "49721.7", "train_nsentences": "1103.23", "train_nll_loss": "0.807", "train_wps": "8638.6", "train_ups": "0.17", "train_wpb": "49721.7", "train_bsz": "1103.2", "train_num_updates": "6848", "train_lr": "2.57232e-05", "train_gnorm": "18.411", "train_loss_scale": "4", "train_train_wall": "508", "train_wall": "39445"}
+[2020-12-20 04:29:50,311][fairseq.trainer][INFO] - begin training epoch 74
+[2020-12-20 04:38:28,388][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 04:38:33,725][valid][INFO] - {"epoch": 74, "valid_loss": "28.043", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.546", "valid_uer": "8.644", "valid_wer": "16.438", "valid_raw_wer": "16.438", "valid_wps": "7126.4", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "6942", "valid_best_wer": "16.438"}
+[2020-12-20 04:38:33,727][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 04:38:33,738][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_best.pt after 6942 updates
+[2020-12-20 04:38:44,007][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2020-12-20 04:38:51,832][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_best.pt (epoch 74 @ 6942 updates, score 16.438) (writing took 18.09462957300275 seconds)
+[2020-12-20 04:38:51,833][fairseq_cli.train][INFO] - end of epoch 74 (average epoch stats below)
+[2020-12-20 04:38:51,833][train][INFO] - {"epoch": 74, "train_loss": "36.453", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "0.808", "train_wps": "8629.5", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "6942", "train_lr": "2.60722e-05", "train_gnorm": "20.743", "train_loss_scale": "4", "train_train_wall": "505", "train_wall": "39986"}
+[2020-12-20 04:38:51,853][fairseq.trainer][INFO] - begin training epoch 75
+[2020-12-20 04:44:14,814][train_inner][INFO] - {"epoch": 75, "update": 74.617, "loss": "36.367", "ntokens": "49618.5", "nsentences": "1099.48", "nll_loss": "0.806", "wps": "8692.4", "ups": "0.18", "wpb": "49618.5", "bsz": "1099.5", "num_updates": "7000", "lr": "2.62875e-05", "gnorm": "19.498", "loss_scale": "4", "train_wall": "1076", "wall": "40309"}
+[2020-12-20 04:47:29,643][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 04:47:35,004][valid][INFO] - {"epoch": 75, "valid_loss": "27.981", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.545", "valid_uer": "8.636", "valid_wer": "16.507", "valid_raw_wer": "16.507", "valid_wps": "7019.2", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "7036", "valid_best_wer": "16.438"}
+[2020-12-20 04:47:35,006][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 04:47:35,007][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_last.pt after 7036 updates
+[2020-12-20 04:47:44,280][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_last.pt
+[2020-12-20 04:47:44,280][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_last.pt (epoch 75 @ 7036 updates, score 16.507) (writing took 9.273024885995255 seconds)
+[2020-12-20 04:47:44,280][fairseq_cli.train][INFO] - end of epoch 75 (average epoch stats below)
+[2020-12-20 04:47:44,281][train][INFO] - {"epoch": 75, "train_loss": "36.086", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "0.8", "train_wps": "8777", "train_ups": "0.18", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "7036", "train_lr": "2.64212e-05", "train_gnorm": "18.98", "train_loss_scale": "4", "train_train_wall": "505", "train_wall": "40519"}
+[2020-12-20 04:47:44,305][fairseq.trainer][INFO] - begin training epoch 76
+[2020-12-20 04:56:23,942][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 04:56:29,345][valid][INFO] - {"epoch": 76, "valid_loss": "26.801", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.522", "valid_uer": "8.644", "valid_wer": "16.853", "valid_raw_wer": "16.853", "valid_wps": "7017.2", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "7130", "valid_best_wer": "16.438"}
+[2020-12-20 04:56:29,347][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 04:56:29,348][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_last.pt after 7130 updates
+[2020-12-20 04:56:39,625][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_last.pt
+[2020-12-20 04:56:39,625][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_last.pt (epoch 76 @ 7130 updates, score 16.853) (writing took 10.277549325997825 seconds)
+[2020-12-20 04:56:39,625][fairseq_cli.train][INFO] - end of epoch 76 (average epoch stats below)
+[2020-12-20 04:56:39,626][train][INFO] - {"epoch": 76, "train_loss": "35.633", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "0.79", "train_wps": "8729.5", "train_ups": "0.18", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "7130", "train_lr": "2.67701e-05", "train_gnorm": "20.312", "train_loss_scale": "4", "train_train_wall": "507", "train_wall": "41054"}
+[2020-12-20 04:56:39,649][fairseq.trainer][INFO] - begin training epoch 77
+[2020-12-20 05:03:10,134][train_inner][INFO] - {"epoch": 77, "update": 76.745, "loss": "35.88", "ntokens": "49772.7", "nsentences": "1095.84", "nll_loss": "0.79", "wps": "8768.1", "ups": "0.18", "wpb": "49772.7", "bsz": "1095.8", "num_updates": "7200", "lr": "2.703e-05", "gnorm": "20", "loss_scale": "4", "train_wall": "1079", "wall": "41445"}
+[2020-12-20 05:05:18,993][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 05:05:24,787][valid][INFO] - {"epoch": 77, "valid_loss": "27.727", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.54", "valid_uer": "8.466", "valid_wer": "16.068", "valid_raw_wer": "16.068", "valid_wps": "6461.8", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "7224", "valid_best_wer": "16.068"}
+[2020-12-20 05:05:24,789][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 05:05:24,790][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_best.pt after 7224 updates
+[2020-12-20 05:05:35,460][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2020-12-20 05:05:43,456][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_best.pt (epoch 77 @ 7224 updates, score 16.068) (writing took 18.66592483799468 seconds)
+[2020-12-20 05:05:43,456][fairseq_cli.train][INFO] - end of epoch 77 (average epoch stats below)
+[2020-12-20 05:05:43,457][train][INFO] - {"epoch": 77, "train_loss": "35.682", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "0.791", "train_wps": "8593.2", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "7224", "train_lr": "2.71191e-05", "train_gnorm": "20.381", "train_loss_scale": "4", "train_train_wall": "507", "train_wall": "41598"}
+[2020-12-20 05:05:43,482][fairseq.trainer][INFO] - begin training epoch 78
+[2020-12-20 05:14:24,561][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 05:14:30,187][valid][INFO] - {"epoch": 78, "valid_loss": "27.319", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.532", "valid_uer": "8.514", "valid_wer": "16.334", "valid_raw_wer": "16.334", "valid_wps": "6641.1", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "7318", "valid_best_wer": "16.068"}
+[2020-12-20 05:14:30,189][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 05:14:30,190][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_last.pt after 7318 updates
+[2020-12-20 05:14:40,896][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_last.pt
+[2020-12-20 05:14:40,896][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_last.pt (epoch 78 @ 7318 updates, score 16.334) (writing took 10.706874882998818 seconds)
+[2020-12-20 05:14:40,897][fairseq_cli.train][INFO] - end of epoch 78 (average epoch stats below)
+[2020-12-20 05:14:40,897][train][INFO] - {"epoch": 78, "train_loss": "35.27", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "0.782", "train_wps": "8695.4", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "7318", "train_lr": "2.74681e-05", "train_gnorm": "19.904", "train_loss_scale": "4", "train_train_wall": "508", "train_wall": "42135"}
+[2020-12-20 05:14:40,917][fairseq.trainer][INFO] - begin training epoch 79
+[2020-12-20 05:22:19,226][train_inner][INFO] - {"epoch": 79, "update": 78.872, "loss": "35.16", "ntokens": "49749.5", "nsentences": "1105.48", "nll_loss": "0.781", "wps": "8658.9", "ups": "0.17", "wpb": "49749.5", "bsz": "1105.5", "num_updates": "7400", "lr": "2.77725e-05", "gnorm": "19.927", "loss_scale": "4", "train_wall": "1081", "wall": "42594"}
+[2020-12-20 05:23:20,844][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 05:23:26,472][valid][INFO] - {"epoch": 79, "valid_loss": "26.811", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.522", "valid_uer": "8.403", "valid_wer": "16.056", "valid_raw_wer": "16.056", "valid_wps": "6630.2", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "7412", "valid_best_wer": "16.056"}
+[2020-12-20 05:23:26,474][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 05:23:26,475][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_best.pt after 7412 updates
+[2020-12-20 05:23:36,814][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2020-12-20 05:23:45,762][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_best.pt (epoch 79 @ 7412 updates, score 16.056) (writing took 19.288198639005714 seconds)
+[2020-12-20 05:23:45,763][fairseq_cli.train][INFO] - end of epoch 79 (average epoch stats below)
+[2020-12-20 05:23:45,764][train][INFO] - {"epoch": 79, "train_loss": "34.861", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "0.773", "train_wps": "8576.9", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "7412", "train_lr": "2.78171e-05", "train_gnorm": "19.503", "train_loss_scale": "4", "train_train_wall": "507", "train_wall": "42680"}
+[2020-12-20 05:23:45,788][fairseq.trainer][INFO] - begin training epoch 80
+[2020-12-20 05:32:24,614][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 05:32:30,356][valid][INFO] - {"epoch": 80, "valid_loss": "27.042", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.527", "valid_uer": "8.432", "valid_wer": "16.091", "valid_raw_wer": "16.091", "valid_wps": "6523.2", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "7506", "valid_best_wer": "16.056"}
+[2020-12-20 05:32:30,358][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 05:32:30,360][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_last.pt after 7506 updates
+[2020-12-20 05:32:40,640][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_last.pt
+[2020-12-20 05:32:40,640][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_last.pt (epoch 80 @ 7506 updates, score 16.091) (writing took 10.280794924001384 seconds)
+[2020-12-20 05:32:40,640][fairseq_cli.train][INFO] - end of epoch 80 (average epoch stats below)
+[2020-12-20 05:32:40,641][train][INFO] - {"epoch": 80, "train_loss": "35.079", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "0.778", "train_wps": "8737.1", "train_ups": "0.18", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "7506", "train_lr": "2.8166e-05", "train_gnorm": "19.424", "train_loss_scale": "8", "train_train_wall": "506", "train_wall": "43215"}
+[2020-12-20 05:32:40,663][fairseq.trainer][INFO] - begin training epoch 81
+[2020-12-20 05:41:18,765][train_inner][INFO] - {"epoch": 81, "update": 81.0, "loss": "34.931", "ntokens": "49525", "nsentences": "1097.96", "nll_loss": "0.774", "wps": "8692.1", "ups": "0.18", "wpb": "49525", "bsz": "1098", "num_updates": "7600", "lr": "2.8515e-05", "gnorm": "20.706", "loss_scale": "8", "train_wall": "1072", "wall": "43733"}
+[2020-12-20 05:41:18,766][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 05:41:24,606][valid][INFO] - {"epoch": 81, "valid_loss": "27.122", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.529", "valid_uer": "8.415", "valid_wer": "16.01", "valid_raw_wer": "16.01", "valid_wps": "6403", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "7600", "valid_best_wer": "16.01"}
+[2020-12-20 05:41:24,608][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 05:41:24,609][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_best.pt after 7600 updates
+[2020-12-20 05:41:33,801][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2020-12-20 05:41:42,706][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_best.pt (epoch 81 @ 7600 updates, score 16.01) (writing took 18.097088954003993 seconds)
+[2020-12-20 05:41:42,706][fairseq_cli.train][INFO] - end of epoch 81 (average epoch stats below)
+[2020-12-20 05:41:42,707][train][INFO] - {"epoch": 81, "train_loss": "34.859", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "0.773", "train_wps": "8621.2", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "7600", "train_lr": "2.8515e-05", "train_gnorm": "21.657", "train_loss_scale": "8", "train_train_wall": "506", "train_wall": "43757"}
+[2020-12-20 05:41:42,727][fairseq.trainer][INFO] - begin training epoch 82
+[2020-12-20 05:47:05,125][fairseq.trainer][INFO] - NOTE: overflow detected, setting loss scale to: 4.0
+[2020-12-20 05:50:20,637][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 05:50:26,389][valid][INFO] - {"epoch": 82, "valid_loss": "27.297", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.532", "valid_uer": "8.372", "valid_wer": "15.744", "valid_raw_wer": "15.744", "valid_wps": "6548.3", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "7693", "valid_best_wer": "15.744"}
+[2020-12-20 05:50:26,391][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 05:50:26,392][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_best.pt after 7693 updates
+[2020-12-20 05:50:36,741][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2020-12-20 05:50:44,672][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_best.pt (epoch 82 @ 7693 updates, score 15.744) (writing took 18.280492735000735 seconds)
+[2020-12-20 05:50:44,673][fairseq_cli.train][INFO] - end of epoch 82 (average epoch stats below)
+[2020-12-20 05:50:44,673][train][INFO] - {"epoch": 82, "train_loss": "34.633", "train_ntokens": "49709.3", "train_nsentences": "1101.68", "train_nll_loss": "0.768", "train_wps": "8530", "train_ups": "0.17", "train_wpb": "49709.3", "train_bsz": "1101.7", "train_num_updates": "7693", "train_lr": "2.88603e-05", "train_gnorm": "19.323", "train_loss_scale": "4", "train_train_wall": "505", "train_wall": "44299"}
+[2020-12-20 05:50:44,694][fairseq.trainer][INFO] - begin training epoch 83
+[2020-12-20 05:59:23,744][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 05:59:29,018][valid][INFO] - {"epoch": 83, "valid_loss": "26.465", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.516", "valid_uer": "8.287", "valid_wer": "15.768", "valid_raw_wer": "15.768", "valid_wps": "7135.6", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "7787", "valid_best_wer": "15.744"}
+[2020-12-20 05:59:29,020][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 05:59:29,021][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_last.pt after 7787 updates
+[2020-12-20 05:59:39,337][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_last.pt
+[2020-12-20 05:59:39,338][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_last.pt (epoch 83 @ 7787 updates, score 15.768) (writing took 10.317253002998768 seconds)
+[2020-12-20 05:59:39,338][fairseq_cli.train][INFO] - end of epoch 83 (average epoch stats below)
+[2020-12-20 05:59:39,339][train][INFO] - {"epoch": 83, "train_loss": "34.481", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "0.764", "train_wps": "8740.6", "train_ups": "0.18", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "7787", "train_lr": "2.92092e-05", "train_gnorm": "19.663", "train_loss_scale": "4", "train_train_wall": "507", "train_wall": "44834"}
+[2020-12-20 05:59:39,363][fairseq.trainer][INFO] - begin training epoch 84
+[2020-12-20 06:00:51,780][train_inner][INFO] - {"epoch": 84, "update": 83.138, "loss": "34.533", "ntokens": "49774.2", "nsentences": "1105.96", "nll_loss": "0.767", "wps": "8486.6", "ups": "0.17", "wpb": "49774.2", "bsz": "1106", "num_updates": "7800", "lr": "2.92575e-05", "gnorm": "19.417", "loss_scale": "4", "train_wall": "1082", "wall": "44906"}
+[2020-12-20 06:08:18,585][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 06:08:24,173][valid][INFO] - {"epoch": 84, "valid_loss": "27.121", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.528", "valid_uer": "8.361", "valid_wer": "15.802", "valid_raw_wer": "15.802", "valid_wps": "6762", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "7881", "valid_best_wer": "15.744"}
+[2020-12-20 06:08:24,175][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 06:08:24,191][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_last.pt after 7881 updates
+[2020-12-20 06:08:34,514][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_last.pt
+[2020-12-20 06:08:34,515][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_last.pt (epoch 84 @ 7881 updates, score 15.802) (writing took 10.324127841995505 seconds)
+[2020-12-20 06:08:34,515][fairseq_cli.train][INFO] - end of epoch 84 (average epoch stats below)
+[2020-12-20 06:08:34,516][train][INFO] - {"epoch": 84, "train_loss": "34.221", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "0.759", "train_wps": "8732.2", "train_ups": "0.18", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "7881", "train_lr": "2.95582e-05", "train_gnorm": "21.269", "train_loss_scale": "4", "train_train_wall": "507", "train_wall": "45369"}
+[2020-12-20 06:08:34,539][fairseq.trainer][INFO] - begin training epoch 85
+[2020-12-20 06:17:13,360][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 06:17:19,000][valid][INFO] - {"epoch": 85, "valid_loss": "26.78", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.522", "valid_uer": "8.352", "valid_wer": "15.883", "valid_raw_wer": "15.883", "valid_wps": "6636.9", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "7975", "valid_best_wer": "15.744"}
+[2020-12-20 06:17:19,002][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 06:17:19,003][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_last.pt after 7975 updates
+[2020-12-20 06:17:28,249][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_last.pt
+[2020-12-20 06:17:28,249][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_last.pt (epoch 85 @ 7975 updates, score 15.883) (writing took 9.246581876999699 seconds)
+[2020-12-20 06:17:28,250][fairseq_cli.train][INFO] - end of epoch 85 (average epoch stats below)
+[2020-12-20 06:17:28,250][train][INFO] - {"epoch": 85, "train_loss": "34.071", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "0.755", "train_wps": "8755.8", "train_ups": "0.18", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "7975", "train_lr": "2.99072e-05", "train_gnorm": "19.781", "train_loss_scale": "4", "train_train_wall": "506", "train_wall": "45903"}
+[2020-12-20 06:17:28,271][fairseq.trainer][INFO] - begin training epoch 86
+[2020-12-20 06:19:48,268][train_inner][INFO] - {"epoch": 86, "update": 85.266, "loss": "33.853", "ntokens": "49762.5", "nsentences": "1108.56", "nll_loss": "0.754", "wps": "8757.2", "ups": "0.18", "wpb": "49762.5", "bsz": "1108.6", "num_updates": "8000", "lr": "3e-05", "gnorm": "20.33", "loss_scale": "4", "train_wall": "1079", "wall": "46043"}
+[2020-12-20 06:26:07,381][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 06:26:12,995][valid][INFO] - {"epoch": 86, "valid_loss": "25.753", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.502", "valid_uer": "8.214", "valid_wer": "15.525", "valid_raw_wer": "15.525", "valid_wps": "6702.4", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "8069", "valid_best_wer": "15.525"}
+[2020-12-20 06:26:12,997][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 06:26:13,011][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_best.pt after 8069 updates
+[2020-12-20 06:26:23,849][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2020-12-20 06:26:33,479][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_best.pt (epoch 86 @ 8069 updates, score 15.525) (writing took 20.46804433100624 seconds)
+[2020-12-20 06:26:33,479][fairseq_cli.train][INFO] - end of epoch 86 (average epoch stats below)
+[2020-12-20 06:26:33,480][train][INFO] - {"epoch": 86, "train_loss": "33.77", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "0.749", "train_wps": "8571.2", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "8069", "train_lr": "3e-05", "train_gnorm": "23.194", "train_loss_scale": "4", "train_train_wall": "507", "train_wall": "46448"}
+[2020-12-20 06:26:33,500][fairseq.trainer][INFO] - begin training epoch 87
+[2020-12-20 06:35:10,510][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 06:35:16,548][valid][INFO] - {"epoch": 87, "valid_loss": "26.296", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.512", "valid_uer": "8.301", "valid_wer": "15.606", "valid_raw_wer": "15.606", "valid_wps": "6656.5", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "8163", "valid_best_wer": "15.525"}
+[2020-12-20 06:35:16,550][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 06:35:16,551][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_last.pt after 8163 updates
+[2020-12-20 06:35:28,301][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_last.pt
+[2020-12-20 06:35:28,301][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_last.pt (epoch 87 @ 8163 updates, score 15.606) (writing took 11.750581109998166 seconds)
+[2020-12-20 06:35:28,301][fairseq_cli.train][INFO] - end of epoch 87 (average epoch stats below)
+[2020-12-20 06:35:28,302][train][INFO] - {"epoch": 87, "train_loss": "34.161", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "0.757", "train_wps": "8738", "train_ups": "0.18", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "8163", "train_lr": "3e-05", "train_gnorm": "21.571", "train_loss_scale": "4", "train_train_wall": "507", "train_wall": "46983"}
+[2020-12-20 06:35:28,843][fairseq.trainer][INFO] - begin training epoch 88
+[2020-12-20 06:38:56,157][train_inner][INFO] - {"epoch": 88, "update": 87.394, "loss": "34.184", "ntokens": "49684.1", "nsentences": "1091.16", "nll_loss": "0.751", "wps": "8656.6", "ups": "0.17", "wpb": "49684.1", "bsz": "1091.2", "num_updates": "8200", "lr": "3e-05", "gnorm": "22.297", "loss_scale": "4", "train_wall": "1078", "wall": "47191"}
+[2020-12-20 06:44:07,309][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 06:44:12,915][valid][INFO] - {"epoch": 88, "valid_loss": "26.884", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.524", "valid_uer": "8.304", "valid_wer": "15.571", "valid_raw_wer": "15.571", "valid_wps": "6760.4", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "8257", "valid_best_wer": "15.525"}
+[2020-12-20 06:44:12,918][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 06:44:12,919][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_last.pt after 8257 updates
+[2020-12-20 06:44:22,155][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_last.pt
+[2020-12-20 06:44:22,156][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_last.pt (epoch 88 @ 8257 updates, score 15.571) (writing took 9.237246759003028 seconds)
+[2020-12-20 06:44:22,156][fairseq_cli.train][INFO] - end of epoch 88 (average epoch stats below)
+[2020-12-20 06:44:22,156][train][INFO] - {"epoch": 88, "train_loss": "33.498", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "0.743", "train_wps": "8753.8", "train_ups": "0.18", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "8257", "train_lr": "3e-05", "train_gnorm": "19.276", "train_loss_scale": "4", "train_train_wall": "508", "train_wall": "47517"}
+[2020-12-20 06:44:22,178][fairseq.trainer][INFO] - begin training epoch 89
+[2020-12-20 06:53:02,819][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 06:53:08,321][valid][INFO] - {"epoch": 89, "valid_loss": "26.561", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.518", "valid_uer": "8.177", "valid_wer": "15.144", "valid_raw_wer": "15.144", "valid_wps": "6843.1", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "8351", "valid_best_wer": "15.144"}
+[2020-12-20 06:53:08,323][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 06:53:08,334][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_best.pt after 8351 updates
+[2020-12-20 06:53:20,072][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2020-12-20 06:53:27,824][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_best.pt (epoch 89 @ 8351 updates, score 15.144) (writing took 19.48963600800198 seconds)
+[2020-12-20 06:53:27,824][fairseq_cli.train][INFO] - end of epoch 89 (average epoch stats below)
+[2020-12-20 06:53:27,825][train][INFO] - {"epoch": 89, "train_loss": "33.453", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "0.742", "train_wps": "8564.3", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "8351", "train_lr": "3e-05", "train_gnorm": "20.156", "train_loss_scale": "8", "train_train_wall": "508", "train_wall": "48062"}
+[2020-12-20 06:53:27,845][fairseq.trainer][INFO] - begin training epoch 90
+[2020-12-20 06:58:04,472][train_inner][INFO] - {"epoch": 90, "update": 89.521, "loss": "33.028", "ntokens": "49788.7", "nsentences": "1114.88", "nll_loss": "0.74", "wps": "8671.7", "ups": "0.17", "wpb": "49788.7", "bsz": "1114.9", "num_updates": "8400", "lr": "3e-05", "gnorm": "19.672", "loss_scale": "8", "train_wall": "1082", "wall": "48339"}
+[2020-12-20 07:02:09,391][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 07:02:14,855][valid][INFO] - {"epoch": 90, "valid_loss": "26.089", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.508", "valid_uer": "8.228", "valid_wer": "15.502", "valid_raw_wer": "15.502", "valid_wps": "6907.1", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "8445", "valid_best_wer": "15.144"}
+[2020-12-20 07:02:14,858][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 07:02:14,879][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_last.pt after 8445 updates
+[2020-12-20 07:02:26,201][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_last.pt
+[2020-12-20 07:02:26,202][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_last.pt (epoch 90 @ 8445 updates, score 15.502) (writing took 11.323048006997851 seconds)
+[2020-12-20 07:02:26,202][fairseq_cli.train][INFO] - end of epoch 90 (average epoch stats below)
+[2020-12-20 07:02:26,203][train][INFO] - {"epoch": 90, "train_loss": "33.056", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "0.733", "train_wps": "8680.3", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "8445", "train_lr": "3e-05", "train_gnorm": "19.492", "train_loss_scale": "8", "train_train_wall": "508", "train_wall": "48601"}
+[2020-12-20 07:02:26,222][fairseq.trainer][INFO] - begin training epoch 91
+[2020-12-20 07:03:38,979][fairseq.trainer][INFO] - NOTE: overflow detected, setting loss scale to: 4.0
+[2020-12-20 07:11:04,754][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 07:11:10,277][valid][INFO] - {"epoch": 91, "valid_loss": "26.604", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.518", "valid_uer": "8.174", "valid_wer": "15.155", "valid_raw_wer": "15.155", "valid_wps": "6836.1", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "8538", "valid_best_wer": "15.144"}
+[2020-12-20 07:11:10,279][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 07:11:10,280][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_last.pt after 8538 updates
+[2020-12-20 07:11:19,670][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_last.pt
+[2020-12-20 07:11:19,670][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_last.pt (epoch 91 @ 8538 updates, score 15.155) (writing took 9.39058581199788 seconds)
+[2020-12-20 07:11:19,671][fairseq_cli.train][INFO] - end of epoch 91 (average epoch stats below)
+[2020-12-20 07:11:19,671][train][INFO] - {"epoch": 91, "train_loss": "32.967", "train_ntokens": "49701.6", "train_nsentences": "1103.83", "train_nll_loss": "0.732", "train_wps": "8664.5", "train_ups": "0.17", "train_wpb": "49701.6", "train_bsz": "1103.8", "train_num_updates": "8538", "train_lr": "3e-05", "train_gnorm": "21.642", "train_loss_scale": "4", "train_train_wall": "506", "train_wall": "49134"}
+[2020-12-20 07:11:19,695][fairseq.trainer][INFO] - begin training epoch 92
+[2020-12-20 07:17:06,182][train_inner][INFO] - {"epoch": 92, "update": 91.66, "loss": "33.48", "ntokens": "49722.5", "nsentences": "1093.56", "nll_loss": "0.736", "wps": "8710.4", "ups": "0.18", "wpb": "49722.5", "bsz": "1093.6", "num_updates": "8600", "lr": "3e-05", "gnorm": "20.748", "loss_scale": "4", "train_wall": "1084", "wall": "49481"}
+[2020-12-20 07:19:59,756][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 07:20:05,534][valid][INFO] - {"epoch": 92, "valid_loss": "26.566", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.518", "valid_uer": "8.245", "valid_wer": "15.202", "valid_raw_wer": "15.202", "valid_wps": "6487.3", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "8632", "valid_best_wer": "15.144"}
+[2020-12-20 07:20:05,536][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 07:20:05,537][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_last.pt after 8632 updates
+[2020-12-20 07:20:15,768][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_last.pt
+[2020-12-20 07:20:15,769][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_last.pt (epoch 92 @ 8632 updates, score 15.202) (writing took 10.231988661995274 seconds)
+[2020-12-20 07:20:15,769][fairseq_cli.train][INFO] - end of epoch 92 (average epoch stats below)
+[2020-12-20 07:20:15,770][train][INFO] - {"epoch": 92, "train_loss": "33.234", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "0.737", "train_wps": "8717.2", "train_ups": "0.18", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "8632", "train_lr": "3e-05", "train_gnorm": "20.709", "train_loss_scale": "4", "train_train_wall": "507", "train_wall": "49670"}
+[2020-12-20 07:20:15,790][fairseq.trainer][INFO] - begin training epoch 93
+[2020-12-20 07:28:55,568][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 07:29:01,030][valid][INFO] - {"epoch": 93, "valid_loss": "25.895", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.505", "valid_uer": "8.248", "valid_wer": "15.259", "valid_raw_wer": "15.259", "valid_wps": "6873.8", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "8726", "valid_best_wer": "15.144"}
+[2020-12-20 07:29:01,032][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 07:29:01,033][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_last.pt after 8726 updates
+[2020-12-20 07:29:11,359][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_last.pt
+[2020-12-20 07:29:11,359][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_last.pt (epoch 93 @ 8726 updates, score 15.259) (writing took 10.326216574998398 seconds)
+[2020-12-20 07:29:11,359][fairseq_cli.train][INFO] - end of epoch 93 (average epoch stats below)
+[2020-12-20 07:29:11,360][train][INFO] - {"epoch": 93, "train_loss": "32.623", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "0.723", "train_wps": "8725.5", "train_ups": "0.18", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "8726", "train_lr": "3e-05", "train_gnorm": "20.523", "train_loss_scale": "4", "train_train_wall": "507", "train_wall": "50206"}
+[2020-12-20 07:29:11,380][fairseq.trainer][INFO] - begin training epoch 94
+[2020-12-20 07:36:05,453][train_inner][INFO] - {"epoch": 94, "update": 93.787, "loss": "32.674", "ntokens": "49728.7", "nsentences": "1101.72", "nll_loss": "0.724", "wps": "8730", "ups": "0.18", "wpb": "49728.7", "bsz": "1101.7", "num_updates": "8800", "lr": "3e-05", "gnorm": "20.632", "loss_scale": "4", "train_wall": "1080", "wall": "50620"}
+[2020-12-20 07:37:51,290][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 07:37:56,728][valid][INFO] - {"epoch": 94, "valid_loss": "25.776", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.502", "valid_uer": "8.168", "valid_wer": "15.225", "valid_raw_wer": "15.225", "valid_wps": "6921.5", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "8820", "valid_best_wer": "15.144"}
+[2020-12-20 07:37:56,730][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 07:37:56,739][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_last.pt after 8820 updates
+[2020-12-20 07:38:08,006][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_last.pt
+[2020-12-20 07:38:08,006][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_last.pt (epoch 94 @ 8820 updates, score 15.225) (writing took 11.267465986995376 seconds)
+[2020-12-20 07:38:08,007][fairseq_cli.train][INFO] - end of epoch 94 (average epoch stats below)
+[2020-12-20 07:38:08,007][train][INFO] - {"epoch": 94, "train_loss": "32.684", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "0.725", "train_wps": "8708.3", "train_ups": "0.18", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "8820", "train_lr": "3e-05", "train_gnorm": "20.134", "train_loss_scale": "4", "train_train_wall": "507", "train_wall": "50743"}
+[2020-12-20 07:38:08,032][fairseq.trainer][INFO] - begin training epoch 95
+[2020-12-20 07:46:46,956][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 07:46:52,604][valid][INFO] - {"epoch": 95, "valid_loss": "25.99", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.506", "valid_uer": "8.197", "valid_wer": "15.236", "valid_raw_wer": "15.236", "valid_wps": "6625.2", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "8914", "valid_best_wer": "15.144"}
+[2020-12-20 07:46:52,606][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 07:46:52,607][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_last.pt after 8914 updates
+[2020-12-20 07:47:02,326][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_last.pt
+[2020-12-20 07:47:02,326][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_last.pt (epoch 95 @ 8914 updates, score 15.236) (writing took 9.719365122000454 seconds)
+[2020-12-20 07:47:02,327][fairseq_cli.train][INFO] - end of epoch 95 (average epoch stats below)
+[2020-12-20 07:47:02,327][train][INFO] - {"epoch": 95, "train_loss": "32.564", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "0.722", "train_wps": "8746.2", "train_ups": "0.18", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "8914", "train_lr": "3e-05", "train_gnorm": "20.197", "train_loss_scale": "4", "train_train_wall": "506", "train_wall": "51277"}
+[2020-12-20 07:47:02,347][fairseq.trainer][INFO] - begin training epoch 96
+[2020-12-20 07:55:03,228][train_inner][INFO] - {"epoch": 96, "update": 95.915, "loss": "32.569", "ntokens": "49794.7", "nsentences": "1101.04", "nll_loss": "0.72", "wps": "8753", "ups": "0.18", "wpb": "49794.7", "bsz": "1101", "num_updates": "9000", "lr": "3e-05", "gnorm": "20.312", "loss_scale": "4", "train_wall": "1078", "wall": "51758"}
+[2020-12-20 07:55:42,389][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 07:55:47,867][valid][INFO] - {"epoch": 96, "valid_loss": "25.985", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.506", "valid_uer": "8.098", "valid_wer": "14.878", "valid_raw_wer": "14.878", "valid_wps": "6893.2", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "9008", "valid_best_wer": "14.878"}
+[2020-12-20 07:55:47,869][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 07:55:47,870][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_best.pt after 9008 updates
+[2020-12-20 07:55:56,314][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2020-12-20 07:56:05,779][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_best.pt (epoch 96 @ 9008 updates, score 14.878) (writing took 17.908853854998597 seconds)
+[2020-12-20 07:56:05,779][fairseq_cli.train][INFO] - end of epoch 96 (average epoch stats below)
+[2020-12-20 07:56:05,780][train][INFO] - {"epoch": 96, "train_loss": "32.383", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "0.718", "train_wps": "8599.2", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "9008", "train_lr": "3e-05", "train_gnorm": "20.853", "train_loss_scale": "4", "train_train_wall": "507", "train_wall": "51820"}
+[2020-12-20 07:56:05,806][fairseq.trainer][INFO] - begin training epoch 97
+[2020-12-20 08:04:44,401][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 08:04:50,164][valid][INFO] - {"epoch": 97, "valid_loss": "25.672", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.5", "valid_uer": "8.231", "valid_wer": "15.19", "valid_raw_wer": "15.19", "valid_wps": "6551.6", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "9102", "valid_best_wer": "14.878"}
+[2020-12-20 08:04:50,166][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 08:04:50,167][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_last.pt after 9102 updates
+[2020-12-20 08:04:59,495][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_last.pt
+[2020-12-20 08:04:59,495][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_last.pt (epoch 97 @ 9102 updates, score 15.19) (writing took 9.328707491004025 seconds)
+[2020-12-20 08:04:59,496][fairseq_cli.train][INFO] - end of epoch 97 (average epoch stats below)
+[2020-12-20 08:04:59,496][train][INFO] - {"epoch": 97, "train_loss": "32.218", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "0.714", "train_wps": "8756.1", "train_ups": "0.18", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "9102", "train_lr": "3e-05", "train_gnorm": "21.813", "train_loss_scale": "4", "train_train_wall": "506", "train_wall": "52354"}
+[2020-12-20 08:04:59,517][fairseq.trainer][INFO] - begin training epoch 98
+[2020-12-20 08:13:38,087][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 08:13:43,548][valid][INFO] - {"epoch": 98, "valid_loss": "25.964", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.506", "valid_uer": "8.149", "valid_wer": "15.236", "valid_raw_wer": "15.236", "valid_wps": "6894.8", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "9196", "valid_best_wer": "14.878"}
+[2020-12-20 08:13:43,550][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 08:13:43,551][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_last.pt after 9196 updates
+[2020-12-20 08:13:52,889][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_last.pt
+[2020-12-20 08:13:52,889][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_last.pt (epoch 98 @ 9196 updates, score 15.236) (writing took 9.338609850994544 seconds)
+[2020-12-20 08:13:52,890][fairseq_cli.train][INFO] - end of epoch 98 (average epoch stats below)
+[2020-12-20 08:13:52,890][train][INFO] - {"epoch": 98, "train_loss": "32.219", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "0.714", "train_wps": "8761.4", "train_ups": "0.18", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "9196", "train_lr": "3e-05", "train_gnorm": "21.968", "train_loss_scale": "8", "train_train_wall": "506", "train_wall": "52887"}
+[2020-12-20 08:13:52,918][fairseq.trainer][INFO] - begin training epoch 99
+[2020-12-20 08:14:15,693][train_inner][INFO] - {"epoch": 99, "update": 98.043, "loss": "32.067", "ntokens": "49460.4", "nsentences": "1101.6", "nll_loss": "0.714", "wps": "8583.4", "ups": "0.17", "wpb": "49460.4", "bsz": "1101.6", "num_updates": "9200", "lr": "3e-05", "gnorm": "22.019", "loss_scale": "8", "train_wall": "1071", "wall": "52910"}
+[2020-12-20 08:22:30,400][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 08:22:35,736][valid][INFO] - {"epoch": 99, "valid_loss": "25.582", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.499", "valid_uer": "8.035", "valid_wer": "14.913", "valid_raw_wer": "14.913", "valid_wps": "7082", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "9290", "valid_best_wer": "14.878"}
+[2020-12-20 08:22:35,738][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 08:22:35,739][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_last.pt after 9290 updates
+[2020-12-20 08:22:46,072][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_last.pt
+[2020-12-20 08:22:46,073][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_last.pt (epoch 99 @ 9290 updates, score 14.913) (writing took 10.333992409003258 seconds)
+[2020-12-20 08:22:46,073][fairseq_cli.train][INFO] - end of epoch 99 (average epoch stats below)
+[2020-12-20 08:22:46,074][train][INFO] - {"epoch": 99, "train_loss": "31.968", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "0.709", "train_wps": "8764.9", "train_ups": "0.18", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "9290", "train_lr": "3e-05", "train_gnorm": "21.002", "train_loss_scale": "8", "train_train_wall": "505", "train_wall": "53421"}
+[2020-12-20 08:22:46,094][fairseq.trainer][INFO] - begin training epoch 100
+[2020-12-20 08:31:25,462][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 08:31:30,893][valid][INFO] - {"epoch": 100, "valid_loss": "26.258", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.512", "valid_uer": "8.098", "valid_wer": "14.832", "valid_raw_wer": "14.832", "valid_wps": "6965.4", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "9384", "valid_best_wer": "14.832"}
+[2020-12-20 08:31:30,895][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 08:31:30,896][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_best.pt after 9384 updates
+[2020-12-20 08:31:41,172][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_best.pt
+[2020-12-20 08:31:49,098][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_best.pt (epoch 100 @ 9384 updates, score 14.832) (writing took 18.202520088998426 seconds)
+[2020-12-20 08:31:49,099][fairseq_cli.train][INFO] - end of epoch 100 (average epoch stats below)
+[2020-12-20 08:31:49,099][train][INFO] - {"epoch": 100, "train_loss": "32.016", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "0.71", "train_wps": "8606", "train_ups": "0.17", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "9384", "train_lr": "3e-05", "train_gnorm": "21.182", "train_loss_scale": "8", "train_train_wall": "507", "train_wall": "53964"}
+[2020-12-20 08:31:49,120][fairseq.trainer][INFO] - begin training epoch 101
+[2020-12-20 08:33:19,110][train_inner][INFO] - {"epoch": 101, "update": 100.17, "loss": "32.051", "ntokens": "49790.4", "nsentences": "1100.24", "nll_loss": "0.708", "wps": "8709.1", "ups": "0.17", "wpb": "49790.4", "bsz": "1100.2", "num_updates": "9400", "lr": "3e-05", "gnorm": "21.09", "loss_scale": "8", "train_wall": "1077", "wall": "54054"}
+[2020-12-20 08:40:30,911][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 08:40:36,652][valid][INFO] - {"epoch": 101, "valid_loss": "25.975", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.506", "valid_uer": "8.013", "valid_wer": "14.843", "valid_raw_wer": "14.843", "valid_wps": "6568.5", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "9478", "valid_best_wer": "14.832"}
+[2020-12-20 08:40:36,654][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 08:40:36,655][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_last.pt after 9478 updates
+[2020-12-20 08:40:46,020][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_last.pt
+[2020-12-20 08:40:46,020][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_last.pt (epoch 101 @ 9478 updates, score 14.843) (writing took 9.365563870996994 seconds)
+[2020-12-20 08:40:46,020][fairseq_cli.train][INFO] - end of epoch 101 (average epoch stats below)
+[2020-12-20 08:40:46,021][train][INFO] - {"epoch": 101, "train_loss": "31.668", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "0.702", "train_wps": "8703.8", "train_ups": "0.18", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "9478", "train_lr": "3e-05", "train_gnorm": "22.729", "train_loss_scale": "8", "train_train_wall": "509", "train_wall": "54501"}
+[2020-12-20 08:40:46,040][fairseq.trainer][INFO] - begin training epoch 102
+[2020-12-20 08:49:25,654][fairseq_cli.train][INFO] - begin validation on "valid" subset
+[2020-12-20 08:49:31,196][valid][INFO] - {"epoch": 102, "valid_loss": "25.889", "valid_ntokens": "2521.93", "valid_nsentences": "49.1429", "valid_nll_loss": "0.504", "valid_uer": "8.115", "valid_wer": "14.982", "valid_raw_wer": "14.982", "valid_wps": "6757.7", "valid_wpb": "2521.9", "valid_bsz": "49.1", "valid_num_updates": "9572", "valid_best_wer": "14.832"}
+[2020-12-20 08:49:31,198][fairseq_cli.train][INFO] - begin save checkpoint
+[2020-12-20 08:49:31,199][fairseq.trainer][INFO] - Preparing to save checkpoint to checkpoints/checkpoint_last.pt after 9572 updates
+[2020-12-20 08:49:41,569][fairseq.trainer][INFO] - Finished saving checkpoint to checkpoints/checkpoint_last.pt
+[2020-12-20 08:49:41,570][fairseq.checkpoint_utils][INFO] - saved checkpoint checkpoints/checkpoint_last.pt (epoch 102 @ 9572 updates, score 14.982) (writing took 10.371090728003765 seconds)
+[2020-12-20 08:49:41,570][fairseq_cli.train][INFO] - end of epoch 102 (average epoch stats below)
+[2020-12-20 08:49:41,571][train][INFO] - {"epoch": 102, "train_loss": "31.658", "train_ntokens": "49715.6", "train_nsentences": "1102.04", "train_nll_loss": "0.702", "train_wps": "8726.1", "train_ups": "0.18", "train_wpb": "49715.6", "train_bsz": "1102", "train_num_updates": "9572", "train_lr": "3e-05", "train_gnorm": "21.323", "train_loss_scale": "8", "train_train_wall": "506", "train_wall": "55036"}
+[2020-12-20 08:49:41,590][fairseq.trainer][INFO] - begin training epoch 103
+[2020-12-20 08:52:18,802][train_inner][INFO] - {"epoch": 103, "update": 102.298, "loss": "31.606", "ntokens": "49666", "nsentences": "1101.16", "nll_loss": "0.701", "wps": "8715.7", "ups": "0.18", "wpb": "49666", "bsz": "1101.2", "num_updates": "9600", "lr": "3e-05", "gnorm": "21.93", "loss_scale": "8", "train_wall": "1081", "wall": "55193"}
