@@ -27,7 +27,7 @@ def main():
     if not os.path.exists(args.output_path):
         os.makedirs(args.output_path)
     
-    with open(args.transcript_file) as f:
+    with open(args.transcript_file, encoding="utf-8") as f:
         train = f.read().upper().splitlines()
         train = [d.split('\t')[1] for d in train]
     
@@ -36,7 +36,7 @@ def main():
     chars = set(chars)
     
     if args.additional_file != None:
-        with open(args.additional_file) as f:
+        with open(args.additional_file, encoding="utf-8") as f:
             train += f.read().upper().splitlines()
     
     vocabs = set([])
