@@ -154,6 +154,13 @@ Where:
  - dictionary: dictionary file generated from step 2.2
  - lm_lexicon and lm_model: generated from step 3.2
 
+Note: If you running inference in a juyter notebook. Please add these lines above the inference script:
+```
+import sys
+sys.argv = ['']
+```
+
+
 ## Pre-trained models (Pretrain + Fine-tune + LM)
 - [Vietnamese](https://drive.google.com/file/d/1kZFdvMQt-R7fVebTbfWMk8Op7I9d24so/view?usp=sharing)
 
