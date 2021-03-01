@@ -24,7 +24,7 @@ dataset:
   num_workers: 6
   max_tokens: 2800000
   skip_invalid_size_inputs_valid_test: true
-  validate_after_updates: 10000
+  validate_after_updates: 1000
   validate_interval: 1000
   valid_subset: valid
 
@@ -62,5 +62,5 @@ model:
   layerdrop: 0.1
   activation_dropout: 0.1
   feature_grad_mult: 0.0
-  freeze_finetune_updates: 10000
+  freeze_finetune_updates: 1000
 
