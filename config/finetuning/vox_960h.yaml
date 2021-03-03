@@ -21,7 +21,7 @@ dataset:
   num_workers: 6
   max_tokens: 1280000
   skip_invalid_size_inputs_valid_test: true
-  valid_subset: dev_other
+  valid_subset: valid
 
 distributed_training:
   ddp_backend: no_c10d
