@@ -14,7 +14,7 @@ import uuid
 import soundfile
 import time
 
-def add_asr_eval_argument(parser, lm_model, lm_weight, word_score, lexicon, beam_size):
+def add_asr_eval_argument(parser, lm_type, lm_model, lm_weight, word_score, lexicon, beam_size):
     parser.add_argument("--kspmodel", default=None, help="sentence piece model")
     parser.add_argument(
         "--wfstlm", default=None, help="wfstlm on dictonary output units"
@@ -37,13 +37,14 @@ def add_asr_eval_argument(parser, lm_model, lm_weight, word_score, lexicon, beam
     parser.add_argument(
         "--rnnt_len_penalty", default=-0.5, help="rnnt length penalty on word level"
     )
+    
 #     parser.add_argument(
 #         "--w2l-decoder",
 #         choices=["viterbi", "kenlm", "fairseqlm"],
 #         help="use a w2l decoder",
 #     )
 
-    parser.add_argument("--w2l-decoder",default="kenlm",
+    parser.add_argument("--w2l-decoder",default=lm_type,
                         help="use a w2l decoder",)
     parser.add_argument("--lexicon", help="lexicon for w2l decoder", default=lexicon)
     parser.add_argument("--unit-lm", action="store_true", help="if using a unit lm")
@@ -207,7 +208,7 @@ def generate_random_wav(wav_path,sr = 16000):
 sys.argv.append('/mnt/disks2/data')
 
 class Transcriber:
-    def __init__(self, pretrain_model, finetune_model, dictionary, lm_lexicon, lm_model,
+    def __init__(self, pretrain_model, finetune_model, dictionary, lm_type, lm_lexicon, lm_model,
                  lm_weight = 1.51, word_score = 2.57, beam_size = 100,
                  temp_path = 'temp'):
         
@@ -222,7 +223,7 @@ class Transcriber:
         '''
         
         parser = options.get_generation_parser()
-        parser = add_asr_eval_argument(parser, lm_model, lm_weight, word_score, lm_lexicon, beam_size)
+        parser = add_asr_eval_argument(parser, lm_type, lm_model, lm_weight, word_score, lm_lexicon, beam_size)
         args = options.parse_args_and_arch(parser)
         args.task = 'audio_pretraining'
         args.path = finetune_model
