@@ -12,7 +12,7 @@ cd libs
 
 #### 1. Install python package
 ```
-pip install soundfile torchaudio sentencepiece
+pip install soundfile torchaudio sentencepiece editdistance sklearn
 If cuda version < 11 (eg. cuda 10.1):
 pip install torch==1.6.0+cu101 -f https://download.pytorch.org/whl/torch_stable.html
 If cuda >= 11:
