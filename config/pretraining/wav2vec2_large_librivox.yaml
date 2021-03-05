@@ -6,7 +6,7 @@ common:
   log_interval: 200
 
 checkpoint:
-  save_interval_updates: 25000
+  save_interval_updates: 10000
   keep_interval_updates: 1
   no_epoch_checkpoints: true
 
@@ -33,7 +33,7 @@ criterion:
   loss_weights: [0.1, 0]
 
 optimization:
-  max_update: 1000000
+  max_update: 2000000
   lr: [0.005]
 
 optimizer:
@@ -44,7 +44,7 @@ optimizer:
 
 lr_scheduler:
   _name: polynomial_decay
-  warmup_updates: 32000
+  warmup_updates: 10000
 
 model:
   _name: wav2vec2
