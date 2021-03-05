@@ -123,6 +123,9 @@ def main():
     if args.restore_file is not None:
         cmd.append("checkpoint.restore_file=" + args.restore_file)
     
+    #cmd.append("optimization.max_update=2000000")
+    #cmd.append("dataset.validate_after_updates=0")
+    #cmd.append("model.freeze_finetune_updates=0")
     cmd.append("--config-dir config/finetuning")
     cmd.append("--config-name " + config_name)
     cmd = ' '.join(cmd)
