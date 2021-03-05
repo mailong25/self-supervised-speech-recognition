@@ -37,7 +37,7 @@ criterion:
   zero_infinity: true
 
 optimization:
-  max_update: 20000
+  max_update: 40000
   lr: [0.00005]
   sentence_avg: true
   update_freq: [4]
