@@ -53,6 +53,7 @@ def main():
         cmd.append("checkpoint.reset_dataloader=True")
         cmd.append("checkpoint.reset_meters=True")
     
+    #cmd.append("optimization.max_update=2000000")
     cmd.append("dataset.num_workers=" + str(NUM_CPU))
     cmd.append("dataset.max_tokens=" + str(args.batch_size))
     cmd.append("--config-dir config/pretraining")
