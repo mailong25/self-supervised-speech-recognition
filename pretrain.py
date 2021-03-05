@@ -47,7 +47,11 @@ def main():
     cmd.append("+optimization.update_freq='[" + str(int(64/NUM_GPU)) + "]'")
     
     if args.init_model != None:
-        cmd.append("checkpoint.finetune_from_model=" + os.path.abspath(args.init_model))
+        cmd.append("checkpoint.restore_file=" + os.path.abspath(args.init_model))
+        cmd.append("checkpoint.reset_optimizer=True")
+        cmd.append("checkpoint.reset_lr_scheduler=True")
+        cmd.append("checkpoint.reset_dataloader=True")
+        cmd.append("checkpoint.reset_meters=True")
     
     cmd.append("dataset.num_workers=" + str(NUM_CPU))
     cmd.append("dataset.max_tokens=" + str(args.batch_size))
