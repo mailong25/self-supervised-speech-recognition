@@ -44,7 +44,7 @@ optimizer:
 
 lr_scheduler:
   _name: polynomial_decay
-  warmup_updates: 32000
+  warmup_updates: 10000
 
 model:
   _name: wav2vec2
