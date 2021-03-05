@@ -127,7 +127,7 @@ def main():
         #cmd.append("checkpoint.reset_dataloader=True")
         #cmd.append("checkpoint.reset_meters=True")
     
-    #cmd.append("optimization.max_update=2000000")
+    #cmd.append("optimization.max_update=100000")
     #cmd.append("dataset.validate_after_updates=0")
     #cmd.append("model.freeze_finetune_updates=0")
     cmd.append("--config-dir config/finetuning")
