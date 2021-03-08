@@ -75,7 +75,7 @@ def main():
     
     SPLIT_NUM = int(len(words) * (1 - args.valid_percent))
     
-    words,letters,paths = shuffle(words,letters,paths)
+    words,letters,paths = shuffle(words,letters,paths, random_state=42)
     
     train_w, valid_w = words[:SPLIT_NUM], words[SPLIT_NUM:]
     train_l, valid_l = letters[:SPLIT_NUM], letters[SPLIT_NUM:]
