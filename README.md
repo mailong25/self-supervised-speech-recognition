@@ -1,6 +1,6 @@
 ## Self-supervised speech recognition with limited amount of labeled data
 
-**Note**: As I no longer maintain the repo, If you encounter any problems, please take a look at [similar reported issuses](https://github.com/pytorch/fairseq/search?q=wav2vec+2.0&type=issues) from fairseq repo.
+**Note**: As I no longer maintain the repo, If you encounter any problems, please take a look at [similar reported issues](https://github.com/pytorch/fairseq/search?q=wav2vec+2.0&type=issues) from fairseq repo.
 
 This is a wrapper version of [wav2vec 2.0 framework](https://github.com/pytorch/fairseq/tree/master/examples/wav2vec), which attempts to build an accurate speech recognition models with small amount of transcribed data (eg. 1 hour)
 
